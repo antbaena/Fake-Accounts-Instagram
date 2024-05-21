@@ -3,3 +3,5 @@
 La **regresión** es una técnica estadística y de machine learning utilizada para modelar y analizar relaciones entre variables. Su objetivo principal es entender cómo cambia una variable dependiente en función de una o más variables independientes. La regresión puede ser utilizada tanto para predecir valores futuros como para entender relaciones subyacentes en los datos.
 
 En el contexto de la detección de cuentas falsas de Instagram, la regresión es una herramienta muy útil. Entrenamos y evaluamos el modelo en conjuntos de datos de entrenamiento y prueba, utilizando métricas para asegurar su efectividad. Finalmente, interpretamos los resultados para identificar las variables más influyentes y ajustamos el modelo para mejorar su precisión, creando así una herramienta eficaz para combatir el fraude en Instagram.
+
+Ahora vamos a comenzar con
