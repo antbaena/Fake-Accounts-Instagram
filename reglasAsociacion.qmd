@@ -44,7 +44,7 @@ Vamos a cargar las librería necesarias y nuestro dataSet:
 library(arules)
 library(arulesViz)
 library(readr)
-datos <- read_csv("../Data/train.csv") 
+datos <- read_csv("Data/train.csv") 
 ```
 
 ## Discretizar datos

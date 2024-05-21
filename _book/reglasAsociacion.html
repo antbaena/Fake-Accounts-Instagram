@@ -316,7 +316,7 @@ Attaching package: 'arules'</code></pre>
 <pre><code>Warning: package 'arulesViz' was built under R version 4.3.3</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../Data/train.csv"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"Data/train.csv"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 576 Columns: 12</code></pre>
 </div>
@@ -405,12 +405,12 @@ dbl (12): profile pic, nums/length username, fullname words, nums/length ful...
 <pre><code># A tibble: 6 × 12
   `profile pic` `nums/length username` `fullname words` `nums/length fullname`
   &lt;fct&gt;         &lt;fct&gt;                  &lt;fct&gt;            &lt;fct&gt;                 
-1 Si            bajo                   muy bajo         muy bajo              
-2 Si            muy bajo               medio            muy bajo              
-3 Si            muy bajo               medio            muy bajo              
-4 Si            muy bajo               bajo             muy bajo              
-5 Si            muy bajo               medio            muy bajo              
-6 Si            muy bajo               alto             muy bajo              
+1 Si            medio                  muy bajo         muy bajo              
+2 Si            muy bajo               muy bajo         muy bajo              
+3 Si            bajo                   muy bajo         muy bajo              
+4 Si            muy bajo               muy bajo         muy bajo              
+5 Si            muy bajo               muy bajo         muy bajo              
+6 Si            muy bajo               bajo             muy bajo              
 # ℹ 8 more variables: `name==username` &lt;fct&gt;, `description length` &lt;fct&gt;,
 #   `external URL` &lt;fct&gt;, private &lt;fct&gt;, `#posts` &lt;fct&gt;, `#followers` &lt;fct&gt;,
 #   `#follows` &lt;fct&gt;, fake &lt;fct&gt;</code></pre>

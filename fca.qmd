@@ -9,7 +9,7 @@ Para el FCA, nuestros datos se dividen en objetos y atributos. En nuestro dataSe
 ```{r}
 library(fcaR)
 library(readr)
-datos <- read_csv("../Data/train.csv")
+datos <- read_csv("Data/train.csv") 
 
 datos_refinados <- datos
 

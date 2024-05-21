@@ -13,7 +13,7 @@ En primer lugar, vamos a cargar las librerias necesarias y los datos:
 ```{r}
 library(tidyverse) 
 library(readr) 
-datos <- read_csv("../Data/train.csv") 
+datos <- read_csv("Data/train.csv") 
 ```
 
 Una vez tenemos nuestros datos, podemos ponernos manos a la obra.
