@@ -19,4 +19,4 @@ jobs:
         uses: quarto-dev/quarto-actions/publish@v2
         with:
           target: quarto-pub
-          QUARTO_PUB_AUTH_TOKEN: ${{ secrets.qpa_f2ASb4zZt4lSogPVfmuF1tdHDZVD6tVrQbDkzXh7xnULodUqBPsNy55RF1jahFu1 }}
+          QUARTO_PUB_AUTH_TOKEN: ${{ secrets.QUARTO_PUB_AUTH_TOKEN }}
