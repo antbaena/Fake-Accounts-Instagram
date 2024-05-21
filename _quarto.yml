@@ -17,15 +17,15 @@ book:
     - references.qmd
 
 bibliography: references.bib
-
-format:
-  html:
-    theme:
-      light: simplex
-      dark: superhero
-    mainfont: Tahoma
-  pdf:
-    documentclass: scrreprt
+  
+#format:
+#  html:
+#    theme:
+#      light: simplex
+#      dark: superhero
+#    mainfont: Tahoma
+#  pdf:
+#    documentclass: scrreprt
 
 editor: visual
 
