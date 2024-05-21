@@ -1,0 +1,230 @@
+# Formal Concept Analysis
+
+El Formal Concept Analysis, o FCA, es una técnica de análisis de datos originada en la teoría de conjuntos formales, la lógica matemática y la teoría de retículos. Su objetivo principal es descubrir y representar estructuras conceptuales dentro de conjuntos de datos, especialmente conjuntos de datos que contienen información de tipo jerárquico o taxonómico.
+
+Las pricipales aplicaiciones de FCA son la extracción de conocimiento, agrupamiento y clasificación, aprendizaje automático, conceptos, ontologías, reglas, reglas de asociación, implicaciones de atributos.
+
+Para el FCA, nuestros datos se dividen en objetos y atributos. En nuestro dataSet, los objetos son las cuentas de usuario y los atributos son las culumnas como "Tiene foto de perfil, No tes fake, ....".
+
+```{r}
+library(fcaR)
+library(readr)
+datos <- read_csv("../Data/train.csv")
+
+datos_refinados <- datos
+
+columnas_binarias = c("profile pic","name==username","external URL","fake","private")
+
+for (columna in columnas_binarias) {
+  datos_refinados[[columna]] <-  factor(datos_refinados[[columna]], labels = c("No", "Si"))
+}
+
+fc_datos <- FormalContext$new(datos_refinados)
+fc_datos
+
+```
+
+## Escalado
+
+Como necesitamos que nuestro dataSet sea binario, necesitamos aplicarles tecniac como el escaldo para obtener el resultado deseado:
+
+### Escalado nominal
+
+El escalado nominal se utiliza para atributos cuyos valores son excluyentes el uno del otro, como por ejemplo, los atributos que son Si y No.
+
+```{r}
+fc_datos$scale("profile pic",type = "nominal",c("Si","No"))
+fc_datos$scale("name==username",type = "nominal",c("Si","No"))
+fc_datos$scale("fake",type = "nominal",c("Si","No"))
+fc_datos$scale("private",type = "nominal",c("Si","No"))
+fc_datos$scale("external URL",type = "nominal",c("Si","No"))
+fc_datos
+```
+
+### Escalado intervalos
+
+Como los demás datos son valores continuos, tenemos que utilizar un tipo de escalado distinto. Podemos utilizar modos como el ordinal, sin embargo, este nos generaría conceptos demasiados largos, por lo que el mejor modo a emplear para estos datos es el intervalo.
+
+```{r}
+fc_datos$scale("nums/length username", 
+         type = "interval", 
+         values =c(0, 0.2, 0.4, 0.6, 0.8, 1)
+         )
+
+fc_datos$scale("nums/length fullname", 
+         type = "interval", 
+         values = c(0, 0.2, 0.4, 0.6, 0.8, 1) 
+        )
+
+fc_datos$scale("fullname words", 
+         type = "interval", 
+         values = c(0, 1, 3, 5, Inf) 
+         )
+
+fc_datos$scale("description length", 
+         type = "interval", 
+         values =c(0, 15, 25, 80, 150)
+         )
+
+fc_datos$scale("#posts", 
+         type = "interval", 
+         values =  c(0,1, 5, 10, 50, Inf)
+         )
+
+fc_datos$scale("#followers", 
+         type = "interval", 
+         values = c(0, 10, 60, 200, Inf)
+         )
+
+fc_datos$scale("#follows", 
+         type = "interval", 
+         values = c(0, 10, 60, 200, Inf)
+         )
+```
+
+## Conceptos
+
+Una vez tenemos los datos en la forma que buscamos, podemos utilizar el paquete fcaR para generar conceptos.Los conceptos son componentes fundamentales que representan agrupaciones de objetos y atributos con una relación particular.
+
+De manera formal, un concepto (𝐴,𝐵) se define como un par donde:
+
+-   𝐴 es el conjunto de objetos (extensión) que tienen todos los atributos de 𝐵.
+
+-   𝐵 es el conjunto de atributos (intensión) que son poseídos por todos los objetos de 𝐴.
+
+### Calculo de los conceptos del contexto
+
+Para calcular los conceptos de nuestros datos utilizamos la función `find_concepts`
+
+```{r}
+fc_datos$find_concepts()
+
+fc_datos$concepts$size()
+```
+
+Vemos que hemos obtenido un gran numero de conceptos, vamos a ver los primeros:
+
+```{r}
+head(fc_datos$concepts)
+
+```
+
+Observamos un curioso resultado, vemos una gran cantidad de números, estos números representan los indices de las cuentas que tienen dichos atributos. Sin embargo, esta información no nos es útil. Vamos a calcular el extend al atributo "*fake = Si"*, y vemos que nos devuelve los indices de todas las cuentas que son fake.
+
+```{r}
+s1 <- Set$new(fc_datos$attributes)
+s1$assign(fake = "Si")
+fc_datos$extent(s1)
+```
+
+## Implicaciones
+
+Las implicaciones son reglas derivadas de los datos que describen relaciones lógicas entre conjuntos de atributos. En FCA, las implicaciones se extraen a partir de los conceptos y se utilizan para describir las dependencias entre los atributos de manera formal.
+
+Estas implicaciones las podemos ver como las reglas de asociación que obtuvimos anteriormente.
+
+### Calculo de los implicaciones del contexto
+
+Para calcular las implicaciones de nuestros datos utilizamos la función `find_implications`
+
+### ¿Cuantas implicaciones se han extraido?
+
+```{r}
+fc_datos$find_implications()
+
+fc_datos$implications$cardinality()
+```
+
+Vemos que hemos obtenido un gran numero de implicaciones, vamos a ver los primeros:
+
+```{r}
+head(fc_datos$implications)
+```
+
+Como tenemos un gran numero de implicaciones, vamos a intentar reducirlas y quedarnos con las mas importantes aplicando técnicas de simplificación.
+
+### Calculo del tamaño de las implicaciones y la media de la parte y derecha de dichas implicaciones.
+
+Este calculo nos proporciona una medida cuantitativa de las relaciones entre atributos. El tamaño de una implicación se refiere al número de atributos en sus conjuntos de premisa A y su consecuente B. La media de estos tamaños se obtiene haciendo la media del número de atributos en las partes izquierda y derecha de todas las implicaciones, ofreciendo una visión general.
+
+```{r}
+colMeans(fc_datos$implications$size())
+```
+
+Con esto valores obtenemos, en la parte derecha de la regla suele haber una media de 5,8 elementos mientras que en la parte derecha una media de 4,2 elementos.
+
+### Lógica de simplificación.
+
+Vamos a intentar de simplificar nuestras implicaciones para poder quedarnos con las mas importantes y significativas.
+
+```{r}
+fc_datos$implications$apply_rules(rules = c("simplification"))
+
+head(fc_datos$implications)
+```
+
+```{r}
+fc_datos$implications$cardinality()
+```
+
+Vemos que el numero de implicaciones no se ha reducido, como podíamos haber pensado. Esto se debe a que al simplificar realmente no reduce la cantidad e implicaciones, sino los atributos de estas, eliminando verdades absolutas o otras parámetros redundantes.
+
+#### Eliminar la redundancia.
+
+Vamos también a aplicar `composition, generalization, simplification y rsimplification` para eliminar la redundancia dentro de las implicaciones.
+
+```{r}
+fc_datos$implications$apply_rules(rules = c("composition",
+                                              "generalization",
+                                             "simplification",
+                                             "rsimplification"))
+
+head(fc_datos$implications)
+```
+
+```{r}
+fc_datos$implications$cardinality()
+```
+
+Al igual que antes, el numero de implicaciones no se ha reducido, como podíamos haber pensado. Esto se debe a que al simplificar realmente no reduce la cantidad e implicaciones, sino los atributos de estas, eliminando verdades absolutas o otras parámetros redundantes.
+
+```{r}
+colMeans(fc_datos$implications$size())
+```
+
+Ahora, despues de simplificar nuestras implicaciones, la media de atributos de cada parte de la regla ha bajado considerablemente.
+
+### Análisis de implicaciones importantes
+
+Al igual que con las reglas, nos interesa las implicaciones que tengan en su parte derecha los atributos sobre si la cuenta es falsa o no, puesto que nuestro objetivo es detectar estas cuentas falsas.
+
+```{r}
+head(fc_datos$implications$filter(rhs="fake = Si"))
+```
+
+Obervando esta serie de reglas, podemos obtener gran cantidad de informacion para poder detectar y diferencia rlas cuentas fake de las reales. Por ejemplo, una que puede parcer muy obvia, que si sigue a mucha gente, pero le siguen poca gente, es falsa.
+
+Vamos a ver tambien las cuentas reales:
+
+```{r}
+head(fc_datos$implications$filter(rhs="fake = No"))
+```
+
+Al contrario que lo anterior, si sigue a poca gente y le sigue mucha gente, significa que la cuenta es real.
+
+Ambas suposiciones las podemos obtener gracias a que sabemos que para seguir a una persona, no es necesario que esa persona de su consentimiento, sino que puede ser algo automático. Sin embargo, obtener seguidores requiere a una segunda persona que desee seguir a esa cuenta, pudiendo verla previamente, lo que es mas difícil de conseguir para cuentas fake.
+
+## Funciones interesantes
+
+Dentro del paquete de fcaR hay funciones interesantes para bien exportar a Latex, a arules, ...
+
+```{r}
+reglas <- fc_datos$implications$to_arules()
+#latex <- fc_datos$implications$to_latex()
+```
+
+También podemos hacer gráficos de nuestros conceptos:
+
+```{r}
+#fc_datos$concepts$plot()
+```

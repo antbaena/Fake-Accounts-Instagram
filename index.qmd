@@ -1,0 +1,17 @@
+# Introducción {.unnumbered}
+
+Este book recoge el proyecto realizado en la asignatura de *Laboratorio de computación científica* de la Universidad de Málaga.
+
+El objetivo de este proyecto es el análisis de un dataset de la plataforma Kagle para extraer el maximo conocimiento posible usando las técnicas vista durante la asignatura.
+
+# 1. DataSet:
+
+El dataSet que vamos a utilizar se llama '**Instagram fake spammer genuine accounts',** obtenido de la web de kaggle. Este dataSet se compone de diferentes cuentas de instgram tanto de spammers como de usuarios genuinos.
+
+Dicho dataSet esta formado por dos archivos, por un lado *test.csv,* un set de 120 entradas, 60 de cuentas genuinas y 60 de cuentas de spammer. Y por otro lado, otro archivo *train.csv*, formado por 576 entradas, donde al igual que en el archivo anterior, la mitad son cuentas genuinas y la otra mitad son spammers.
+
+Spammer
+
+:   El «***spam***» es cualquier comunicación no solicitada enviada en masa.El «***spamming***» (que en español podría traducirse como «espamear») es el acto de enviar estos mensajes. Y la persona que envía los mensajes es un «***spammer***».
+
+[Enlace al DataSet](https://www.kaggle.com/datasets/free4ever1/instagram-fake-spammer-genuine-accounts)

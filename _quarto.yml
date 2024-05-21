@@ -1,0 +1,31 @@
+project:
+  type: book
+
+book:
+  title: "Fake Accounts Instagram"
+  author: "Antonio Cañete Baena"
+  date: "`r Sys.Date()`"
+  chapters:
+    - index.qmd
+    - analisisExploratorio.qmd
+    - visualizacionDatos.qmd
+    - reglasAsociacion.qmd
+    - fca.qmd
+    - regresion.qmd
+    - seriesTemporales.qmd
+    - summary.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme:
+      light: simplex
+      dark: superhero
+    mainfont: Tahoma
+  pdf:
+    documentclass: scrreprt
+
+editor: visual
+

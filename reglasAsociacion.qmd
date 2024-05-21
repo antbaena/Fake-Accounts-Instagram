@@ -1,0 +1,243 @@
+# Reglas de asociación
+
+Vamos a utilizar reglas de asociación para detectar cuentas falsas en Instagram. Las reglas de asociación son técnicas de minería de datos que permiten descubrir relaciones interesantes y útiles entre diferentes características o comportamientos observados en el dataSet.
+
+Para realizar estas operaciones vamos a utilizar el paquete `arules.`
+
+## Características importantes
+
+### Medidas relevantes
+
+Para evaluar la calidad y relevancia de las reglas de asociación, vamos a utilizar las medidas de:
+
+1.  **Soporte (Support)**:
+
+    -   El soporte de una regla mide la proporción de cuentas en el dataset que contienen ambos conjuntos de características A y B.
+
+    -   Un soporte alto indica que la regla se aplica a una gran proporción del dataset, lo que sugiere que la combinación de características es común y relevante.
+
+2.  **Confianza (Confidence)**:
+
+    -   La confianza de una regla mide cuán frecuentemente las características en B aparecen en las cuentas que contienen A.
+
+    -   A mayor confianza, mayor es la fiabilidad de que la presencia de las características en el antecedente de la regla (A) implicará la presencia de las características en el consecuente de la regla (B).
+
+3.  **Elevación (Lift)**:
+
+    -   La elevación mide la relación entre la aparición conjunta de A y B y la aparición esperada de A y B si fueran independientes.
+
+    -   Una elevación alta (mayor que 1) indica que la presencia de A incrementa significativamente la probabilidad de que B ocurra, lo que sugiere una fuerte asociación entre las características.
+
+### Algoritmo Apriori
+
+Vamos a utilizar el algoritmo Apriori como nuestra forma de obtener reglas a partir de nuestros datos. Este es uno de los algoritmos más conocidos y se basa en la propiedad de que cualquier subconjunto de un conjunto frecuente también debe ser frecuente. El algoritmo itera a través de los conjuntos de características, incrementando su tamaño en cada iteración y manteniendo solo los conjuntos que cumplen con un umbral mínimo de soporte.
+
+### Reglas
+
+Las reglas de asociación consisten en implicaciones del tipo "Si A entonces B", donde A y B son conjuntos de características o comportamientos de las cuentas. Por ejemplo, una regla podría ser "Si una cuenta tiene un número alto de cuentas seguidos y no tiene foto de perfil, entonces es probable que sea una cuenta falsa".
+
+## Cargar datos
+
+Vamos a cargar las librería necesarias y nuestro dataSet:
+
+```{r}
+library(arules)
+library(arulesViz)
+library(readr)
+datos <- read_csv("../Data/train.csv") 
+```
+
+## Discretizar datos
+
+Puesto que el algoritmo de apriori necesita que el conjunto de datos sea binario o discreto.
+
+Existen varias formas de discretizar datos, pero el objetivo principal es convertir las características continuas en valores discretos que representen de manera efectiva la información subyacente. Algunas técnicas comunes de discretización incluyen la binarización, la división en intervalos fijos o basados en cuantiles.
+
+Tras haber realizado el previo análisis exploratorio podemos definir intervalos personalizados para las cada variable, para ello usaremos las funciones ordered y cut. Ademas las variables que son binarias como fake, vamos a ponerle "Si" o "No" para poder comprenderlo mejor.
+
+```{r}
+datos_refinados <- datos
+
+columnas_binarias = c("profile pic","name==username","external URL","fake","private")
+
+for (columna in columnas_binarias) {
+  datos_refinados[[columna]] <-  factor(datos_refinados[[columna]], labels = c("No", "Si"))
+}
+```
+
+```{r}
+# Discretización de la columna #posts
+datos_refinados$`#posts` <- ordered(cut(datos_refinados$`#posts`, 
+                                 breaks = c(0,1, 5, 10, 50, Inf), 
+                                 labels = c("muy bajo","medio", "alto", "muy alto", "extremadamente alto"),include.lowest = TRUE))
+
+# Discretización de la columna #followers
+datos_refinados$`#followers` <- ordered(cut(datos_refinados$`#followers`, 
+                                     breaks = c(0, 10, 60, 200, Inf), 
+                                     labels = c("bajo", "medio", "alto", "muy alto"),include.lowest = TRUE))
+
+# Discretización de la columna #follows
+datos_refinados$`#follows` <- ordered(cut(datos_refinados$`#follows`, 
+                                   breaks = c(0, 10, 60, 200, Inf), 
+                                   labels = c("bajo", "medio", "alto", "muy alto"),include.lowest = TRUE))
+
+# Discretización de la columna nums/length username
+datos_refinados$`nums/length username` <- ordered(cut(datos_refinados$`nums/length username`,
+                                                      breaks = c(0, 0.2, 0.4, 0.6, 0.8, 1),
+                                                      labels = c("muy bajo", "bajo", "medio", "alto", "muy alto"),
+                                                      include.lowest = TRUE))
+
+# Discretización de la columna nums/length fullname
+datos_refinados$`nums/length fullname` <- ordered(cut(datos_refinados$`nums/length fullname`, 
+                                                      breaks = c(0, 0.2, 0.4, 0.6, 0.8, 1), 
+                                                      labels = c("muy bajo", "bajo", "medio", "alto", "muy alto"),
+                                                      include.lowest = TRUE))
+# Discretización de la columna description length
+datos_refinados$`description length` <- ordered(cut(datos_refinados$`description length`,
+                                                     breaks = c(0, 15, 25, 80, 150),
+                                                     labels = c("muy corto" , "medio", "largo", "muy largo"),
+                                                    include.lowest = TRUE))
+# Discretización de la columna fullname words
+datos_refinados$`fullname words` <- ordered(cut(datos_refinados$`fullname words`,
+                                                 breaks = c(0, 1, 3, 5, Inf),
+                                                 labels = c("muy corto", "medio", "largo", "muy largo"),include.lowest = TRUE))
+
+```
+
+### discretizeDF
+
+Esta función del paquete de arules implementa varios métodos básicos no supervisados para convertir una variable continua en una variable categórica (factor) usando diferentes estrategias de agrupamiento.
+
+Vamos a quitar primero las columnas binarias que le queremos poner un valor custom.
+
+```{r}
+datos_refinados_clone <- datos
+
+columnas_binarias = c("profile pic","name==username","external URL","fake","private")
+
+for (columna in columnas_binarias) {
+  datos_refinados_clone[[columna]] <-  factor(datos_refinados_clone[[columna]], labels = c("No", "Si"))
+}
+```
+
+Vamos a ver algunas estrategias:
+
+#### K-means:
+
+```{r}
+kmeansDisc <- discretizeDF(datos_refinados_clone, default = list(method = "cluster", breaks = 5, 
+  labels = c("muy bajo", "bajo","medio","alto","muy alto")))
+head(kmeansDisc)
+```
+
+#### interval
+
+```{r}
+fixedDisc <- discretizeDF(datos_refinados_clone, default = list(method = "interval", breaks = 5, 
+  labels = c("muy bajo", "bajo","medio","alto","muy alto")))
+head(fixedDisc)
+```
+
+## Generar dataset de transacciones
+
+Ahora una vez discretizado el dataframe, el siguiente paso es generar un dataset de transacciones. Este tipo de dataset es esencial para aplicar algoritmos de reglas de asociación como Apriori.
+
+En un dataset de transacciones, cada fila representa una transacción, que es una colección de elementos o ítems.
+
+```{r}
+datos_refinadosT <- as(datos_refinados, "transactions")
+```
+
+## Generar reglas
+
+Ahora que ya tenemos todo listo, podemos utilizar los algoritmos de generacion de reglas. En nuestro caso, vamos a utilizar apriori. Para generar reglas primero necesitamos establecer un valor para el suport y confianza minima, estos valores nos permitirán controlar la cantidad y calidad de las reglas que se generarán.
+
+```{r}
+ rules <- apriori(datos_refinadosT,  parameter = list(supp = 0.3, conf = 0.01, target = "rules")) 
+ rules
+```
+
+Hemos obtenido una buena cantidad de reglas para continuar nuestro análisis.
+
+## Refinar reglas
+
+Ahora que hemos obtenido las reglas necesitamos cribarlarlas y eliminar todas aquellas que no nos interesan, que sean redundantes o no significativas.
+
+### Eliminar reglas redundantes
+
+```{r}
+rules <- rules[which(is.redundant(rules))]
+```
+
+### Eliminar reglas no significativas
+
+```{r}
+rules <- rules[which(is.significant(rules))]
+```
+
+Vamos a ver cuentas reglas han quedado después de filtrarlas:
+
+```{r}
+length(rules)
+```
+
+## Análisis de reglas obtenidas
+
+Nuestro objetivo es detectar y diferenciar cuentas falses de las verdaderas, por lo tanto, vamos a centrar nuestro analisis en eso dos atributos "fake=Si" y "fake=No". Como tenemos diferentes metricas, vamos a analizarlas por separado:
+
+### Support:
+
+Vamos priemro a analizar las reglas ordenando primero por el soporte de la reglas. Recordamos que el soporte alto indica que la regla se aplica a una gran proporción del dataset, lo que sugiere que la combinación de características es común y relevante.
+
+```{r}
+rules <- sort(rules,by="support")
+inspect(head(rules))
+
+```
+
+En este caso, el soporte es 0.7881944, lo que significa que el 78.82% de las transacciones en el dataset contienen tanto el antecedente {nums/length fullname=muy bajo, external URL=No} como el consecuente {name==username=No}.
+
+```{r}
+r2 <- subset(rules, subset = rhs %in% c("fake=Si"))
+inspect(head(r2))
+```
+
+### Confianza:
+
+Ahora va a analizar las reglas ordenando por la confianza en la reglas. Recordamos que a mayor confianza, mayor es la fiabilidad de que la presencia de las características en el antecedente de la regla A implicará la presencia de las características en el consecuente de la regla B.
+
+```{r}
+rules <- sort(rules,by="confidence")
+inspect(head(rules)) 
+```
+
+En este caso, la confianza es 1, lo que significa que el 100% de las transacciones que tienen el antecedente también tienen el consecuente.
+
+```{r}
+r2 <- subset(rules, subset = rhs %in% c("fake=Si"))
+inspect(head(r2))
+```
+
+### Lift:
+
+Por ultimo, vamos a analizar las reglas ordenando primero por el lift de la reglas. Recordamos que un lift alto indica que la presencia de A incrementa significativamente la probabilidad de que B ocurra, lo que sugiere una fuerte asociación entre las características.
+
+```{r}
+rules <- sort(rules,by="lift")
+inspect(head(rules)) 
+```
+
+En este caso, el lift es 5.731343, lo que sugiere que la aparicion de "external URL=Si" es aproximadamente 5.73 veces más probable cuando se dan las condiciones en el antecedente.
+
+```{r}
+r2 <- subset(rules, subset = rhs %in% c("fake=Si")) 
+inspect(head(r2))
+```
+
+## 
+
+## Visualizacion de reglas
+
+```{r}
+plot(rules)
+```
