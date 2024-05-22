@@ -1,7 +1,188 @@
 # Regresión
 
-La **regresión** es una técnica estadística y de machine learning utilizada para modelar y analizar relaciones entre variables. Su objetivo principal es entender cómo cambia una variable dependiente en función de una o más variables independientes. La regresión puede ser utilizada tanto para predecir valores futuros como para entender relaciones subyacentes en los datos.
+La regresión es una técnica estadística y de machine learning utilizada para modelar y analizar relaciones entre variables. Su objetivo principal es entender cómo cambia una variable dependiente en función de una o más variables independientes. La regresión puede ser utilizada tanto para predecir valores futuros como para entender relaciones subyacentes en los datos.
 
-En el contexto de la detección de cuentas falsas de Instagram, la regresión es una herramienta muy útil. Entrenamos y evaluamos el modelo en conjuntos de datos de entrenamiento y prueba, utilizando métricas para asegurar su efectividad. Finalmente, interpretamos los resultados para identificar las variables más influyentes y ajustamos el modelo para mejorar su precisión, creando así una herramienta eficaz para combatir el fraude en Instagram.
+En el contexto de la detección de cuentas falsas de Instagram, la regresión es una herramienta muy útil. Entrenamos y evaluamos el modelo con conjuntos de datos de entrenamiento y prueba, utilizando métricas para asegurar su efectividad. Gracias a que tenemos dos DataSets, *train* y *test,* podemos probar nuestro modelo con datos nuevos. Finalmente, interpretamos los resultados para identificar las variables más influyentes y ajustamos el modelo para mejorar su precisión, intentando crear una herramienta fiable de detección de cuentas falsas.
 
 Ahora vamos a comenzar con
+
+```{r}
+library(readr) 
+datos <- read_csv("Data/train.csv") 
+datosTest <- read_csv("Data/test.csv") 
+attach(datos)
+```
+
+\
+Antes de intentar modelo de regresión, se debe explorar cuales son las correlaciones entre las variables numéricas.
+
+```{r}
+cor(datos[c("nums/length username","fullname words","description length","#posts","#followers","#follows")])
+```
+
+Vamos a ordenar las correlaciones de mayor a menor valor absoluto y destacar las más significativas
+
+1.  **description length y nums/length username**: -0.32117027
+
+2.  **#followers y #posts**: 0.32138548
+
+3.  **description length y fullname words**: 0.272522165
+
+4.  **description length y #follows**: 0.226561422
+
+5.  **nums/length username y fullname words**: -0.22547213
+
+6.  **nums/length username y #follows**: -0.17241327
+
+7.  **fullname words y description length**: 0.272522165
+
+8.  **fullname words y nums/length username**: -0.22547213
+
+Estos valores nos indican las variables que tienen más relación entre sí. Es decir, las correlaciones altas señalan que cuando una variable cambia, la otra tiende a cambiar en la misma dirección o en dirección opuesta.
+
+Vamos a emplear la librería `psych` para visualizar estas correlaciones de manera más intuitiva.
+
+La parte superior de la visualización corresponde a la matriz de correlación. La diagonal muestra histogramas y además añade óvalos indicando la fuerza de correlación. Cuanto más se estire la elipse, más fuerte será la correlación. Cuanto más redondo el óvalo, más débil la correlación.
+
+```{r}
+library(psych)
+pairs.panels(datos[c("nums/length username","fullname words","description length","#posts","#followers","#follows")])
+```
+
+Ciertamente podemos ver que donde hay mayor elipse es en description length y nums/length username y en followers y #posts. Por lo tanto, las tendremos mas presenters para nuestro futuro modelo de regresion.
+
+## Construccion del modelo
+
+```{r}
+modelo1 <- lm(fake ~., data = datos)
+summary(modelo1)
+```
+
+```{r}
+plot(modelo1)
+ plot(density(resid(modelo1))) #A density plot
+```
+
+```{r}
+# Cargar las librerías necesarias
+library(dplyr)
+library(ggplot2)
+
+# Generar predicciones
+modelo1_predic <- predict(modelo1, newdata = datosTest)
+
+# Añadir las predicciones al dataframe de prueba
+datosTest <- datosTest %>% mutate(pred = modelo1_predic)
+
+# Graficar utilizando ggplot2
+ggplot(datosTest, aes(x = pred, y = fake)) +
+  geom_point(color = "red") +              # Marcar los valores reales en rojo
+  geom_point(aes(x = pred, y = pred),      # Marcar los valores predichos en verde
+             color = "green", shape = 1) +
+  labs(title = "Comparación de valores reales y predichos",
+       x = "Valores Predichos",
+       y = "Valores Reales") +
+  theme_minimal()                         # Usar un tema minimalista
+
+```
+
+Vemos que ciertamente, al usar una regresion "lineal", los valores se disponen en una linea recta, la que corresponde a la ecucacion obtenida gracias a `lm.`
+
+Una vez vsito que nuestro modelo inicial, con todoas las variables, no es del todo bueno, vamos a eliminar variables con p values altos e intentar mejorarlo.
+
+## Mejorando el modelo
+
+```{r}
+colnames(datos)
+modelo1 <- lm(fake ~ `profile pic`+ `nums/length username`+`fullname words`+ `name==username`+`description length`+ `external URL`+`#posts`    , data = datos)
+summary(modelo1)
+```
+
+```{r}
+colnames(datos)
+modelo1 <- update(modelo1, .~. +I(`name==username`^2), data=datos )
+modelo1 <- lm(fake ~ `profile pic`+
+                `nums/length username`+
+                `fullname words`+
+                `name==username`+
+                `description length`+
+                `external URL`+`#posts`    , data = datos)
+summary(modelo1)
+save(modelo1, file = "modelo.RData")
+coef(modelo1)
+```
+
+```{r}
+modelo1_interactions <- lm(fake ~ `profile pic` * `nums/length username` +
+                                       `fullname words` * `description length` +
+                                       `name==username` * `external URL` +
+                                       `#posts`, data = datos)
+summary(modelo1_interactions)
+
+
+```
+
+```{r}
+datos <- datos %>%
+  mutate(log_description_length = log(`description length` + 1),
+        log_posts = log(`#posts`+1))
+modelo_transformed <- lm(fake ~ `profile pic` * `nums/length username` +
+                                    log_description_length +
+                                    `name==username` +
+                                    log_posts, data = datos)
+summary(modelo_transformed)
+# Guardar el modelo en un archivo
+saveRDS(modelo_transformed, file = "modelo_regresion.rds")
+
+```
+
+```{r}
+datos <- datos %>%
+  mutate(log_description_length = log(`description length` + 1),
+        log_posts = log(`#posts`+1))
+modelo_transformed <- lm(fake ~ `profile pic` * `nums/length username` +
+                                    `description length` +
+                                    `name==username` +
+                                    log_posts, data = datos)
+summary(modelo_transformed)
+```
+
+```{r}
+plot(modelo_transformed)
+ plot(density(resid(modelo_transformed))) #A density plot
+```
+
+```{r}
+
+# Cargar las librerías necesarias
+library(dplyr)
+library(ggplot2)
+datos_test <- datosTest %>%
+  mutate(log_description_length = log(`description length` + 1),
+        log_posts = log(`#posts`+1))
+
+# Generar predicciones
+modelo1_predic <- predict(modelo_transformed, newdata = datos_test)
+
+
+
+# Añadir las predicciones al dataframe de prueba
+datosTest <- datosTest %>% mutate(pred = modelo1_predic)
+
+
+# Graficar utilizando ggplot2
+ggplot(datosTest, aes(x = pred, y = fake)) +
+  geom_point(color = "red") +              # Marcar los valores reales en rojo
+  geom_point(aes(x = pred, y = pred),      # Marcar los valores predichos en verde
+             color = "green", shape = 1) +
+  labs(title = "Comparación de valores reales y predichos",
+       x = "Valores Predichos",
+       y = "Valores Reales") +
+  theme_minimal()                         # Usar un tema minimalista
+
+datosTest <- datosTest %>% mutate(pred = ifelse(modelo1_predic < 0.5, 0, 1))
+# Calcular el porcentaje de aciertos
+accuracy <- mean(datosTest$pred == datosTest$fake) * 100
+accuracy
+
+```

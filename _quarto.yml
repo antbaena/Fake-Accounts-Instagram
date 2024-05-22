@@ -13,6 +13,7 @@ book:
     - fca.qmd
     - regresion.qmd
     - seriesTemporales.qmd
+    - demo.qmd
     - summary.qmd
     - references.qmd
 

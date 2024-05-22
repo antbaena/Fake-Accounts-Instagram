@@ -1,0 +1,99 @@
+---
+filters:
+  - shinylive
+---
+
+# Aplicacion y demo
+
+## Descarga el modelo diseñado
+
+[Link Modelos](/)
+
+## Demo:
+
+Utilizando el modelo que hemos creado anteriormente, podemos predecir si una cuenta es fake o no:
+
+```{shinylive-r}
+#| standalone: true
+#| viewerHeight: 600
+library(shiny)
+library(tibble)
+library(readr)
+
+
+
+# Define your Shiny UI here
+ui <- fluidPage(
+  titlePanel("Análisis de Perfil de Usuario"),
+  sidebarLayout(
+    sidebarPanel(
+      checkboxInput("profile_pic", "Tiene foto de perfil?", value = FALSE),
+      numericInput("username_ratio", "Cantidad de numeros en nombre del usuario:", value = 0),
+      numericInput("fullname_ratio", "Cantidad de numeros en el nombre completo:", value = 0),
+      numericInput("fullname_length", "Longitud del nombre completo:", value = 0),
+      checkboxInput("name_equals_username", "¿El nombre es igual al nombre de usuario?", value = FALSE),
+      numericInput("description_length", "Longitud de la descripción:", value = 0),
+      checkboxInput("external_url", "Tiene URL externa?", value = FALSE),
+      checkboxInput("private", "¿Es una cuenta privada?", value = FALSE),
+      numericInput("num_posts", "Número de publicaciones:", value = 0),
+      numericInput("num_followers", "Número de seguidores:", value = 0),
+      numericInput("num_follows", "Número de seguidos:", value = 0),
+      fileInput("file1", "Elige tu modelo de regresion",
+            accept = c("text/rds",
+                       "text/comma-separated-values,
+                       .rds")),
+      actionButton("submit_button", "Analizar")
+    ),
+    mainPanel(
+      verbatimTextOutput("results")
+    )
+  )
+)
+
+procesar_datos <- function(profile_pic, username_ratio, fullname_ratio, fullname_length, name_equals_username,
+                           description_length, external_url, private, num_posts, num_followers, num_follows, modelo_guardado) {
+
+  datos <- tibble(`profile pic` = ifelse(profile_pic, 1, 0),
+                        `nums/length username` = as.numeric(username_ratio),
+                        `fullname words` = as.numeric(fullname_length),
+                        `nums/length fullname` = as.numeric(fullname_ratio),
+                        `name==username` = ifelse(name_equals_username, 1, 0),
+                        `description length` = as.numeric(description_length) ,
+                        `external URL` = ifelse(external_url, 1, 0) ,
+                        `private` = ifelse(private, 1, 0) ,
+                        `#posts` = as.numeric(num_posts) ,
+                        `#followers` = as.numeric(num_followers) ,
+                        `#follows` = as.numeric(num_follows),
+                        `fake` = 1,
+                        `log_description_length` = log(as.numeric(description_length) + 1),
+                        `log_posts` = log(as.numeric(num_posts)+1))
+  
+  prediction <- predict(modelo_guardado, newdata = datos)
+  return(ifelse(prediction[[1]] <0.5 , "Cuenta real", "Cuenta falsa"))
+}
+
+# Define your Shiny server logic here
+server <- function(input, output, session) {
+  modelo_guardado <- reactive({
+    infile <- input$file1
+    if (is.null(infile)) {
+      return(NULL)
+    }
+   readRDS(infile$datapath)
+  })
+  
+  # Manejar el evento del botón de enviar
+  observeEvent(input$submit_button, {
+    # Llama a la función para procesar los datos y muestra los resultados
+    res <- procesar_datos(input$profile_pic, input$username_ratio, input$fullname_ratio, input$fullname_length,
+                     input$name_equals_username, input$description_length, input$external_url, input$private,
+                     input$num_posts, input$num_followers, input$num_follows, modelo_guardado = modelo_guardado())
+    output$results <- renderPrint({
+      res
+    })
+  })
+}
+
+# Create and launch the Shiny app
+shinyApp(ui, server)
+```
