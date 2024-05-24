@@ -7,7 +7,7 @@ filters:
 
 ## Descarga los diferentes modelo diseñado
 
-[Enlace Modelos](/)
+[Enlace Modelos](https://github.com/ant22031/Fake-Accounts-Instagram/tree/master/Modelos)
 
 ## Demo:
 
