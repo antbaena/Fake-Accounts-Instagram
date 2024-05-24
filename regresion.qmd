@@ -8,9 +8,10 @@ Ahora vamos a comenzar con
 
 ```{r}
 library(readr) 
+library(dplyr)
+library(ggplot2)
 datos <- read_csv("Data/train.csv") 
 datosTest <- read_csv("Data/test.csv") 
-attach(datos)
 ```
 
 \
@@ -20,7 +21,7 @@ Antes de intentar modelo de regresión, se debe explorar cuales son las correlac
 cor(datos[c("nums/length username","fullname words","description length","#posts","#followers","#follows")])
 ```
 
-Vamos a ordenar las correlaciones de mayor a menor valor absoluto y destacar las más significativas
+Vamos a ordenar las correlaciones de mayor a menor y destacar las más significativas:
 
 1.  **description length y nums/length username**: -0.32117027
 
@@ -49,140 +50,315 @@ library(psych)
 pairs.panels(datos[c("nums/length username","fullname words","description length","#posts","#followers","#follows")])
 ```
 
-Ciertamente podemos ver que donde hay mayor elipse es en description length y nums/length username y en followers y #posts. Por lo tanto, las tendremos mas presenters para nuestro futuro modelo de regresion.
+Ciertamente podemos ver que donde hay mayor elipse es en *description length* y *nums/length username* y en *followers y #posts*. Por lo tanto, las tendremos mas presentes para nuestro futuro modelo de regresión.
 
-## Construccion del modelo
+## Construcción del modelo
+
+Vamos a construir un primer modelo, donde vamos a enfrentar el atributo fake a todas las demás variables. Aunque seguramente no sea el mejor modelo, nos dará una primera idea de cómo podemos ir mejorándolo.
 
 ```{r}
 modelo1 <- lm(fake ~., data = datos)
 summary(modelo1)
 ```
 
+Vemos que obtenemos un modelo que no tiene un mal valor de R-squared, pero sigue siendo bajo. Además, ya podemos visualizar variables que se podrían eliminar. Esto se deduce de ver que su p-value es alto, como por ejemplo en el atributo private. Además de tener un residuo alto.
+
+Vamos a ver gráficas sobre el modelo, donde podemos ver los residuos intuitivamente:
+
 ```{r}
 plot(modelo1)
- plot(density(resid(modelo1))) #A density plot
 ```
 
-```{r}
-# Cargar las librerías necesarias
-library(dplyr)
-library(ggplot2)
+Podemos utilizar la gráfica de Residuals vs Leverage para ver la influencia de los puntos en nuestro modelo. Con esta información, observamos que en general no hay muchos puntos que afecten al modelo, los llamados "outliers"; solo podemos distinguir el 45, 25 y 41, los cuales pueden ser eliminados para mejorar el modelo.
 
-# Generar predicciones
+Podemos visualizar la distribución de los residuos para evaluar si estos se comportan de manera aproximadamente normal, un supuesto común en muchos modelos estadísticos.
+
+```{r}
+ plot(density(resid(modelo1)))
+```
+
+La forma de la gráfica sugiere que los residuos del modelo no se distribuyen de forma normal y que podría haber problemas con el modelo.
+
+Por último, vamos a ver el modelo prediciendo gráficamente. Podemos utilizar los datos de prueba que nos proporciona nuestro dataset.
+
+```{r}
+
 modelo1_predic <- predict(modelo1, newdata = datosTest)
 
-# Añadir las predicciones al dataframe de prueba
-datosTest <- datosTest %>% mutate(pred = modelo1_predic)
+datosTest1 <- datosTest %>% mutate(pred = modelo1_predic)
 
-# Graficar utilizando ggplot2
-ggplot(datosTest, aes(x = pred, y = fake)) +
-  geom_point(color = "red") +              # Marcar los valores reales en rojo
-  geom_point(aes(x = pred, y = pred),      # Marcar los valores predichos en verde
+# Rojos -> Reales, verdes -> Predichos
+ggplot(datosTest1, aes(x = pred, y = fake)) +
+  geom_point(color = "red") +              
+  geom_point(aes(x = pred, y = pred),      
              color = "green", shape = 1) +
   labs(title = "Comparación de valores reales y predichos",
        x = "Valores Predichos",
        y = "Valores Reales") +
-  theme_minimal()                         # Usar un tema minimalista
+  theme_minimal()                        
 
 ```
 
-Vemos que ciertamente, al usar una regresion "lineal", los valores se disponen en una linea recta, la que corresponde a la ecucacion obtenida gracias a `lm.`
+Vemos que ciertamente, al usar una regresión "lineal", los valores se disponen en una linea recta, la que corresponde a la ecuación obtenida gracias a `lm.`
 
-Una vez vsito que nuestro modelo inicial, con todoas las variables, no es del todo bueno, vamos a eliminar variables con p values altos e intentar mejorarlo.
+```{r}
+coef(modelo1)
+```
+
+Una vez visto que nuestro modelo inicial, con todas las variables, no es del todo bueno, vamos a eliminar variables con p-values altos, outliers, ... e intentar mejorarlo.
 
 ## Mejorando el modelo
 
-```{r}
-colnames(datos)
-modelo1 <- lm(fake ~ `profile pic`+ `nums/length username`+`fullname words`+ `name==username`+`description length`+ `external URL`+`#posts`    , data = datos)
-summary(modelo1)
-```
+### Eliminando Outliers
+
+Vamos a eliminar los valores que están muy separados y que pueden afectar al modelo.
 
 ```{r}
-colnames(datos)
-modelo1 <- update(modelo1, .~. +I(`name==username`^2), data=datos )
-modelo1 <- lm(fake ~ `profile pic`+
+datos <- datos[-c(45,25,41),]
+datos <- datos[-c(440,412,396),]
+datos <- datos[-c(351,364,174),]
+datos <- datos[-c(140,446,449),]
+```
+
+Hay que hacerlo con moderación ya que si eliminamos muchos valores que realmente no son "outliers" estamos obteniendo mejores modelos pero que realmente no son así.
+
+## Eliminar variables no significativas
+
+```{r}
+modelo2 <- lm(fake ~
+                `profile pic`+
                 `nums/length username`+
                 `fullname words`+
                 `name==username`+
                 `description length`+
-                `external URL`+`#posts`    , data = datos)
-summary(modelo1)
-save(modelo1, file = "modelo.RData")
-coef(modelo1)
+                `external URL`+
+                `#posts`    , data = datos)
+summary(modelo2)
+```
+
+Hemos obtenido un modelo un poco mejor y con menos residuos, ahora vamos a intentar mejorar este modelo usando variables no lineales.
+
+```{r}
+modelo3 <- lm(fake ~ 
+                `profile pic` +
+                `nums/length username` +
+                `fullname words` +
+                `name==username` +
+                `description length` +
+                `external URL` +
+                `#posts` +
+                I(`nums/length username`^2)+
+                I(`description length`^2)+
+                I(`#posts`^2),
+              data = datos)
+
+summary(modelo3)
+```
+
+Vemos, que nuestro modelo ha mejorado un poco y tenemos menos residuos, que es lo que estamos buscando.
+
+```{r}
+plot(modelo3)
+
 ```
 
 ```{r}
-modelo1_interactions <- lm(fake ~ `profile pic` * `nums/length username` +
-                                       `fullname words` * `description length` +
-                                       `name==username` * `external URL` +
-                                       `#posts`, data = datos)
-summary(modelo1_interactions)
-
-
+ plot(density(resid(modelo3)))
 ```
 
-```{r}
-datos <- datos %>%
-  mutate(log_description_length = log(`description length` + 1),
-        log_posts = log(`#posts`+1))
-modelo_transformed <- lm(fake ~ `profile pic` * `nums/length username` +
-                                    log_description_length +
-                                    `name==username` +
-                                    log_posts, data = datos)
-summary(modelo_transformed)
-# Guardar el modelo en un archivo
-saveRDS(modelo_transformed, file = "modelo_regresion.rds")
+Seguimos teniendo una distribución de residuos asimétrica y no normal.
 
-```
+Vamos a visualizar como predice este nuevo modelo:
 
 ```{r}
-datos <- datos %>%
-  mutate(log_description_length = log(`description length` + 1),
-        log_posts = log(`#posts`+1))
-modelo_transformed <- lm(fake ~ `profile pic` * `nums/length username` +
-                                    `description length` +
-                                    `name==username` +
-                                    log_posts, data = datos)
-summary(modelo_transformed)
-```
+modelo3_predic <- predict(modelo3, newdata = datosTest)
 
-```{r}
-plot(modelo_transformed)
- plot(density(resid(modelo_transformed))) #A density plot
-```
+datosTest3 <- datosTest %>% mutate(pred = modelo3_predic)
 
-```{r}
-
-# Cargar las librerías necesarias
-library(dplyr)
-library(ggplot2)
-datos_test <- datosTest %>%
-  mutate(log_description_length = log(`description length` + 1),
-        log_posts = log(`#posts`+1))
-
-# Generar predicciones
-modelo1_predic <- predict(modelo_transformed, newdata = datos_test)
-
-
-
-# Añadir las predicciones al dataframe de prueba
-datosTest <- datosTest %>% mutate(pred = modelo1_predic)
-
-
-# Graficar utilizando ggplot2
-ggplot(datosTest, aes(x = pred, y = fake)) +
-  geom_point(color = "red") +              # Marcar los valores reales en rojo
-  geom_point(aes(x = pred, y = pred),      # Marcar los valores predichos en verde
+# Rojos -> Reales, verdes -> Predichos
+ggplot(datosTest3, aes(x = pred, y = fake)) +
+  geom_point(color = "red") +              
+  geom_point(aes(x = pred, y = pred),      
              color = "green", shape = 1) +
   labs(title = "Comparación de valores reales y predichos",
        x = "Valores Predichos",
        y = "Valores Reales") +
-  theme_minimal()                         # Usar un tema minimalista
+  theme_minimal()           
+```
 
-datosTest <- datosTest %>% mutate(pred = ifelse(modelo1_predic < 0.5, 0, 1))
+Sin embargo, este gráfico, al ser los valores entre 0 y 1 es un poco confuso, vamos a ver el porcentaje de acierto mejor:
+
+```{r}
+datosTest3 <- datosTest3 %>% mutate(pred = ifelse(modelo3_predic < 0.5, 0, 1))
 # Calcular el porcentaje de aciertos
-accuracy <- mean(datosTest$pred == datosTest$fake) * 100
+accuracy <- mean(datosTest3$pred == datosTest3$fake) * 100
+accuracy
+```
+
+Vemos que ha acertado un 87.5% de las veces, un dato bastante bueno.
+
+### Exportar el modelo
+
+Para poder utilizar el modelo en futuras aplicaciones, podemos guardarlo de la forma:
+
+```{r}
+save(modelo3, file = "modelo3.rds")
+```
+
+## Interacciones entre variables
+
+Al incluir términos de interacción en el modelo de regresión, permitimos que el efecto de una variable sobre la otra varíe según los niveles de otras variables incluidas en la interacción.
+
+Esto puede ser importante para capturar relaciones más complejas entre las variables.
+
+```{r}
+modelo_interact <- lm(fake ~ `profile pic` * `nums/length username` +
+                                       `fullname words` * `description length` +
+                                       `name==username` * `external URL` +
+                                       `#posts`, data = datos)
+summary(modelo_interact)
+
+# Guardar el modelo en un archivo
+saveRDS(modelo_interact, file = "modelo_interact.rds")
+```
+
+Este modelo vemos que ha mejorado frente a todos loa anteriores, por lo que tenemos que tenerlo en cuenta para nuestro modelo final.
+
+## Ingeniería de variables
+
+La ingeniería de variables implica crear nuevas variables o transformar las existentes para mejorar el rendimiento de un modelo predictivo. Esto incluye crear características nuevas, transformar las existentes, entre otras técnicas.
+
+Vamos a probarlo en nuestro modelo.
+
+```{r}
+
+modelo_nuevasVar <- lm(fake ~ `profile pic`+
+                                    `nums/length username` +
+                                    log(`description length` + 1) +
+                                    `name==username` +
+                                    log(`#posts`+1), data = datos)
+summary(modelo_nuevasVar)
+
+# Guardar el modelo en un archivo
+saveRDS(modelo_nuevasVar, file = "modelo_nuevasVar.rds")
+
+```
+
+De nuevo, este modelo ha sido mejor que todos los anteriores simplemente añadiendo el logaritmo de unas variables.
+
+## Modelo final
+
+Vamos a combinar todos los métodos anteriores para encontrar el mejor modelo posible. Aplicaremos tanto variables no lineales como ingeniería de variables e interacción entre variables.
+
+```{r}
+modelo_final <- lm(fake ~ `profile pic` * `nums/length username` +
+                                log(`description length` + 1) +
+                                `name==username` +
+                                log(`#posts`+1)+
+                                `#followers` +
+                                I(`nums/length username`^2)+
+                                I(`description length`^2)+
+                                I(`#posts`^2),
+                         data = datos)
+
+summary(modelo_final)
+
+```
+
+Vemos que el mejor modelo que hemos conseguido obtener ha mejorado bastante respecto al primer modelo obtenido, teniendo un mejor R cuadrado y menos residuos. Vamos a ver las demás métricas utilizadas anteriormente.
+
+```{r}
+plot(modelo_final)
+```
+
+Vamos a generar predicciones con el dataSet de test.
+
+```{r}
+
+# Generar predicciones
+modeloFinal_predic <- predict(modelo_final, newdata = datosTest)
+
+
+datosTestFinal <- datosTest %>% mutate(pred = ifelse(modeloFinal_predic < 0.5, 0, 1))
+# Calcular el porcentaje de aciertos
+accuracy <- mean(datosTestFinal$pred == datosTestFinal$fake) * 100
 accuracy
 
 ```
+
+Por último, vemos que obtenemos un buen porcentaje de acierto con nuestro dataSet de prueba,
+
+## Otros modelos de regresión
+
+Vamos a explorar otros modelos de regresión diferentes al clásico modelo de regeresion lineal que hemos estado trabajando hasta ahora. Puede ser que para nuestra investigación, un modelo diferente al lineal sea mas conveniente y nos pudiera ayudar mas.
+
+### Random Forest
+
+Random Forest es un algoritmo de aprendizaje automático que se basa en la idea de crear múltiples árboles de decisión durante el proceso de entrenamiento y luego combinar sus predicciones para obtener una predicción más robusta y precisa.
+
+```{r}
+library(randomForest)
+datosdf <- data.frame(datos)
+# Crea el modelo de Random Forest
+modelo_rf <- randomForest(fake ~ .,ntree=4, data = datosdf)
+
+# Resumen del modelo
+print(modelo_rf)
+
+```
+
+##### Importancia de las variables
+
+```{r}
+importance(modelo_rf)
+```
+
+```{r}
+modeloRF_predic <- predict(modelo_rf, newdata = data.frame(datosTest))
+
+
+modeloRF_predic <- datosTest %>% mutate(pred = ifelse(modeloRF_predic < 0.5, 0, 1))
+# Calcular el porcentaje de aciertos
+accuracy <- mean(modeloRF_predic$pred == modeloRF_predic$fake) * 100
+accuracy
+```
+
+### Generalized Additive Model
+
+Un GAM es un tipo de modelo estadístico que generaliza los modelos lineales al permitir relaciones no lineales entre las variables predictoras y la variable de respuesta.
+
+En lugar de suponer una relación lineal entre las variables, los GAM permiten que cada variable explicativa tenga una relación suave con la variable de respuesta, modelada a través de funciones suaves.
+
+```{r}
+
+library(mgcv)
+modelo_gam = gam(fake ~ profile.pic +
+               nums.length.username +
+               fullname.words +
+               nums.length.fullname +
+               name..username +
+               description.length +
+               external.URL +
+               private +
+               X.posts +
+               X.followers +
+               X.follows, 
+             data = datosdf)
+
+summary(modelo_gam)
+
+```
+
+```{r}
+modeloGam_predic <- predict(modelo_gam, newdata = data.frame(datosTest))
+
+
+modeloGam_predic <- datosTest %>% mutate(pred = ifelse(modeloGam_predic < 0.5, 0, 1))
+# Calcular el porcentaje de aciertos
+accuracy <- mean(modeloGam_predic$pred == modeloGam_predic$fake) * 100
+accuracy
+```
+
+## Conclusiones
+
+Hemos explorado tanto los tradicionales modelos lineales como también nuevos enfoques de regresión. Durante este proceso, hemos descubierto modelos interesantes que muestran un potencial considerable para generar predicciones precisas en contextos del mundo real. Al aplicar estos modelos a conjuntos de datos reales, estamos equipados para abordar problemas complejos y tenemos la herramientas para realizar predicciones certeras sobre datos reales, pudiendo servir de verdadera ayuda en el mundo real.

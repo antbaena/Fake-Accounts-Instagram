@@ -71,10 +71,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -131,6 +133,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Fake Accounts Instagram</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -179,25 +184,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./seriesTemporales.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">seriesTemporales.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Series Temporales</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./otrasTecnicas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Otras técnicas</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./demo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">demo</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Aplicación y demo</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Resultados</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
+ <span class="menu-text">Referencias</span></a>
   </div>
 </li>
     </ul>
@@ -213,20 +224,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#pre-procesado" id="toc-pre-procesado" class="nav-link active" data-scroll-target="#pre-procesado"><span class="header-section-number">2.1</span> Pre-procesado</a></li>
   <li><a href="#comparación-de-la-cantidad-de-publicaciones-entre-cuentas-privadas-y-públicas" id="toc-comparación-de-la-cantidad-de-publicaciones-entre-cuentas-privadas-y-públicas" class="nav-link" data-scroll-target="#comparación-de-la-cantidad-de-publicaciones-entre-cuentas-privadas-y-públicas"><span class="header-section-number">2.2</span> Comparación de la cantidad de publicaciones entre cuentas privadas y públicas</a></li>
   <li><a href="#relación-entre-visibilidad-del-perfil-y-cuentas-fake" id="toc-relación-entre-visibilidad-del-perfil-y-cuentas-fake" class="nav-link" data-scroll-target="#relación-entre-visibilidad-del-perfil-y-cuentas-fake"><span class="header-section-number">2.3</span> Relación entre visibilidad del perfil y cuentas fake</a></li>
-  <li><a href="#relación-entre-tener-foto-de-perfil-y-ser-cuenta-fake" id="toc-relación-entre-tener-foto-de-perfil-y-ser-cuenta-fake" class="nav-link" data-scroll-target="#relación-entre-tener-foto-de-perfil-y-ser-cuenta-fake"><span class="header-section-number">2.4</span> Relación entre tener foto de perfil y ser cuenta fake</a></li>
-  <li><a href="#relación-entre-numero-de-publicaciones-y-cuentas-fake" id="toc-relación-entre-numero-de-publicaciones-y-cuentas-fake" class="nav-link" data-scroll-target="#relación-entre-numero-de-publicaciones-y-cuentas-fake"><span class="header-section-number">2.5</span> Relación entre numero de publicaciones y cuentas fake</a></li>
-  <li><a href="#análisis-de-numero-de-seguidores" id="toc-análisis-de-numero-de-seguidores" class="nav-link" data-scroll-target="#análisis-de-numero-de-seguidores"><span class="header-section-number">2.6</span> Análisis de numero de seguidores</a>
-  <ul class="collapse">
-  <li><a href="#comparación-del-numero-de-seguidores-entre-cuentas-reales-y-falsas" id="toc-comparación-del-numero-de-seguidores-entre-cuentas-reales-y-falsas" class="nav-link" data-scroll-target="#comparación-del-numero-de-seguidores-entre-cuentas-reales-y-falsas"><span class="header-section-number">2.6.1</span> Comparación del numero de seguidores entre cuentas reales y falsas</a></li>
-  </ul></li>
-  <li><a href="#análisis-de-numero-de-seguidos" id="toc-análisis-de-numero-de-seguidos" class="nav-link" data-scroll-target="#análisis-de-numero-de-seguidos"><span class="header-section-number">2.7</span> Análisis de numero de seguidos</a>
-  <ul class="collapse">
-  <li><a href="#comparación-del-numero-de-seguidos-entre-cuentas-reales-y-falsas" id="toc-comparación-del-numero-de-seguidos-entre-cuentas-reales-y-falsas" class="nav-link" data-scroll-target="#comparación-del-numero-de-seguidos-entre-cuentas-reales-y-falsas"><span class="header-section-number">2.7.1</span> Comparación del numero de seguidos entre cuentas reales y falsas</a></li>
-  </ul></li>
-  <li><a href="#relación-entre-numero-de-seguidores-y-numero-de-seguidos" id="toc-relación-entre-numero-de-seguidores-y-numero-de-seguidos" class="nav-link" data-scroll-target="#relación-entre-numero-de-seguidores-y-numero-de-seguidos"><span class="header-section-number">2.8</span> Relación entre numero de seguidores y numero de seguidos</a></li>
-  <li><a href="#importancia-presencia-de-caracteres-numéricos-en-usuario-y-nombre" id="toc-importancia-presencia-de-caracteres-numéricos-en-usuario-y-nombre" class="nav-link" data-scroll-target="#importancia-presencia-de-caracteres-numéricos-en-usuario-y-nombre"><span class="header-section-number">2.9</span> Importancia presencia de caracteres numéricos en usuario y nombre</a></li>
-  <li><a href="#relación-entre-longitud-de-la-descripción-para-perfiles-reales-y-perfiles-falsos" id="toc-relación-entre-longitud-de-la-descripción-para-perfiles-reales-y-perfiles-falsos" class="nav-link" data-scroll-target="#relación-entre-longitud-de-la-descripción-para-perfiles-reales-y-perfiles-falsos"><span class="header-section-number">2.10</span> Relación entre longitud de la descripción para perfiles reales y perfiles falsos</a></li>
-  <li><a href="#conclusiones" id="toc-conclusiones" class="nav-link" data-scroll-target="#conclusiones"><span class="header-section-number">2.11</span> Conclusiones</a></li>
+  <li><a href="#relación-entre-tener-foto-de-perfil-y-ser-cuenta-falsa." id="toc-relación-entre-tener-foto-de-perfil-y-ser-cuenta-falsa." class="nav-link" data-scroll-target="#relación-entre-tener-foto-de-perfil-y-ser-cuenta-falsa."><span class="header-section-number">2.4</span> Relación entre tener foto de perfil y ser cuenta falsa.</a></li>
+  <li><a href="#relación-entre-número-de-publicaciones-y-cuentas-falsas." id="toc-relación-entre-número-de-publicaciones-y-cuentas-falsas." class="nav-link" data-scroll-target="#relación-entre-número-de-publicaciones-y-cuentas-falsas."><span class="header-section-number">2.5</span> Relación entre número de publicaciones y cuentas falsas.</a></li>
+  <li><a href="#análisis-de-número-de-seguidores." id="toc-análisis-de-número-de-seguidores." class="nav-link" data-scroll-target="#análisis-de-número-de-seguidores."><span class="header-section-number">2.6</span> Análisis de número de seguidores.</a></li>
+  <li><a href="#comparación-del-número-de-seguidores-entre-cuentas-reales-y-falsas." id="toc-comparación-del-número-de-seguidores-entre-cuentas-reales-y-falsas." class="nav-link" data-scroll-target="#comparación-del-número-de-seguidores-entre-cuentas-reales-y-falsas."><span class="header-section-number">2.7</span> Comparación del número de seguidores entre cuentas reales y falsas.</a></li>
+  <li><a href="#análisis-de-número-de-seguidos." id="toc-análisis-de-número-de-seguidos." class="nav-link" data-scroll-target="#análisis-de-número-de-seguidos."><span class="header-section-number">2.8</span> Análisis de número de seguidos.</a></li>
+  <li><a href="#comparación-del-número-de-seguidos-entre-cuentas-reales-y-falsas." id="toc-comparación-del-número-de-seguidos-entre-cuentas-reales-y-falsas." class="nav-link" data-scroll-target="#comparación-del-número-de-seguidos-entre-cuentas-reales-y-falsas."><span class="header-section-number">2.9</span> Comparación del número de seguidos entre cuentas reales y falsas.</a></li>
+  <li><a href="#relación-entre-número-de-seguidores-y-número-de-seguidos." id="toc-relación-entre-número-de-seguidores-y-número-de-seguidos." class="nav-link" data-scroll-target="#relación-entre-número-de-seguidores-y-número-de-seguidos."><span class="header-section-number">2.10</span> Relación entre número de seguidores y número de seguidos.</a></li>
+  <li><a href="#importancia-de-la-presencia-de-caracteres-numéricos-en-el-usuario-y-nombre." id="toc-importancia-de-la-presencia-de-caracteres-numéricos-en-el-usuario-y-nombre." class="nav-link" data-scroll-target="#importancia-de-la-presencia-de-caracteres-numéricos-en-el-usuario-y-nombre."><span class="header-section-number">2.11</span> Importancia de la presencia de caracteres numéricos en el usuario y nombre.</a></li>
+  <li><a href="#relación-entre-longitud-de-la-descripción-para-perfiles-reales-y-perfiles-falsos." id="toc-relación-entre-longitud-de-la-descripción-para-perfiles-reales-y-perfiles-falsos." class="nav-link" data-scroll-target="#relación-entre-longitud-de-la-descripción-para-perfiles-reales-y-perfiles-falsos."><span class="header-section-number">2.12</span> Relación entre longitud de la descripción para perfiles reales y perfiles falsos.</a></li>
+  <li><a href="#conclusiones" id="toc-conclusiones" class="nav-link" data-scroll-target="#conclusiones"><span class="header-section-number">2.13</span> Conclusiones:</a></li>
   </ul>
 </nav>
     </div>
@@ -252,8 +259,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Ahora que ya hemos analizado en profundidad cada atributo de nuestro DataSet, vamos a necesitar algunos gráficos que nos den ideas sobre como continuar nuestro análisis.</p>
-<p>Para ello vamos a utilizar al herramienta de <code>ggplot2</code> , la cual nos va a permitir realizar los gráficos complejos de los que estamos hablando.</p>
+<p>Ahora que ya hemos analizado en profundidad cada atributo de nuestro dataset, vamos a necesitar algunos gráficos que nos den ideas sobre cómo continuar nuestro análisis.</p>
+<p>Para ello, vamos a utilizar la herramienta <code>ggplot2</code>, la cual nos va a permitir realizar los gráficos complejos de los que estamos hablando.</p>
 <dl>
 <dt>ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics</dt>
 <dd>
@@ -296,7 +303,7 @@ dbl (12): profile pic, nums/length username, fullname words, nums/length ful...
 </div>
 <section id="pre-procesado" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="pre-procesado"><span class="header-section-number">2.1</span> Pre-procesado</h2>
-<p>Para poder hacer este trabajo mas fácil, vamos a realizar un pre-procesado de los datos primero. Vamos a convertir todos los atributos que son discretos a factores:</p>
+<p>Para hacer este trabajo más fácil, vamos a realizar un preprocesado de los datos primero. Vamos a convertir todos los atributos que son discretos a factores.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>datos_refinados <span class="ot">&lt;-</span> datos</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>columnas_binarias <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"profile pic"</span>,<span class="st">"name==username"</span>,<span class="st">"external URL"</span>,<span class="st">"fake"</span>,<span class="st">"private"</span>)</span>
@@ -304,11 +311,11 @@ dbl (12): profile pic, nums/length username, fullname words, nums/length ful...
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  datos_refinados[[columna]] <span class="ot">&lt;-</span>  <span class="fu">factor</span>(datos_refinados[[columna]], <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"No"</span>, <span class="st">"Si"</span>))</span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Nuestro atributos discretos, son binarios, solo tienen o bien <em>Si</em> o <em>No.</em> Vamos a emplear ahora los gráficos para poder encontrar alguna relación entre las variables y sobre todo, lo que mas no interesa, si alguna tiene relación con las cuentas de spam.</p>
+<p>Nuestros atributos discretos son binarios, solo tienen o bien Sí o No.&nbsp;Vamos a emplear ahora los gráficos para poder encontrar alguna relación entre las variables y, sobre todo, lo que más nos interesa, si alguna tiene relación con las cuentas de spam.</p>
 </section>
 <section id="comparación-de-la-cantidad-de-publicaciones-entre-cuentas-privadas-y-públicas" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="comparación-de-la-cantidad-de-publicaciones-entre-cuentas-privadas-y-públicas"><span class="header-section-number">2.2</span> Comparación de la cantidad de publicaciones entre cuentas privadas y públicas</h2>
-<p>Para ver como se comportan ambos tipos de usuarios, vamos a empezar analizando el numero de publicaciones entre los usuarios con cuentas publicas y con cuentas privadas, para ello vamos ver las densidades utilizando <code>geom_density</code> :</p>
+<p>Para ver cómo se comportan ambos tipos de usuarios, vamos a empezar analizando el número de publicaciones entre los usuarios con cuentas públicas y con cuentas privadas. Para ello, vamos a ver las densidades utilizando geom_density:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>posts_filtrados <span class="ot">&lt;-</span> datos_refinados <span class="sc">%&gt;%</span>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">#posts</span><span class="st">`</span> <span class="sc">&lt;</span><span class="dv">100</span>)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -326,12 +333,12 @@ dbl (12): profile pic, nums/length username, fullname words, nums/length ful...
 </div>
 </div>
 </div>
-<p>Vemos que ambos casos, nuestra gráfica se asemeja, por lo que el numero de publicaciones no depende de si es privada o publica.</p>
-<p>Sin embargo, realmente a nosotros nos interese encontrar relaciones para intentar determinar si una cuenta es spammer o de un persona real. Por lo tanto vamos a centrarnos en comparar los atributos con el atributos spam.</p>
+<p>Vemos que en ambos casos, nuestra gráfica es similar, lo que sugiere que el número de publicaciones no depende de si la cuenta es privada o pública.</p>
+<p>Sin embargo, lo que realmente nos interesa es encontrar relaciones para intentar determinar si una cuenta es de un spammer o de una persona real. Por lo tanto, vamos a centrarnos en comparar los atributos con el atributo “spam”.</p>
 </section>
 <section id="relación-entre-visibilidad-del-perfil-y-cuentas-fake" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="relación-entre-visibilidad-del-perfil-y-cuentas-fake"><span class="header-section-number">2.3</span> Relación entre visibilidad del perfil y cuentas fake</h2>
-<p>Como nos interesa buscar las cuentas de spam, vamos a ver si la visibilidad del perfil (cuenta privada o publica), tiene algo que ver:</p>
+<p>Como nos interesa buscar las cuentas de spam, vamos a ver si la visibilidad del perfil (cuenta privada o pública) tiene algo que ver:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datos_refinados, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">fake</span><span class="st">`</span>, <span class="at">y =</span> <span class="st">`</span><span class="at">private</span><span class="st">`</span>)) <span class="sc">+</span>   </span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_count</span>(<span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span>   </span>
@@ -348,11 +355,11 @@ dbl (12): profile pic, nums/length username, fullname words, nums/length ful...
 </div>
 </div>
 </div>
-<p>Utilizando <code>geom_count</code> con dos variables discretas, en este caso si un perfil es privado o no y si un perfil es fake o no, no podemos extraer mucha información relevante ya que vemos que hay aproximadamente un numero similar de cada combinación.</p>
+<p>Utilizando <code>geom_count</code> con dos variables discretas, en este caso si un perfil es privado o no y si un perfil es falso o no, no podemos extraer mucha información relevante ya que vemos que hay aproximadamente un número similar de cada combinación.</p>
 </section>
-<section id="relación-entre-tener-foto-de-perfil-y-ser-cuenta-fake" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="relación-entre-tener-foto-de-perfil-y-ser-cuenta-fake"><span class="header-section-number">2.4</span> Relación entre tener foto de perfil y ser cuenta fake</h2>
-<p>Al igual que antes vamos a comprobar dos variables discretas, por lo que el aspecto del gráfico sera diferente. Vamos a comprobar si tener o no foto de perfil tiene algo de relación con ser un spammer.</p>
+<section id="relación-entre-tener-foto-de-perfil-y-ser-cuenta-falsa." class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="relación-entre-tener-foto-de-perfil-y-ser-cuenta-falsa."><span class="header-section-number">2.4</span> Relación entre tener foto de perfil y ser cuenta falsa.</h2>
+<p>Al igual que antes, vamos a comprobar dos variables discretas, por lo que el aspecto del gráfico será diferente. Vamos a comprobar si tener o no foto de perfil tiene algo de relación con ser un spammer.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datos_refinados, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">fake</span><span class="st">`</span>, <span class="at">y =</span> <span class="st">`</span><span class="at">profile pic</span><span class="st">`</span>)) <span class="sc">+</span>   </span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span>   </span>
@@ -369,11 +376,11 @@ dbl (12): profile pic, nums/length username, fullname words, nums/length ful...
 </div>
 </div>
 </div>
-<p>Hemos obtenido un resultado interesante, donde vemos que las cuentas reales, todas menos 2 tienen foto de perfil puesta, mientras que las cuentas fake hay mas o menos un mismo numero con foto de perfil y sin foto de perfil. Estos datos, combinados con otros que vamos a obtener mas adelante, nos pueden ayudar a diferenciar cuentas reales de falsas.</p>
+<p>Hemos obtenido un resultado interesante, donde vemos que las cuentas reales, todas menos 2, tienen foto de perfil puesta, mientras que las cuentas falsas tienen más o menos un mismo número con foto de perfil y sin foto de perfil. Estos datos, combinados con otros que vamos a obtener más adelante, nos pueden ayudar a diferenciar cuentas reales de falsas.</p>
 </section>
-<section id="relación-entre-numero-de-publicaciones-y-cuentas-fake" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="relación-entre-numero-de-publicaciones-y-cuentas-fake"><span class="header-section-number">2.5</span> Relación entre numero de publicaciones y cuentas fake</h2>
-<p>Podemos suponer una posible hipótesis en la que los usuarios spammers, cuya tarea puede ser solo generar comentarios o likes, van a tener cuentas con menos numero de publicaciones que una cuenta de una persona verdadera. Vamos a visualizar esta idea:</p>
+<section id="relación-entre-número-de-publicaciones-y-cuentas-falsas." class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="relación-entre-número-de-publicaciones-y-cuentas-falsas."><span class="header-section-number">2.5</span> Relación entre número de publicaciones y cuentas falsas.</h2>
+<p>Podemos suponer una posible hipótesis en la que los usuarios spammers, cuya tarea puede ser solo generar comentarios o likes, van a tener cuentas con menos número de publicaciones que una cuenta de una persona verdadera. Vamos a visualizar esta idea:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>posts_filtrados <span class="ot">&lt;-</span> datos_refinados <span class="sc">%&gt;%</span>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">#posts</span><span class="st">`</span> <span class="sc">&lt;</span><span class="dv">100</span>)</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(posts_filtrados, <span class="fu">aes</span>(<span class="at">x =</span> fake, <span class="at">y =</span> <span class="st">`</span><span class="at">#posts</span><span class="st">`</span>)) <span class="sc">+</span></span>
@@ -386,12 +393,12 @@ dbl (12): profile pic, nums/length username, fullname words, nums/length ful...
 </div>
 </div>
 </div>
-<p>Observamos que teníamos razón, despues de eliminar aquellas cuentas con muchos post, vemos que las cuentas falsas suelen tener un numero reducido de publicaciones, mientras que las cuentas normales suelen tener una distribución mas uniforme.</p>
+<p>Observamos que teníamos razón. Después de eliminar aquellas cuentas con muchos posts, vemos que las cuentas falsas suelen tener un número reducido de publicaciones, mientras que las cuentas normales suelen tener una distribución más uniforme.</p>
 </section>
-<section id="análisis-de-numero-de-seguidores" class="level2" data-number="2.6">
-<h2 data-number="2.6" class="anchored" data-anchor-id="análisis-de-numero-de-seguidores"><span class="header-section-number">2.6</span> Análisis de numero de seguidores</h2>
-<p>Unos de los atributos mas relevantes pueden ser el numero de seguidores el numero de seguidos, por lo quenecesitamos analizarlos en profundidad. Vamos a comenzar con el numero de seguidores.</p>
-<p>Primero, como en el análisis exploratorio observamos que había algunas cuentas con muchos seguidores pero que no representaban un numero importante, vamos a eliminar esas escasas cuentas con un numero alto de seguidores con el fin de que los gráficos sean mas entendibles.</p>
+<section id="análisis-de-número-de-seguidores." class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="análisis-de-número-de-seguidores."><span class="header-section-number">2.6</span> Análisis de número de seguidores.</h2>
+<p>Uno de los atributos más relevantes puede ser el número de seguidores. Por lo tanto, necesitamos analizarlo en profundidad. Vamos a comenzar con el número de seguidores.</p>
+<p>Primero, como en el análisis exploratorio observamos que había algunas cuentas con muchos seguidores pero que no representaban un número importante, vamos a eliminar esas escasas cuentas con un número alto de seguidores con el fin de que los gráficos sean más entendibles.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>followers_filtrados <span class="ot">&lt;-</span> datos_refinados <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">#followers</span><span class="st">`</span> <span class="sc">&lt;</span><span class="dv">1500</span>)</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -408,8 +415,8 @@ dbl (12): profile pic, nums/length username, fullname words, nums/length ful...
 </div>
 </div>
 </div>
-<p>Vemos que se concentra la mayoría en menos de 250 seguidores.</p>
-<p>Vamos a utilizar una gráfica de frecuencia para ver como son nuestros datos con menos de 250 seguidores.</p>
+<p>Vemos que la mayoría se concentra en menos de 250 seguidores.</p>
+<p>Vamos a utilizar una gráfica de frecuencia para ver cómo son nuestros datos con menos de 250 seguidores.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>followers_filtrados <span class="ot">&lt;-</span> datos_refinados <span class="sc">%&gt;%</span>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">#followers</span><span class="st">`</span> <span class="sc">&lt;</span><span class="dv">250</span>)</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -426,10 +433,11 @@ dbl (12): profile pic, nums/length username, fullname words, nums/length ful...
 </div>
 </div>
 </div>
-<p>La mayor concentración se encuentra en menos de 100 seguidores y que es decreciente la frecuencia a medida que aumenta el numero de seguidores.</p>
-<section id="comparación-del-numero-de-seguidores-entre-cuentas-reales-y-falsas" class="level3" data-number="2.6.1">
-<h3 data-number="2.6.1" class="anchored" data-anchor-id="comparación-del-numero-de-seguidores-entre-cuentas-reales-y-falsas"><span class="header-section-number">2.6.1</span> Comparación del numero de seguidores entre cuentas reales y falsas</h3>
-<p>Como nuestro principal objetivo es poder encontrar características similares que tengan las cuentas falsas para poder encontrarlas fácilmente, vamos a visualizar este atributo en relación con el numero de seguidores. Ademas añadimos las medias para obtener mas información.</p>
+<p>La mayor concentración se encuentra en menos de 100 seguidores y la frecuencia disminuye a medida que aumenta el número de seguidores.</p>
+</section>
+<section id="comparación-del-número-de-seguidores-entre-cuentas-reales-y-falsas." class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="comparación-del-número-de-seguidores-entre-cuentas-reales-y-falsas."><span class="header-section-number">2.7</span> Comparación del número de seguidores entre cuentas reales y falsas.</h2>
+<p>Como nuestro principal objetivo es poder encontrar características similares que tengan las cuentas falsas para poder identificarlas fácilmente, vamos a visualizar este atributo en relación con el número de seguidores. Además, añadiremos las medias para obtener más información.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>mean_values <span class="ot">&lt;-</span> followers_filtrados <span class="sc">%&gt;%</span> </span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(fake) <span class="sc">%&gt;%</span> </span>
@@ -456,13 +464,12 @@ dbl (12): profile pic, nums/length username, fullname words, nums/length ful...
 </div>
 </div>
 </div>
-<p>Aquí y obtenemos información mas interesante. Podemos observar que las cuentas falsas tienen a tener un menor numero de seguidores, mientras que las cuentas reales, aunque no tienen muchos seguidores, se suelen mantener en un intervalo entre 50 y 250. Esta información nos puede ser de importancia para los cálculos futuros.</p>
+<p>Aquí obtenemos información más interesante. Podemos observar que las cuentas falsas tienden a tener un menor número de seguidores, mientras que las cuentas reales, aunque no tienen muchos seguidores, suelen mantenerse en un intervalo entre 50 y 250. Esta información nos puede ser de importancia para los cálculos futuros.</p>
 </section>
-</section>
-<section id="análisis-de-numero-de-seguidos" class="level2" data-number="2.7">
-<h2 data-number="2.7" class="anchored" data-anchor-id="análisis-de-numero-de-seguidos"><span class="header-section-number">2.7</span> Análisis de numero de seguidos</h2>
-<p>Ahora que hemos ya explorados gracias a varios gráficos como se comporta el numero de seguidores segun el tipo de cuentas, vamos a continuar ahora con el numero de seguidos.</p>
-<p>Primero, como en el análisis exploratorio observamos que había algunas cuentas con muchos seguidos, pero que no representaban un numero importante, vamos a eliminar esas escasas cuentas con un numero alto de seguidos con el fin de que los gráficos sean mas entendibles.</p>
+<section id="análisis-de-número-de-seguidos." class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="análisis-de-número-de-seguidos."><span class="header-section-number">2.8</span> Análisis de número de seguidos.</h2>
+<p>Ahora que hemos explorado cómo se comporta el número de seguidores según el tipo de cuentas a través de varios gráficos, vamos a continuar con el número de seguidos.</p>
+<p>Primero, como en el análisis exploratorio observamos que había algunas cuentas con muchos seguidos, pero que no representaban un número importante, vamos a eliminar esas escasas cuentas con un número alto de seguidos con el fin de que los gráficos sean más entendibles.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>follows_filtrados <span class="ot">&lt;-</span> datos_refinados <span class="sc">%&gt;%</span>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">#follows</span><span class="st">`</span> <span class="sc">&lt;</span><span class="dv">1000</span>)  </span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(follows_filtrados, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">#follows</span><span class="st">`</span>)) <span class="sc">+</span>   <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">10</span>, <span class="at">color =</span> <span class="st">'black'</span>) <span class="sc">+</span>     </span>
@@ -477,8 +484,8 @@ dbl (12): profile pic, nums/length username, fullname words, nums/length ful...
 </div>
 </div>
 </div>
-<p>Vemos que se concentra la mayoría en menos de 250 seguidos.</p>
-<p>Vamos a utilizar una gráfica de frecuencia para ver como son nuestros datos con menos de 250 seguidos.</p>
+<p>Vemos que la mayoría se concentra en menos de 250 seguidos.</p>
+<p>Vamos a utilizar una gráfica de frecuencia para ver cómo son nuestros datos con menos de 250 seguidos.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>follows_filtrados <span class="ot">&lt;-</span> datos_refinados <span class="sc">%&gt;%</span>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">#follows</span><span class="st">`</span> <span class="sc">&lt;</span><span class="dv">250</span>)   </span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(follows_filtrados, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">#follows</span><span class="st">`</span>)) <span class="sc">+</span>   </span>
@@ -494,10 +501,11 @@ dbl (12): profile pic, nums/length username, fullname words, nums/length ful...
 </div>
 </div>
 </div>
-<p>La mayor concentración se encuentra en menos de 100 seguidos y que es decreciente la frecuencia a medida que aumenta el numero de seguidores.</p>
-<section id="comparación-del-numero-de-seguidos-entre-cuentas-reales-y-falsas" class="level3" data-number="2.7.1">
-<h3 data-number="2.7.1" class="anchored" data-anchor-id="comparación-del-numero-de-seguidos-entre-cuentas-reales-y-falsas"><span class="header-section-number">2.7.1</span> Comparación del numero de seguidos entre cuentas reales y falsas</h3>
-<p>Como nuestro principal objetivo es poder encontrar características similares que tengan las cuentas falsas para poder encontrarlas fácilmente, vamos a visualizar este atributo. Ademas añadimos las medias para obtener mas información.</p>
+<p>La mayor concentración se encuentra en menos de 100 seguidos y la frecuencia disminuye a medida que aumenta el número de seguidos.</p>
+</section>
+<section id="comparación-del-número-de-seguidos-entre-cuentas-reales-y-falsas." class="level2" data-number="2.9">
+<h2 data-number="2.9" class="anchored" data-anchor-id="comparación-del-número-de-seguidos-entre-cuentas-reales-y-falsas."><span class="header-section-number">2.9</span> Comparación del número de seguidos entre cuentas reales y falsas.</h2>
+<p>Como nuestro principal objetivo es poder encontrar características similares que tengan las cuentas falsas para poder identificarlas fácilmente, vamos a visualizar este atributo. Además, añadiremos las medias para obtener más información.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>follows_filtrados <span class="ot">&lt;-</span> datos_refinados <span class="sc">%&gt;%</span>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">#follows</span><span class="st">`</span> <span class="sc">&lt;</span><span class="dv">550</span>)  </span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -522,12 +530,11 @@ dbl (12): profile pic, nums/length username, fullname words, nums/length ful...
 </div>
 </div>
 </div>
-<p>Aquí, al igual que con lo seguidores, obtenemos información mas interesante. Podemos observar que las cuentas falsas tienen a tener un menor numero de seguidores, pero no tan cercano al 0, mientras que las cuentas reales, suelen tener un numero mas repartido de seguidos. Esta información nos puede ser de importancia para los cálculos futuros.</p>
+<p>Aquí, al igual que con los seguidores, obtenemos información más interesante. Podemos observar que las cuentas falsas tienden a tener un menor número de seguidores, pero no tan cercano a 0, mientras que las cuentas reales suelen tener un número más repartido de seguidos. Esta información nos puede ser de importancia para los cálculos futuros.</p>
 </section>
-</section>
-<section id="relación-entre-numero-de-seguidores-y-numero-de-seguidos" class="level2" data-number="2.8">
-<h2 data-number="2.8" class="anchored" data-anchor-id="relación-entre-numero-de-seguidores-y-numero-de-seguidos"><span class="header-section-number">2.8</span> Relación entre numero de seguidores y numero de seguidos</h2>
-<p>Ahora que la hemos visto ambas variables por separado, vamos a utilizar los gráficos de puntos o dispersión para ver varias variables juntas para intentar ver alguna relación o característica en estas.</p>
+<section id="relación-entre-número-de-seguidores-y-número-de-seguidos." class="level2" data-number="2.10">
+<h2 data-number="2.10" class="anchored" data-anchor-id="relación-entre-número-de-seguidores-y-número-de-seguidos."><span class="header-section-number">2.10</span> Relación entre número de seguidores y número de seguidos.</h2>
+<p>Ahora que hemos visto ambas variables por separado, vamos a utilizar gráficos de puntos o dispersión para ver varias variables juntas e intentar encontrar alguna relación o característica en estas.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>followers_filtrados <span class="ot">&lt;-</span> datos_refinados <span class="sc">%&gt;%</span>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">#followers</span><span class="st">`</span> <span class="sc">&lt;</span><span class="dv">5000</span>)</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -546,8 +553,8 @@ dbl (12): profile pic, nums/length username, fullname words, nums/length ful...
 </div>
 </div>
 </div>
-<p>Viendo este gráfico solo podemos obtener que casi todo se concentra a un numero reducido tanto de seguidos y seguidores.</p>
-<p>Aunque dicha información no nos sirve de mucho, vamos a añadir el parametro para diferenciar cuentas fake y reales. Podemos pensar que los seguidores y los seguidos tienen algo de relación con los usuarios que son fake, vamos a refinar un poco el DataSet eliminando los usuarios que tenian muchos seguidores, vamos a investigar:</p>
+<p>Viendo este gráfico, solo podemos observar que casi todo se concentra en un número reducido tanto de seguidos como de seguidores.</p>
+<p>Aunque dicha información no nos sea de mucha utilidad, vamos a añadir el parámetro para diferenciar cuentas falsas y reales. Podemos pensar que los seguidores y los seguidos tienen alguna relación con los usuarios que son falsos. Vamos a refinar un poco el DataSet eliminando los usuarios que tenían muchos seguidores. Vamos a investigar:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>followers_filtrados <span class="ot">&lt;-</span> datos_refinados <span class="sc">%&gt;%</span>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">#followers</span><span class="st">`</span> <span class="sc">&lt;</span><span class="dv">5000</span>)</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -567,7 +574,7 @@ dbl (12): profile pic, nums/length username, fullname words, nums/length ful...
 </div>
 </div>
 </div>
-<p>Aquí podemos ver que hay una cierta tendencia. Las cuentas fake suelen tener mas cuentas seguidas que seguidores .Esto puede ser debido a que al ser cuentas generadas automaticamente, seguir a otra cuenta es una tarea que se puede automatizar, mientras que conseguir seguidores es algo mas complicado y requiere que de una segunda persona para que le siga. Vamos a utilizar el atributo de <code>geom_smooth</code> para poder visualizar una posible tendencia</p>
+<p>Aquí podemos ver que hay una cierta tendencia. Las cuentas falsas suelen tener más cuentas seguidas que seguidores. Esto puede ser debido a que al ser cuentas generadas automáticamente, seguir a otras cuentas es una tarea que se puede automatizar, mientras que conseguir seguidores es algo más complicado y requiere de una acción activa por parte de otra persona para seguir la cuenta. Vamos a utilizar el atributo de geom_smooth para poder visualizar una posible tendencia.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> followers_filtrados, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">#follows</span><span class="st">`</span>, <span class="at">y =</span> <span class="st">`</span><span class="at">#followers</span><span class="st">`</span>, <span class="at">fill =</span> fake)) <span class="sc">+</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">21</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
@@ -588,11 +595,11 @@ dbl (12): profile pic, nums/length username, fullname words, nums/length ful...
 </div>
 </div>
 </div>
-<p>Ahora podemos reafirmar la idea de esa posible tendencia gracias a este gráfico. Vemos que los puntos rojos (fake) se ajustan en a la linea roja. Sin embargo las cuentas verdaderas tiene una tendencia mas dispersa.</p>
+<p>Ahora podemos reafirmar la idea de esa posible tendencia gracias a este gráfico. Vemos que los puntos rojos (falsos) se ajustan a la línea roja. Sin embargo, las cuentas verdaderas tienen una tendencia más dispersa.</p>
 </section>
-<section id="importancia-presencia-de-caracteres-numéricos-en-usuario-y-nombre" class="level2" data-number="2.9">
-<h2 data-number="2.9" class="anchored" data-anchor-id="importancia-presencia-de-caracteres-numéricos-en-usuario-y-nombre"><span class="header-section-number">2.9</span> Importancia presencia de caracteres numéricos en usuario y nombre</h2>
-<p>Encontrar caracteres numéricos en nombre de usuario y nombres completos es algo que de primeras no podemos asociar a ningún tipo de cuenta, por lo tanto, nos vemos en la necesidad de analizarlo mas en profundidad</p>
+<section id="importancia-de-la-presencia-de-caracteres-numéricos-en-el-usuario-y-nombre." class="level2" data-number="2.11">
+<h2 data-number="2.11" class="anchored" data-anchor-id="importancia-de-la-presencia-de-caracteres-numéricos-en-el-usuario-y-nombre."><span class="header-section-number">2.11</span> Importancia de la presencia de caracteres numéricos en el usuario y nombre.</h2>
+<p>Encontrar caracteres numéricos en el nombre de usuario y en los nombres completos es algo que, a primera vista, no podemos asociar con ningún tipo de cuenta. Por lo tanto, nos vemos en la necesidad de analizarlo más en profundidad.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Tenemos que duplicar los datos para poder poner una grafica al lado de otra</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Pivot_longer elimina las columnas conbinandola en dos columnas con el nombre y el valor</span></span>
@@ -626,12 +633,12 @@ Attaching package: 'tidyr'</code></pre>
 </div>
 </div>
 </div>
-<p>Podemos ver que realmente si hay una relación entre la presencia de caracteres numéricos en el nombre y el nombre de usuario respecto a si la cuenta es verdadera o spammer.</p>
-<p>Podemos concluir que la cuentas falsas suelen contener mayor numero de caracteres numéricos en el nombre o nombre de usuario que las cuentas verdaderas.</p>
+<p>Podemos ver que realmente hay una relación entre la presencia de caracteres numéricos en el nombre y el nombre de usuario con respecto a si la cuenta es verdadera o spammer.</p>
+<p>Podemos concluir que las cuentas falsas suelen contener un mayor número de caracteres numéricos en el nombre o nombre de usuario que las cuentas verdaderas.</p>
 </section>
-<section id="relación-entre-longitud-de-la-descripción-para-perfiles-reales-y-perfiles-falsos" class="level2" data-number="2.10">
-<h2 data-number="2.10" class="anchored" data-anchor-id="relación-entre-longitud-de-la-descripción-para-perfiles-reales-y-perfiles-falsos"><span class="header-section-number">2.10</span> Relación entre longitud de la descripción para perfiles reales y perfiles falsos</h2>
-<p>Por ultimo, otra posible hipótesis posible puede ser pensar que los usuarios falsos, tienen descripciones vacías o menos elaboradas que las de los perfiles reales.</p>
+<section id="relación-entre-longitud-de-la-descripción-para-perfiles-reales-y-perfiles-falsos." class="level2" data-number="2.12">
+<h2 data-number="2.12" class="anchored" data-anchor-id="relación-entre-longitud-de-la-descripción-para-perfiles-reales-y-perfiles-falsos."><span class="header-section-number">2.12</span> Relación entre longitud de la descripción para perfiles reales y perfiles falsos.</h2>
+<p>Por último, otra posible hipótesis podría ser que los usuarios falsos tienen descripciones vacías o menos elaboradas que las de los perfiles reales.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> datos_refinados, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">description length</span><span class="st">`</span>, <span class="at">fill =</span> fake)) <span class="sc">+</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
@@ -647,7 +654,7 @@ Attaching package: 'tidyr'</code></pre>
 </div>
 </div>
 </div>
-<p>Y podemos comprobar que dicha idea era cierta, los perfiles falsos suelen tener un numero reducido de caracteres en su descripción, mientras que los reales esta mas repartidos.</p>
+<p>Y podemos comprobar que dicha idea era cierta. Los perfiles falsos suelen tener un número reducido de caracteres en su descripción, mientras que los perfiles reales están más repartidos.</p>
 <p>Vamos a visualizar las medias:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>mean_values <span class="ot">&lt;-</span> datos_refinados <span class="sc">%&gt;%</span> </span>
@@ -672,14 +679,13 @@ Attaching package: 'tidyr'</code></pre>
 </div>
 </div>
 </section>
-<section id="conclusiones" class="level2" data-number="2.11">
-<h2 data-number="2.11" class="anchored" data-anchor-id="conclusiones"><span class="header-section-number">2.11</span> Conclusiones</h2>
-<p>Vistos todos los gráficos anteriores, podemos sacar algunas conclusiones interesantes:</p>
+<section id="conclusiones" class="level2" data-number="2.13">
+<h2 data-number="2.13" class="anchored" data-anchor-id="conclusiones"><span class="header-section-number">2.13</span> Conclusiones:</h2>
 <ol type="1">
-<li><p>Las cuentas falsas tienen menor numero de seguidores y mayor seguidos.</p></li>
-<li><p>Las cuentas reales tienen descripciones con longitudes mas largas.</p></li>
-<li><p>Las cuentas falsas tiene mas cantidad de caracteres numéricos en el nombre completo y nombre de usuario.</p></li>
-<li><p>Las cuentas reales siempre suelen tener foto de perfil.</p></li>
+<li>Las cuentas falsas tienden a tener un menor número de seguidores y un mayor número de seguidos.</li>
+<li>Las cuentas reales tienen descripciones con longitudes más largas en comparación con las cuentas falsas.</li>
+<li>Las cuentas falsas tienen una mayor cantidad de caracteres numéricos en el nombre completo y nombre de usuario en comparación con las cuentas reales.</li>
+<li>Las cuentas reales suelen tener foto de perfil, mientras que las cuentas falsas pueden carecer de ella en muchos casos.</li>
 </ol>
 
 
@@ -706,6 +712,150 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {

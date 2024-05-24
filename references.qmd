@@ -1,4 +1,3 @@
-# References {.unnumbered}
+# Referencias {.unnumbered}
 
-::: {#refs}
-:::
+<https://amorabonilla.quarto.pub/-conocimiento-desde-los-datos/>

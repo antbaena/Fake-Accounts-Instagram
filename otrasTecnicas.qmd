@@ -1,0 +1,11 @@
+# Otras técnicas
+
+## Análisis de Redes Sociales
+
+Esta técnica se basa en la teoría de grafos y matemáticas discretas. Sin embargo, para aplicarla, necesitaríamos relaciones entre los datos, como por ejemplo, relaciones entre seguidores y seguidos. Sin embargo, dichas relaciones no están presentes en nuestros datos y no tienen ninguna relación, por lo que no podemos aplicar esta técnica.
+
+## Análisis de Componentes Principales
+
+El análisis de componentes principales es una técnica de reducción de dimensionalidad que permite pasar de una gran cantidad de variables interrelacionadas a unas pocas variables incorreladas entre sí, llamadas componentes principales.
+
+Esta técnica sería muy útil si nuestro conjunto de datos tuviera una gran cantidad de variables, simplificando muchos procesos. Sin embargo, nuestros datos tienen pocas variables que no causan ningún problema a la hora de manejarlas.

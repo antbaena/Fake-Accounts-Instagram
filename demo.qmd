@@ -3,15 +3,15 @@ filters:
   - shinylive
 ---
 
-# Aplicacion y demo
+# Aplicación y demo
 
-## Descarga el modelo diseñado
+## Descarga los diferentes modelo diseñado
 
-[Link Modelos](/)
+[Enlace Modelos](/)
 
 ## Demo:
 
-Utilizando el modelo que hemos creado anteriormente, podemos predecir si una cuenta es fake o no:
+Utilizando los modelo que hemos creado anteriormente, tanto los lineales, random forest, ... podemos predecir si una cuenta es fake o no:
 
 ```{shinylive-r}
 #| standalone: true
@@ -19,6 +19,8 @@ Utilizando el modelo que hemos creado anteriormente, podemos predecir si una cue
 library(shiny)
 library(tibble)
 library(readr)
+library(randomForest)
+library(mgcv)
 
 
 
@@ -64,11 +66,14 @@ procesar_datos <- function(profile_pic, username_ratio, fullname_ratio, fullname
                         `#posts` = as.numeric(num_posts) ,
                         `#followers` = as.numeric(num_followers) ,
                         `#follows` = as.numeric(num_follows),
-                        `fake` = 1,
-                        `log_description_length` = log(as.numeric(description_length) + 1),
-                        `log_posts` = log(as.numeric(num_posts)+1))
+                       )
   
-  prediction <- predict(modelo_guardado, newdata = datos)
+  prediction <- tryCatch({
+  predict(modelo_guardado, newdata = datos)
+}, error = function(e) {
+  datos2 <- data.frame(datos)
+  return( predict(modelo_guardado, newdata = datos2))
+})
   return(ifelse(prediction[[1]] <0.5 , "Cuenta real", "Cuenta falsa"))
 }
 

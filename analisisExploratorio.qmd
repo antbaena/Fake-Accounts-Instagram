@@ -1,14 +1,14 @@
 # Análisis exploratorio de datos.
 
-El análisis exploratorio de datos consiste en analizar el conjunto o conjuntos de datos de entrada con el objetivo de resumir sus características principales ayudando a su comprensión para futuras técnicas. Es una fase crucial en la ciencia de datos, ya que ayuda a los analistas de datos a comprender mejor los datos antes de aplicar modelos estadísticos más complejos o herramientas mas sofisticadas.
+El análisis exploratorio de datos consiste en analizar el conjunto o conjuntos de datos de entrada con el objetivo de resumir sus características principales ayudando a su comprensión para futuras técnicas. Es una fase crucial en la ciencia de datos, ya que ayuda a los analistas de datos a comprender mejor los datos antes de aplicar modelos estadísticos más complejos o herramientas más sofisticadas.
 
-Para realizar dicho análisis, vamos a utilizar el *meta-package* de `tidyverse.`
+Para realizar dicho análisis, vamos a utilizar el meta-package de `tidyverse`.
 
 ## Carga de datos
 
-Como hemos visto anteriormente, el dataSet contienen dos archivos con datos, sin embargo, puesto que el archivo de *train.csv* contiene mas entradas de datos, vamos a utilizar dicho conjunto de datos para aplicarle nuestras técnicas de análisis.
+Como hemos visto anteriormente, el dataset contiene dos archivos con datos. Sin embargo, puesto que el archivo *train.csv* contiene más entradas de datos, vamos a utilizar dicho conjunto de datos para aplicar nuestras técnicas de análisis.
 
-En primer lugar, vamos a cargar las librerias necesarias y los datos:
+En primer lugar, vamos a cargar las librerías necesarias y los datos:
 
 ```{r}
 library(tidyverse) 
@@ -18,7 +18,7 @@ datos <- read_csv("Data/train.csv")
 
 Una vez tenemos nuestros datos, podemos ponernos manos a la obra.
 
-Vamos a comenzar ojeando cuantas filas tenemos:
+Vamos a comenzar ojeando cuántas filas tenemos:
 
 ```{r}
 nrow(datos)
@@ -40,13 +40,13 @@ Veamos las primeras filas del dataset
 head(datos)
 ```
 
-Podemos ver que todas las columnas tienen valores numericos, pero vamos a comprobarlo mirando dentro su estructura:
+Podemos ver que todas las columnas tienen valores numéricos, pero vamos a comprobarlo mirando dentro su estructura:
 
 ```{r}
 str(datos)
 ```
 
-Hemos comprobado que todos los valores son del tipo numerico y double.
+Hemos comprobado que todos los valores son del tipo numérico y double.
 
 ```{r}
 anyNA(datos)
@@ -54,13 +54,13 @@ anyNA(datos)
 
 Por ultimo comprobamos que no existen valores NA dentro del dataset, lo que nos ayudara en su próximo análisis exploratorio.
 
-## Analisis de atributos
+## Análisis de atributos
 
-Una vez visto un poco por encima la estructura del dataSet, vamos a explorar uno a uno los atributos de cada fila, explorando su significado, los valores limite, ...
+Una vez visto un poco por encima la estructura del dataset, vamos a explorar uno a uno los atributos de cada fila, explorando su significado, los valores límite, ...
 
 ### profile pic
 
-Este es un atributo binario que indica si un usuario tiene foto de perfil. Por lo tanto solo tenemos o 0 o 1.
+Este es un atributo binario que indica si un usuario tiene foto de perfil. Por lo tanto, solo tenemos 0 o 1.
 
 ```{r}
 str(datos$`profile pic`)
@@ -81,7 +81,9 @@ Observamos que más de la mitad de los usuarios tienen foto de perfil.
 
 ### nums/length username
 
-Este atributo representa el ratio de numero de caracteres numericos en el nombre de usuario respecto su longutud. Ej: Ant234 -\> Ratio 1.
+Este atributo representa el ratio de número de caracteres numéricos en el nombre de usuario respecto a su longitud.
+
+Por ejemplo: Ant234 -\> Ratio 1.
 
 ```{r}
 hist(datos$`nums/length username`, main="Ratio caracteres num en usuario" )
@@ -111,13 +113,13 @@ En concreto el 81,6% de los datos tienen entre 0 y 1 palabras en su nombre.
 
 ### nums/length fullname
 
-Este atributo representa el ratio de numero de caracteres numéricos en el nombre completo del usuario respecto su longitud.
+Este atributo representa el ratio de número de caracteres numéricos en el nombre completo del usuario respecto a su longitud.
 
 ```{r}
 hist(datos$`nums/length fullname`, main="Ratio caracteres num en nombre" )
 ```
 
-Observamos que es bastante inusual que un usuario tenga caracteres en su nombre completo, mientra que, como hemos visto antes, en el nombre de usuario, es más frecuente encontrar caracteres.
+Observamos que es bastante inusual que un usuario tenga caracteres en su nombre completo, mientras que, como hemos visto antes, en el nombre de usuario, es más frecuente encontrar caracteres.
 
 ### name==username
 
@@ -127,7 +129,7 @@ Este atributo es un atributo binario que representa si el usuario tiene el mismo
 hist(datos$`name==username`, breaks = 2, main="Nombre igual a usuario" )
 ```
 
-Concluimos que el bastante inusual que un usuarios tenga el mismo nombre de usuario y nombre completo.
+Concluimos que es bastante inusual que un usuario tenga el mismo nombre de usuario y nombre completo.
 
 ### description length
 
@@ -137,7 +139,7 @@ Este atributo representa la longitud de la descripción del perfil de usuario (e
 hist(datos$`description length`, main="Num carateres de la descripcion" )
 ```
 
-Podemos intuir que el máximo de caracteres que ofrece Instagram en su descripción es 150, cuyo limite es alcanzado por pocos usuarios del DataSet:
+Podemos intuir que el máximo de caracteres que ofrece Instagram en su descripción es 150, cuyo límite es alcanzado por pocos usuarios del dataset.
 
 ```{r}
 filter(datos,datos$`description length` ==150) %>% count() %>% summarise(`Num de usuarios`=n)
@@ -149,11 +151,11 @@ Viendo el histograma, descubrimos que la mayoría de usuarios tienen una descrip
 mean(datos$`description length`)
 ```
 
-Encontramos que la media de caracteres en la descripción, lo que, dependiendo del idioma, puede ser una pequeña frase o algunas palabras. Las descripciones largar son menos frecuentes.
+Encontramos que la media de caracteres en la descripción es relativamente baja, lo que, dependiendo del idioma, puede ser una pequeña frase o algunas palabras. Las descripciones largas son menos frecuentes.
 
 ### external URL
 
-Este atributo es un atributo binario que representa si el perfil tiene algún enlaza externo en el.
+Este atributo es un atributo binario que representa si el perfil tiene algún enlace externo en él.
 
 ```{r}
 hist(datos$`external URL`, breaks = 2, main="Enlace en el perfil?" )
@@ -169,7 +171,7 @@ Este atributo es un atributo binario que representa si el perfil es privado o pu
 hist(datos$`private`, breaks = 2, main="Perfil privado?" )
 ```
 
-En este atributo encontramos algo mas de igualdad, el numero de cuentas privadas son poco mas de la mitad del numero de publicas:
+En este atributo encontramos algo más de igualdad, el número de cuentas privadas es poco más de la mitad del número de cuentas públicas.
 
 ```{r}
 datos %>% mutate(private = ifelse(private==1,"Privada","Publica")) %>%  group_by(private) %>% count() %>%  summarise(Numero = sum(n))  
@@ -178,42 +180,42 @@ datos %>% mutate(private = ifelse(private==1,"Privada","Publica")) %>%  group_by
 
 ### post
 
-Este atributo representa el numero de publicaciones de la cuenta.
+Este atributo representa el número de publicaciones de la cuenta.
 
 ```{r}
 hist(datos$`#posts`,  main="Fotos de perfil" )
 max(datos$`#posts`)
 ```
 
-Obtenemos un histograma un poco extrano al haber algun valor muy alto de publicaciones, vamos a buscarlo:
+Obtenemos un histograma un poco extraño al haber algún valor muy alto de publicaciones, vamos a buscarlo:
 
 ```{r}
 max(datos$`#posts`)
 ```
 
-Vemos que es un valor bastante raro o que se podría tratar de alguna cuenta que publicase mucho contenido a diario. Vamos a verla:
+Vemos que es un valor bastante inusual o que podría tratarse de alguna cuenta que publique mucho contenido a diario. Vamos a verla:
 
 ```{r}
 datos %>% filter(`#posts`==7389)
 ```
 
-Como dato, la cuenta de Dwayne Johnson, ex-luchador de la WWE y exitoso actor de Hollywood, tiene unos 7800 post, por lo que dicho valor puede ser debido a la cuenta de algún famoso.
+Como dato, la cuenta de Dwayne Johnson, ex-luchador de la WWE y exitoso actor de Hollywood, tiene alrededor de 7800 publicaciones, por lo que dicho valor puede ser debido a la cuenta de algún famoso.
 
-Vamos a volver a dibujar el histograma pero con un umbral un poco mas razonable:
+Vamos a volver a dibujar el histograma pero con un umbral un poco más razonable:
 
 ```{r}
 post_filtrados <- datos %>% select(`#posts`)%>% filter(`#posts` <500)
 hist(post_filtrados$`#posts`)
 ```
 
-Ahora ya podemos extraer informacion mas facilmente, como que la mayoria de usuarios tiene menos de 50 publicaciones, vamos a verlo en mas detalle:
+Ahora ya podemos extraer información más fácilmente, como que la mayoría de usuarios tiene menos de 50 publicaciones. Vamos a verlo en más detalle:
 
 ```{r}
 post_filtrados <- datos %>% select(`#posts`)%>% filter(`#posts` <50)
 hist(post_filtrados$`#posts`)
 ```
 
-Observamos que hay un gran numero de usuarios con menos de 5 posts. Vamos a ver cuantos de ellos tiene 0 posts y a ver la media total:
+Observamos que hay un gran número de usuarios con menos de 5 publicaciones. Vamos a ver cuántos de ellos tienen 0 publicaciones y a calcular la media total:
 
 ```{r}
 datos %>% filter(`#posts`==0) %>% count()
@@ -221,7 +223,7 @@ datos %>% filter(`#posts`==0) %>% count()
 mean(datos$`#posts`)
 ```
 
-Aunque como antes hemos visto que hay usuarios con un gran numero de posts, esta media puede ser no muy significativa.
+Aunque como antes hemos visto que hay usuarios con un gran número de publicaciones, esta media puede no ser muy significativa.
 
 Vamos a analizar entonces sus cuartiles y mediana:
 
@@ -238,46 +240,46 @@ hist(datos$`#followers`, main="Numero de seguidores" )
 max(datos$`#followers`)
 ```
 
-Como en el atributo anteriro, este histograma no tiene sentido porque hay algun valor muy alto
+Como en el atributo anterior, este histograma no tiene sentido porque hay algún valor muy alto.
 
 ```{r}
 max(datos$`#followers`)
 ```
 
-Dicho valor solo tiene sentido que sea debido a una cuenta de alguna celebridad, vamos a comprobar si es el mismo que tiene similitud con el valor anómalo de post encontrado anteriormente:
+Dicho valor solo tiene sentido que sea debido a una cuenta de alguna celebridad. Vamos a comprobar si es el mismo que tiene similitud con el valor anómalo de publicaciones encontrado anteriormente:
 
 ```{r}
 datos %>% filter (`#followers`==max(`#followers`)) %>% select(`#posts`)
 ```
 
-Aun pudiendo ser la cuenta de una celebridad, vemos que tiene un numero de post relativamente normal, comparado con el valor de 7389 post que obtuvimos anteriormente.
+Aunque podría ser la cuenta de una celebridad, vemos que tiene un número de publicaciones relativamente normal, comparado con el valor de 7389 publicaciones que obtuvimos anteriormente.
 
-Vamos a volver a hacer el histograma con un nuevo umbral mas bajo:
+Vamos a volver a hacer el histograma con un nuevo umbral más bajo:
 
 ```{r}
 followers_filtrados <- datos %>% select(`#followers`)%>% filter(`#followers` <1000)
 hist(followers_filtrados$`#followers`)
 ```
 
-Observamos que la mayoría de usuarios no tiene gran numero de seguidores, en concreto, menos de 100.
+Observamos que la mayoría de usuarios no tienen un gran número de seguidores, en concreto, menos de 100.
 
-Vamos a verlo
+Vamos a verlo:
 
 ```{r}
 followers_filtrados <- datos %>% select(`#followers`)%>% filter(`#followers` <100)
 hist(followers_filtrados$`#followers`)
 ```
 
-Vemos que en este intervalo, si esta mas repartidas las frecuencias. Aunque resulta curioso que una gran cantidad de usuarios no llegue a los 50 seguidores.
+Vemos que en este intervalo, las frecuencias están más repartidas. Aunque resulta curioso que una gran cantidad de usuarios no llegue a los 50 seguidores.
 
-Viendo que hay algunos usuarios con un gran numero de seguidores, no tiene sentido tomar el valor de la mediana como referencia ya que esta no es significativa en este caso, por lo que vamos a analizar los cuartiles y la mediana en su lugar.
+Viendo que hay algunos usuarios con un gran número de seguidores, no tiene sentido tomar el valor de la mediana como referencia ya que esta no es significativa en este caso. Por lo tanto, vamos a analizar los cuartiles y la mediana en su lugar.
 
 ```{r}
 mean(datos$`#followers`)
 summary(datos$`#followers`)
 ```
 
-Sabiendo que la mediana divide al 50% de los datos, dicho valor es mas significativo que la media.
+Sabiendo que la mediana divide al 50% de los datos, dicho valor es más significativo que la media.
 
 ### follows
 
@@ -294,20 +296,20 @@ Al igual que en los dos anteriores, los valores máximos hacen que nuestro histo
 max(datos$`#follows`)
 ```
 
-Dicho valor corresponde con el valor máximo de cuentas que Instagram permite a los usuarios seguir para reducir el spam. Por lo tanto, las cuentas que siguen a un gran numero de personas se pueden llegar a asociar a spammers. Vamos a ver cuantas cuentas están en este limite:
+Dicho valor corresponde con el valor máximo de cuentas que Instagram permite a los usuarios seguir para reducir el spam. Por lo tanto, las cuentas que siguen a un gran número de personas se pueden llegar a asociar a spammers. Vamos a ver cuántas cuentas están en este límite:
 
 ```{r}
 count(filter(datos,datos$`#follows`==7500))
 ```
 
-Ahora para poder ahcernos una mejor idea vamos a volver a dibujar el histograma con un nuevo umbral reducido.
+Ahora, para poder hacernos una mejor idea, vamos a volver a dibujar el histograma con un nuevo umbral reducido.
 
 ```{r}
 follows_filtrados <- datos %>% select(`#follows`)%>% filter(`#follows` <1000)
 hist(follows_filtrados$`#follows`)
 ```
 
-Observamos que mas de la mitad de usuarios no sigue a muchas otras cuentas, en concreto, menos de 100.
+Observamos que más de la mitad de usuarios no sigue a muchas otras cuentas, en concreto, menos de 100.
 
 Vamos a verlo:
 
@@ -316,15 +318,15 @@ follows_filtrados <- datos %>% select(`#follows`)%>% filter(`#follows` <100)
 hist(follows_filtrados$`#follows`)
 ```
 
-Vemos que en este intervalo, si esta mas repartidas las frecuencias.
+Vemos que en este intervalo, las frecuencias están más repartidas.
 
-Viendo que hay algunos usuarios con un gran numero de cuentas seguidas, no tiene sentido tomar el valor de la mediana como referencia ya que esta no es significativa en este caso, por lo que vamos a analizar los cuartiles y la mediana en su lugar.
+Viendo que hay algunos usuarios con un gran número de cuentas seguidas, no tiene sentido tomar el valor de la mediana como referencia ya que esta no es significativa en este caso. Por lo tanto, vamos a analizar los cuartiles y la mediana en su lugar.
 
 ```{r}
 summary(datos$`#follows`)
 ```
 
-Ahora ya con estos valores ya podemos analizarlo un poco mejor y darnos cuenta que el 50% de los usuarios no sigue a mas de 229 cuentas.
+Ahora, con estos valores, ya podemos analizarlo un poco mejor y darnos cuenta de que el 50% de los usuarios no sigue a más de 229 cuentas.
 
 ### fake
 
@@ -349,7 +351,7 @@ DataExplorer: Automate Data Exploration and Treatment
 
 La librería DataExplorer es una herramienta diseñada para simplificar y acelerar el proceso de exploración y análisis de datos. Proporciona funciones que permiten generar rápidamente resúmenes estadísticos, visualizaciones y diagnósticos de los datos.
 
-Algunas de las características clave incluyen la capacidad de generar perfiles de datos detallados, identificar valores atípicos, analizar la distribución de variables y explorar relaciones entre variables.
+Algunas de sus características cson la capacidad de generar perfiles de datos detallados, identificar valores atípicos, analizar la distribución de variables y explorar relaciones entre variables.
 
 Podemos simplificar el proceso realizado anteriormente utilizando este paquete.
 
@@ -366,7 +368,7 @@ plot_intro(datos)
 
 #### plot_histogram
 
-Esta funcion nos muestra todos los histogramas de las variables/columnas.
+Esta función nos muestra todos los histogramas de las variables/columnas.
 
 ```{r}
 plot_histogram(datos)

@@ -1,44 +1,30 @@
 # Reglas de asociación
 
-Vamos a utilizar reglas de asociación para detectar cuentas falsas en Instagram. Las reglas de asociación son técnicas de minería de datos que permiten descubrir relaciones interesantes y útiles entre diferentes características o comportamientos observados en el dataSet.
+Vamos a utilizar reglas de asociación para detectar cuentas falsas en Instagram. Este método nos permitirá descubrir relaciones interesantes entre diferentes características observadas en el dataset. Utilizaremos el paquete arules para llevar a cabo estas operaciones.
 
-Para realizar estas operaciones vamos a utilizar el paquete `arules.`
+## Características importantes:
 
-## Características importantes
+### **Medidas relevantes**
 
-### Medidas relevantes
+Para evaluar la calidad y relevancia de las reglas de asociación, utilizaremos las siguientes medidas:
 
-Para evaluar la calidad y relevancia de las reglas de asociación, vamos a utilizar las medidas de:
+1.  Soporte (Support): Mide la proporción de cuentas en el dataset que contienen ambos conjuntos de características A y B. Un alto soporte indica que la regla se aplica a una gran proporción del dataset, lo que sugiere que la combinación de características es común y relevante.
 
-1.  **Soporte (Support)**:
+2.  Confianza (Confidence): Mide cuán frecuentemente las características en B aparecen en las cuentas que contienen A. Una mayor confianza indica una mayor fiabilidad de que la presencia de las características en A implicará la presencia de las características en B.
 
-    -   El soporte de una regla mide la proporción de cuentas en el dataset que contienen ambos conjuntos de características A y B.
+3.  Elevación (Lift): Mide la relación entre la aparición conjunta de A y B y la aparición esperada de A y B si fueran independientes. Una elevación alta (mayor que 1) indica que la presencia de A incrementa significativamente la probabilidad de que B ocurra, lo que sugiere una fuerte asociación entre las características.
 
-    -   Un soporte alto indica que la regla se aplica a una gran proporción del dataset, lo que sugiere que la combinación de características es común y relevante.
+### **Algoritmo Apriori**
 
-2.  **Confianza (Confidence)**:
+Utilizaremos el algoritmo Apriori para obtener reglas a partir de nuestros datos. Este algoritmo se basa en la propiedad de que cualquier subconjunto de un conjunto frecuente también debe ser frecuente. Itera a través de los conjuntos de características, incrementando su tamaño en cada iteración y manteniendo solo los conjuntos que cumplen con un umbral mínimo de soporte.
 
-    -   La confianza de una regla mide cuán frecuentemente las características en B aparecen en las cuentas que contienen A.
+### **Reglas**
 
-    -   A mayor confianza, mayor es la fiabilidad de que la presencia de las características en el antecedente de la regla (A) implicará la presencia de las características en el consecuente de la regla (B).
+Las reglas de asociación consisten en implicaciones del tipo "Si A entonces B", donde A y B son conjuntos de características o comportamientos de las cuentas. Por ejemplo, una regla podría ser "Si una cuenta tiene un número alto de cuentas seguidas y no tiene foto de perfil, entonces es probable que sea una cuenta falsa".
 
-3.  **Elevación (Lift)**:
+## **Carga de datos:**
 
-    -   La elevación mide la relación entre la aparición conjunta de A y B y la aparición esperada de A y B si fueran independientes.
-
-    -   Una elevación alta (mayor que 1) indica que la presencia de A incrementa significativamente la probabilidad de que B ocurra, lo que sugiere una fuerte asociación entre las características.
-
-### Algoritmo Apriori
-
-Vamos a utilizar el algoritmo Apriori como nuestra forma de obtener reglas a partir de nuestros datos. Este es uno de los algoritmos más conocidos y se basa en la propiedad de que cualquier subconjunto de un conjunto frecuente también debe ser frecuente. El algoritmo itera a través de los conjuntos de características, incrementando su tamaño en cada iteración y manteniendo solo los conjuntos que cumplen con un umbral mínimo de soporte.
-
-### Reglas
-
-Las reglas de asociación consisten en implicaciones del tipo "Si A entonces B", donde A y B son conjuntos de características o comportamientos de las cuentas. Por ejemplo, una regla podría ser "Si una cuenta tiene un número alto de cuentas seguidos y no tiene foto de perfil, entonces es probable que sea una cuenta falsa".
-
-## Cargar datos
-
-Vamos a cargar las librería necesarias y nuestro dataSet:
+Vamos a cargar las librerías necesarias y nuestro dataset.
 
 ```{r}
 library(arules)
@@ -53,7 +39,7 @@ Puesto que el algoritmo de apriori necesita que el conjunto de datos sea binario
 
 Existen varias formas de discretizar datos, pero el objetivo principal es convertir las características continuas en valores discretos que representen de manera efectiva la información subyacente. Algunas técnicas comunes de discretización incluyen la binarización, la división en intervalos fijos o basados en cuantiles.
 
-Tras haber realizado el previo análisis exploratorio podemos definir intervalos personalizados para las cada variable, para ello usaremos las funciones ordered y cut. Ademas las variables que son binarias como fake, vamos a ponerle "Si" o "No" para poder comprenderlo mejor.
+Tras haber realizado el previo análisis exploratorio podemos definir intervalos personalizados para cada variable, para ello usaremos las funciones `ordered` y `cut`. Además, las variables que son binarias como "fake", vamos a ponerles "Si" o "No" para poder comprenderlas mejor.
 
 ```{r}
 datos_refinados <- datos
@@ -108,7 +94,7 @@ datos_refinados$`fullname words` <- ordered(cut(datos_refinados$`fullname words`
 
 Esta función del paquete de arules implementa varios métodos básicos no supervisados para convertir una variable continua en una variable categórica (factor) usando diferentes estrategias de agrupamiento.
 
-Vamos a quitar primero las columnas binarias que le queremos poner un valor custom.
+Vamos a quitar primero las columnas binarias a las que queremos asignar un valor personalizado.
 
 ```{r}
 datos_refinados_clone <- datos
@@ -140,7 +126,7 @@ head(fixedDisc)
 
 ## Generar dataset de transacciones
 
-Ahora una vez discretizado el dataframe, el siguiente paso es generar un dataset de transacciones. Este tipo de dataset es esencial para aplicar algoritmos de reglas de asociación como Apriori.
+Ahora, una vez discretizado el dataframe, el siguiente paso es generar un dataset de transacciones. Este tipo de dataset es esencial para aplicar algoritmos de reglas de asociación como Apriori.
 
 En un dataset de transacciones, cada fila representa una transacción, que es una colección de elementos o ítems.
 
@@ -150,7 +136,7 @@ datos_refinadosT <- as(datos_refinados, "transactions")
 
 ## Generar reglas
 
-Ahora que ya tenemos todo listo, podemos utilizar los algoritmos de generacion de reglas. En nuestro caso, vamos a utilizar apriori. Para generar reglas primero necesitamos establecer un valor para el suport y confianza minima, estos valores nos permitirán controlar la cantidad y calidad de las reglas que se generarán.
+Ahora que ya tenemos todo listo, podemos utilizar los algoritmos de generación de reglas. En nuestro caso, vamos a utilizar Apriori. Para generar reglas primero necesitamos establecer un valor para el soporte y confianza mínima, estos valores nos permitirán controlar la cantidad y calidad de las reglas que se generarán.
 
 ```{r}
  rules <- apriori(datos_refinadosT,  parameter = list(supp = 0.3, conf = 0.01, target = "rules")) 
@@ -161,7 +147,7 @@ Hemos obtenido una buena cantidad de reglas para continuar nuestro análisis.
 
 ## Refinar reglas
 
-Ahora que hemos obtenido las reglas necesitamos cribarlarlas y eliminar todas aquellas que no nos interesan, que sean redundantes o no significativas.
+Ahora que hemos obtenido las reglas, necesitamos cribarlas y eliminar todas aquellas que no nos interesan, que sean redundantes o no significativas.
 
 ### Eliminar reglas redundantes
 
@@ -183,11 +169,11 @@ length(rules)
 
 ## Análisis de reglas obtenidas
 
-Nuestro objetivo es detectar y diferenciar cuentas falses de las verdaderas, por lo tanto, vamos a centrar nuestro analisis en eso dos atributos "fake=Si" y "fake=No". Como tenemos diferentes metricas, vamos a analizarlas por separado:
+Nuestro objetivo es detectar y diferenciar cuentas falsas de las verdaderas, por lo tanto, vamos a centrar nuestro análisis en esos dos atributos: "fake=Si" y "fake=No". Como tenemos diferentes métricas, vamos a analizarlas por separado:
 
-### Support:
+### Soporte
 
-Vamos priemro a analizar las reglas ordenando primero por el soporte de la reglas. Recordamos que el soporte alto indica que la regla se aplica a una gran proporción del dataset, lo que sugiere que la combinación de características es común y relevante.
+Vamos primero a analizar las reglas ordenándolas por el soporte. Recordamos que un soporte alto indica que la regla se aplica a una gran proporción del dataset, lo que sugiere que la combinación de características es común y relevante.
 
 ```{r}
 rules <- sort(rules,by="support")
@@ -202,9 +188,9 @@ r2 <- subset(rules, subset = rhs %in% c("fake=Si"))
 inspect(head(r2))
 ```
 
-### Confianza:
+### Confianza
 
-Ahora va a analizar las reglas ordenando por la confianza en la reglas. Recordamos que a mayor confianza, mayor es la fiabilidad de que la presencia de las características en el antecedente de la regla A implicará la presencia de las características en el consecuente de la regla B.
+Ahora vamos a analizar las reglas ordenándolas por la confianza. Recordamos que a mayor confianza, mayor es la fiabilidad de que la presencia de las características en el antecedente de la regla A implicará la presencia de las características en el consecuente de la regla B.
 
 ```{r}
 rules <- sort(rules,by="confidence")
@@ -218,25 +204,23 @@ r2 <- subset(rules, subset = rhs %in% c("fake=Si"))
 inspect(head(r2))
 ```
 
-### Lift:
+### Lift
 
-Por ultimo, vamos a analizar las reglas ordenando primero por el lift de la reglas. Recordamos que un lift alto indica que la presencia de A incrementa significativamente la probabilidad de que B ocurra, lo que sugiere una fuerte asociación entre las características.
+Por último, vamos a analizar las reglas ordenándolas primero por el lift de las reglas. Recordamos que un lift alto indica que la presencia de A incrementa significativamente la probabilidad de que B ocurra, lo que sugiere una fuerte asociación entre las características.
 
 ```{r}
 rules <- sort(rules,by="lift")
 inspect(head(rules)) 
 ```
 
-En este caso, el lift es 5.731343, lo que sugiere que la aparicion de "external URL=Si" es aproximadamente 5.73 veces más probable cuando se dan las condiciones en el antecedente.
+En este caso, el lift es 2.059, lo que sugiere que la aparición de "external URL=Si" es aproximadamente 2 veces más probable cuando se dan las condiciones en el antecedente.
 
 ```{r}
 r2 <- subset(rules, subset = rhs %in% c("fake=Si")) 
 inspect(head(r2))
 ```
 
-## 
-
-## Visualizacion de reglas
+## Visualización de reglas
 
 ```{r}
 plot(rules)

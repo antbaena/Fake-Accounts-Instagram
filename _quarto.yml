@@ -4,7 +4,7 @@ project:
 book:
   title: "Fake Accounts Instagram"
   author: "Antonio Cañete Baena"
-  date: "`r Sys.Date()`"
+  date: "05/24/24"
   chapters:
     - index.qmd
     - analisisExploratorio.qmd
@@ -13,20 +13,20 @@ book:
     - fca.qmd
     - regresion.qmd
     - seriesTemporales.qmd
+    - otrasTecnicas.qmd
     - demo.qmd
     - summary.qmd
     - references.qmd
-
-bibliography: references.bib
+# bibliography: references.bib
   
-#format:
-#  html:
-#    theme:
-#      light: simplex
-#      dark: superhero
-#    mainfont: Tahoma
-#  pdf:
-#    documentclass: scrreprt
+format:
+ html:
+   theme:
+     light: simplex
+     dark: superhero
+   mainfont: Tahoma
+ pdf:
+   documentclass: scrreprt
 
 editor: visual
 

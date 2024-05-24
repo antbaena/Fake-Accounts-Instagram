@@ -71,10 +71,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -131,6 +133,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Fake Accounts Instagram</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -179,19 +184,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./seriesTemporales.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">seriesTemporales.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Series Temporales</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./otrasTecnicas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Otras técnicas</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./demo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Aplicación y demo</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Resultados</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
+ <span class="menu-text">Referencias</span></a>
   </div>
 </li>
     </ul>
@@ -205,7 +222,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#carga-de-datos" id="toc-carga-de-datos" class="nav-link active" data-scroll-target="#carga-de-datos"><span class="header-section-number">1.1</span> Carga de datos</a></li>
-  <li><a href="#analisis-de-atributos" id="toc-analisis-de-atributos" class="nav-link" data-scroll-target="#analisis-de-atributos"><span class="header-section-number">1.2</span> Analisis de atributos</a>
+  <li><a href="#análisis-de-atributos" id="toc-análisis-de-atributos" class="nav-link" data-scroll-target="#análisis-de-atributos"><span class="header-section-number">1.2</span> Análisis de atributos</a>
   <ul class="collapse">
   <li><a href="#profile-pic" id="toc-profile-pic" class="nav-link" data-scroll-target="#profile-pic"><span class="header-section-number">1.2.1</span> profile pic</a></li>
   <li><a href="#numslength-username" id="toc-numslength-username" class="nav-link" data-scroll-target="#numslength-username"><span class="header-section-number">1.2.2</span> nums/length username</a></li>
@@ -249,12 +266,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>El análisis exploratorio de datos consiste en analizar el conjunto o conjuntos de datos de entrada con el objetivo de resumir sus características principales ayudando a su comprensión para futuras técnicas. Es una fase crucial en la ciencia de datos, ya que ayuda a los analistas de datos a comprender mejor los datos antes de aplicar modelos estadísticos más complejos o herramientas mas sofisticadas.</p>
-<p>Para realizar dicho análisis, vamos a utilizar el <em>meta-package</em> de <code>tidyverse.</code></p>
+<p>El análisis exploratorio de datos consiste en analizar el conjunto o conjuntos de datos de entrada con el objetivo de resumir sus características principales ayudando a su comprensión para futuras técnicas. Es una fase crucial en la ciencia de datos, ya que ayuda a los analistas de datos a comprender mejor los datos antes de aplicar modelos estadísticos más complejos o herramientas más sofisticadas.</p>
+<p>Para realizar dicho análisis, vamos a utilizar el meta-package de <code>tidyverse</code>.</p>
 <section id="carga-de-datos" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="carga-de-datos"><span class="header-section-number">1.1</span> Carga de datos</h2>
-<p>Como hemos visto anteriormente, el dataSet contienen dos archivos con datos, sin embargo, puesto que el archivo de <em>train.csv</em> contiene mas entradas de datos, vamos a utilizar dicho conjunto de datos para aplicarle nuestras técnicas de análisis.</p>
-<p>En primer lugar, vamos a cargar las librerias necesarias y los datos:</p>
+<p>Como hemos visto anteriormente, el dataset contiene dos archivos con datos. Sin embargo, puesto que el archivo <em>train.csv</em> contiene más entradas de datos, vamos a utilizar dicho conjunto de datos para aplicar nuestras técnicas de análisis.</p>
+<p>En primer lugar, vamos a cargar las librerías necesarias y los datos:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -282,7 +299,7 @@ dbl (12): profile pic, nums/length username, fullname words, nums/length ful...
 </div>
 </div>
 <p>Una vez tenemos nuestros datos, podemos ponernos manos a la obra.</p>
-<p>Vamos a comenzar ojeando cuantas filas tenemos:</p>
+<p>Vamos a comenzar ojeando cuántas filas tenemos:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(datos)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -323,7 +340,7 @@ dbl (12): profile pic, nums/length username, fullname words, nums/length ful...
 #   `#follows` &lt;dbl&gt;, fake &lt;dbl&gt;</code></pre>
 </div>
 </div>
-<p>Podemos ver que todas las columnas tienen valores numericos, pero vamos a comprobarlo mirando dentro su estructura:</p>
+<p>Podemos ver que todas las columnas tienen valores numéricos, pero vamos a comprobarlo mirando dentro su estructura:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(datos)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -358,7 +375,7 @@ dbl (12): profile pic, nums/length username, fullname words, nums/length ful...
  - attr(*, "problems")=&lt;externalptr&gt; </code></pre>
 </div>
 </div>
-<p>Hemos comprobado que todos los valores son del tipo numerico y double.</p>
+<p>Hemos comprobado que todos los valores son del tipo numérico y double.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anyNA</span>(datos)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -367,12 +384,12 @@ dbl (12): profile pic, nums/length username, fullname words, nums/length ful...
 </div>
 <p>Por ultimo comprobamos que no existen valores NA dentro del dataset, lo que nos ayudara en su próximo análisis exploratorio.</p>
 </section>
-<section id="analisis-de-atributos" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="analisis-de-atributos"><span class="header-section-number">1.2</span> Analisis de atributos</h2>
-<p>Una vez visto un poco por encima la estructura del dataSet, vamos a explorar uno a uno los atributos de cada fila, explorando su significado, los valores limite, …</p>
+<section id="análisis-de-atributos" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="análisis-de-atributos"><span class="header-section-number">1.2</span> Análisis de atributos</h2>
+<p>Una vez visto un poco por encima la estructura del dataset, vamos a explorar uno a uno los atributos de cada fila, explorando su significado, los valores límite, …</p>
 <section id="profile-pic" class="level3" data-number="1.2.1">
 <h3 data-number="1.2.1" class="anchored" data-anchor-id="profile-pic"><span class="header-section-number">1.2.1</span> profile pic</h3>
-<p>Este es un atributo binario que indica si un usuario tiene foto de perfil. Por lo tanto solo tenemos o 0 o 1.</p>
+<p>Este es un atributo binario que indica si un usuario tiene foto de perfil. Por lo tanto, solo tenemos 0 o 1.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(datos<span class="sc">$</span><span class="st">`</span><span class="at">profile pic</span><span class="st">`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -399,7 +416,8 @@ dbl (12): profile pic, nums/length username, fullname words, nums/length ful...
 </section>
 <section id="numslength-username" class="level3" data-number="1.2.2">
 <h3 data-number="1.2.2" class="anchored" data-anchor-id="numslength-username"><span class="header-section-number">1.2.2</span> nums/length username</h3>
-<p>Este atributo representa el ratio de numero de caracteres numericos en el nombre de usuario respecto su longutud. Ej: Ant234 -&gt; Ratio 1.</p>
+<p>Este atributo representa el ratio de número de caracteres numéricos en el nombre de usuario respecto a su longitud.</p>
+<p>Por ejemplo: Ant234 -&gt; Ratio 1.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(datos<span class="sc">$</span><span class="st">`</span><span class="at">nums/length username</span><span class="st">`</span>, <span class="at">main=</span><span class="st">"Ratio caracteres num en usuario"</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -443,7 +461,7 @@ dbl (12): profile pic, nums/length username, fullname words, nums/length ful...
 </section>
 <section id="numslength-fullname" class="level3" data-number="1.2.4">
 <h3 data-number="1.2.4" class="anchored" data-anchor-id="numslength-fullname"><span class="header-section-number">1.2.4</span> nums/length fullname</h3>
-<p>Este atributo representa el ratio de numero de caracteres numéricos en el nombre completo del usuario respecto su longitud.</p>
+<p>Este atributo representa el ratio de número de caracteres numéricos en el nombre completo del usuario respecto a su longitud.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(datos<span class="sc">$</span><span class="st">`</span><span class="at">nums/length fullname</span><span class="st">`</span>, <span class="at">main=</span><span class="st">"Ratio caracteres num en nombre"</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -454,7 +472,7 @@ dbl (12): profile pic, nums/length username, fullname words, nums/length ful...
 </div>
 </div>
 </div>
-<p>Observamos que es bastante inusual que un usuario tenga caracteres en su nombre completo, mientra que, como hemos visto antes, en el nombre de usuario, es más frecuente encontrar caracteres.</p>
+<p>Observamos que es bastante inusual que un usuario tenga caracteres en su nombre completo, mientras que, como hemos visto antes, en el nombre de usuario, es más frecuente encontrar caracteres.</p>
 </section>
 <section id="nameusername" class="level3" data-number="1.2.5">
 <h3 data-number="1.2.5" class="anchored" data-anchor-id="nameusername"><span class="header-section-number">1.2.5</span> name==username</h3>
@@ -469,7 +487,7 @@ dbl (12): profile pic, nums/length username, fullname words, nums/length ful...
 </div>
 </div>
 </div>
-<p>Concluimos que el bastante inusual que un usuarios tenga el mismo nombre de usuario y nombre completo.</p>
+<p>Concluimos que es bastante inusual que un usuario tenga el mismo nombre de usuario y nombre completo.</p>
 </section>
 <section id="description-length" class="level3" data-number="1.2.6">
 <h3 data-number="1.2.6" class="anchored" data-anchor-id="description-length"><span class="header-section-number">1.2.6</span> description length</h3>
@@ -484,7 +502,7 @@ dbl (12): profile pic, nums/length username, fullname words, nums/length ful...
 </div>
 </div>
 </div>
-<p>Podemos intuir que el máximo de caracteres que ofrece Instagram en su descripción es 150, cuyo limite es alcanzado por pocos usuarios del DataSet:</p>
+<p>Podemos intuir que el máximo de caracteres que ofrece Instagram en su descripción es 150, cuyo límite es alcanzado por pocos usuarios del dataset.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(datos,datos<span class="sc">$</span><span class="st">`</span><span class="at">description length</span><span class="st">`</span> <span class="sc">==</span><span class="dv">150</span>) <span class="sc">%&gt;%</span> <span class="fu">count</span>() <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="st">`</span><span class="at">Num de usuarios</span><span class="st">`</span><span class="ot">=</span>n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -501,11 +519,11 @@ dbl (12): profile pic, nums/length username, fullname words, nums/length ful...
 <pre><code>[1] 22.62326</code></pre>
 </div>
 </div>
-<p>Encontramos que la media de caracteres en la descripción, lo que, dependiendo del idioma, puede ser una pequeña frase o algunas palabras. Las descripciones largar son menos frecuentes.</p>
+<p>Encontramos que la media de caracteres en la descripción es relativamente baja, lo que, dependiendo del idioma, puede ser una pequeña frase o algunas palabras. Las descripciones largas son menos frecuentes.</p>
 </section>
 <section id="external-url" class="level3" data-number="1.2.7">
 <h3 data-number="1.2.7" class="anchored" data-anchor-id="external-url"><span class="header-section-number">1.2.7</span> external URL</h3>
-<p>Este atributo es un atributo binario que representa si el perfil tiene algún enlaza externo en el.</p>
+<p>Este atributo es un atributo binario que representa si el perfil tiene algún enlace externo en él.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(datos<span class="sc">$</span><span class="st">`</span><span class="at">external URL</span><span class="st">`</span>, <span class="at">breaks =</span> <span class="dv">2</span>, <span class="at">main=</span><span class="st">"Enlace en el perfil?"</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -531,7 +549,7 @@ dbl (12): profile pic, nums/length username, fullname words, nums/length ful...
 </div>
 </div>
 </div>
-<p>En este atributo encontramos algo mas de igualdad, el numero de cuentas privadas son poco mas de la mitad del numero de publicas:</p>
+<p>En este atributo encontramos algo más de igualdad, el número de cuentas privadas es poco más de la mitad del número de cuentas públicas.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">private =</span> <span class="fu">ifelse</span>(private<span class="sc">==</span><span class="dv">1</span>,<span class="st">"Privada"</span>,<span class="st">"Publica"</span>)) <span class="sc">%&gt;%</span>  <span class="fu">group_by</span>(private) <span class="sc">%&gt;%</span> <span class="fu">count</span>() <span class="sc">%&gt;%</span>  <span class="fu">summarise</span>(<span class="at">Numero =</span> <span class="fu">sum</span>(n))  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -545,7 +563,7 @@ dbl (12): profile pic, nums/length username, fullname words, nums/length ful...
 </section>
 <section id="post" class="level3" data-number="1.2.9">
 <h3 data-number="1.2.9" class="anchored" data-anchor-id="post"><span class="header-section-number">1.2.9</span> post</h3>
-<p>Este atributo representa el numero de publicaciones de la cuenta.</p>
+<p>Este atributo representa el número de publicaciones de la cuenta.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(datos<span class="sc">$</span><span class="st">`</span><span class="at">#posts</span><span class="st">`</span>,  <span class="at">main=</span><span class="st">"Fotos de perfil"</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -560,14 +578,14 @@ dbl (12): profile pic, nums/length username, fullname words, nums/length ful...
 <pre><code>[1] 7389</code></pre>
 </div>
 </div>
-<p>Obtenemos un histograma un poco extrano al haber algun valor muy alto de publicaciones, vamos a buscarlo:</p>
+<p>Obtenemos un histograma un poco extraño al haber algún valor muy alto de publicaciones, vamos a buscarlo:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(datos<span class="sc">$</span><span class="st">`</span><span class="at">#posts</span><span class="st">`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 7389</code></pre>
 </div>
 </div>
-<p>Vemos que es un valor bastante raro o que se podría tratar de alguna cuenta que publicase mucho contenido a diario. Vamos a verla:</p>
+<p>Vemos que es un valor bastante inusual o que podría tratarse de alguna cuenta que publique mucho contenido a diario. Vamos a verla:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">#posts</span><span class="st">`</span><span class="sc">==</span><span class="dv">7389</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -580,8 +598,8 @@ dbl (12): profile pic, nums/length username, fullname words, nums/length ful...
 #   `#follows` &lt;dbl&gt;, fake &lt;dbl&gt;</code></pre>
 </div>
 </div>
-<p>Como dato, la cuenta de Dwayne Johnson, ex-luchador de la WWE y exitoso actor de Hollywood, tiene unos 7800 post, por lo que dicho valor puede ser debido a la cuenta de algún famoso.</p>
-<p>Vamos a volver a dibujar el histograma pero con un umbral un poco mas razonable:</p>
+<p>Como dato, la cuenta de Dwayne Johnson, ex-luchador de la WWE y exitoso actor de Hollywood, tiene alrededor de 7800 publicaciones, por lo que dicho valor puede ser debido a la cuenta de algún famoso.</p>
+<p>Vamos a volver a dibujar el histograma pero con un umbral un poco más razonable:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>post_filtrados <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="st">`</span><span class="at">#posts</span><span class="st">`</span>)<span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">#posts</span><span class="st">`</span> <span class="sc">&lt;</span><span class="dv">500</span>)</span>
 <span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(post_filtrados<span class="sc">$</span><span class="st">`</span><span class="at">#posts</span><span class="st">`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -593,7 +611,7 @@ dbl (12): profile pic, nums/length username, fullname words, nums/length ful...
 </div>
 </div>
 </div>
-<p>Ahora ya podemos extraer informacion mas facilmente, como que la mayoria de usuarios tiene menos de 50 publicaciones, vamos a verlo en mas detalle:</p>
+<p>Ahora ya podemos extraer información más fácilmente, como que la mayoría de usuarios tiene menos de 50 publicaciones. Vamos a verlo en más detalle:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>post_filtrados <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="st">`</span><span class="at">#posts</span><span class="st">`</span>)<span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">#posts</span><span class="st">`</span> <span class="sc">&lt;</span><span class="dv">50</span>)</span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(post_filtrados<span class="sc">$</span><span class="st">`</span><span class="at">#posts</span><span class="st">`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -605,7 +623,7 @@ dbl (12): profile pic, nums/length username, fullname words, nums/length ful...
 </div>
 </div>
 </div>
-<p>Observamos que hay un gran numero de usuarios con menos de 5 posts. Vamos a ver cuantos de ellos tiene 0 posts y a ver la media total:</p>
+<p>Observamos que hay un gran número de usuarios con menos de 5 publicaciones. Vamos a ver cuántos de ellos tienen 0 publicaciones y a calcular la media total:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">#posts</span><span class="st">`</span><span class="sc">==</span><span class="dv">0</span>) <span class="sc">%&gt;%</span> <span class="fu">count</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -619,7 +637,7 @@ dbl (12): profile pic, nums/length username, fullname words, nums/length ful...
 <pre><code>[1] 107.4896</code></pre>
 </div>
 </div>
-<p>Aunque como antes hemos visto que hay usuarios con un gran numero de posts, esta media puede ser no muy significativa.</p>
+<p>Aunque como antes hemos visto que hay usuarios con un gran número de publicaciones, esta media puede no ser muy significativa.</p>
 <p>Vamos a analizar entonces sus cuartiles y mediana:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(datos<span class="sc">$</span><span class="st">`</span><span class="at">#posts</span><span class="st">`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -646,14 +664,14 @@ dbl (12): profile pic, nums/length username, fullname words, nums/length ful...
 <pre><code>[1] 15338538</code></pre>
 </div>
 </div>
-<p>Como en el atributo anteriro, este histograma no tiene sentido porque hay algun valor muy alto</p>
+<p>Como en el atributo anterior, este histograma no tiene sentido porque hay algún valor muy alto.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(datos<span class="sc">$</span><span class="st">`</span><span class="at">#followers</span><span class="st">`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 15338538</code></pre>
 </div>
 </div>
-<p>Dicho valor solo tiene sentido que sea debido a una cuenta de alguna celebridad, vamos a comprobar si es el mismo que tiene similitud con el valor anómalo de post encontrado anteriormente:</p>
+<p>Dicho valor solo tiene sentido que sea debido a una cuenta de alguna celebridad. Vamos a comprobar si es el mismo que tiene similitud con el valor anómalo de publicaciones encontrado anteriormente:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">%&gt;%</span> <span class="fu">filter</span> (<span class="st">`</span><span class="at">#followers</span><span class="st">`</span><span class="sc">==</span><span class="fu">max</span>(<span class="st">`</span><span class="at">#followers</span><span class="st">`</span>)) <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="st">`</span><span class="at">#posts</span><span class="st">`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -663,8 +681,8 @@ dbl (12): profile pic, nums/length username, fullname words, nums/length ful...
 1      148</code></pre>
 </div>
 </div>
-<p>Aun pudiendo ser la cuenta de una celebridad, vemos que tiene un numero de post relativamente normal, comparado con el valor de 7389 post que obtuvimos anteriormente.</p>
-<p>Vamos a volver a hacer el histograma con un nuevo umbral mas bajo:</p>
+<p>Aunque podría ser la cuenta de una celebridad, vemos que tiene un número de publicaciones relativamente normal, comparado con el valor de 7389 publicaciones que obtuvimos anteriormente.</p>
+<p>Vamos a volver a hacer el histograma con un nuevo umbral más bajo:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>followers_filtrados <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="st">`</span><span class="at">#followers</span><span class="st">`</span>)<span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">#followers</span><span class="st">`</span> <span class="sc">&lt;</span><span class="dv">1000</span>)</span>
 <span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(followers_filtrados<span class="sc">$</span><span class="st">`</span><span class="at">#followers</span><span class="st">`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -676,8 +694,8 @@ dbl (12): profile pic, nums/length username, fullname words, nums/length ful...
 </div>
 </div>
 </div>
-<p>Observamos que la mayoría de usuarios no tiene gran numero de seguidores, en concreto, menos de 100.</p>
-<p>Vamos a verlo</p>
+<p>Observamos que la mayoría de usuarios no tienen un gran número de seguidores, en concreto, menos de 100.</p>
+<p>Vamos a verlo:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>followers_filtrados <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="st">`</span><span class="at">#followers</span><span class="st">`</span>)<span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">#followers</span><span class="st">`</span> <span class="sc">&lt;</span><span class="dv">100</span>)</span>
 <span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(followers_filtrados<span class="sc">$</span><span class="st">`</span><span class="at">#followers</span><span class="st">`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -689,8 +707,8 @@ dbl (12): profile pic, nums/length username, fullname words, nums/length ful...
 </div>
 </div>
 </div>
-<p>Vemos que en este intervalo, si esta mas repartidas las frecuencias. Aunque resulta curioso que una gran cantidad de usuarios no llegue a los 50 seguidores.</p>
-<p>Viendo que hay algunos usuarios con un gran numero de seguidores, no tiene sentido tomar el valor de la mediana como referencia ya que esta no es significativa en este caso, por lo que vamos a analizar los cuartiles y la mediana en su lugar.</p>
+<p>Vemos que en este intervalo, las frecuencias están más repartidas. Aunque resulta curioso que una gran cantidad de usuarios no llegue a los 50 seguidores.</p>
+<p>Viendo que hay algunos usuarios con un gran número de seguidores, no tiene sentido tomar el valor de la mediana como referencia ya que esta no es significativa en este caso. Por lo tanto, vamos a analizar los cuartiles y la mediana en su lugar.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(datos<span class="sc">$</span><span class="st">`</span><span class="at">#followers</span><span class="st">`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -702,7 +720,7 @@ dbl (12): profile pic, nums/length username, fullname words, nums/length ful...
        0       39      150    85307      716 15338538 </code></pre>
 </div>
 </div>
-<p>Sabiendo que la mediana divide al 50% de los datos, dicho valor es mas significativo que la media.</p>
+<p>Sabiendo que la mediana divide al 50% de los datos, dicho valor es más significativo que la media.</p>
 </section>
 <section id="follows" class="level3" data-number="1.2.11">
 <h3 data-number="1.2.11" class="anchored" data-anchor-id="follows"><span class="header-section-number">1.2.11</span> follows</h3>
@@ -728,7 +746,7 @@ dbl (12): profile pic, nums/length username, fullname words, nums/length ful...
 <pre><code>[1] 7500</code></pre>
 </div>
 </div>
-<p>Dicho valor corresponde con el valor máximo de cuentas que Instagram permite a los usuarios seguir para reducir el spam. Por lo tanto, las cuentas que siguen a un gran numero de personas se pueden llegar a asociar a spammers. Vamos a ver cuantas cuentas están en este limite:</p>
+<p>Dicho valor corresponde con el valor máximo de cuentas que Instagram permite a los usuarios seguir para reducir el spam. Por lo tanto, las cuentas que siguen a un gran número de personas se pueden llegar a asociar a spammers. Vamos a ver cuántas cuentas están en este límite:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">count</span>(<span class="fu">filter</span>(datos,datos<span class="sc">$</span><span class="st">`</span><span class="at">#follows</span><span class="st">`</span><span class="sc">==</span><span class="dv">7500</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -738,7 +756,7 @@ dbl (12): profile pic, nums/length username, fullname words, nums/length ful...
 1     2</code></pre>
 </div>
 </div>
-<p>Ahora para poder ahcernos una mejor idea vamos a volver a dibujar el histograma con un nuevo umbral reducido.</p>
+<p>Ahora, para poder hacernos una mejor idea, vamos a volver a dibujar el histograma con un nuevo umbral reducido.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>follows_filtrados <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="st">`</span><span class="at">#follows</span><span class="st">`</span>)<span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">#follows</span><span class="st">`</span> <span class="sc">&lt;</span><span class="dv">1000</span>)</span>
 <span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(follows_filtrados<span class="sc">$</span><span class="st">`</span><span class="at">#follows</span><span class="st">`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -750,7 +768,7 @@ dbl (12): profile pic, nums/length username, fullname words, nums/length ful...
 </div>
 </div>
 </div>
-<p>Observamos que mas de la mitad de usuarios no sigue a muchas otras cuentas, en concreto, menos de 100.</p>
+<p>Observamos que más de la mitad de usuarios no sigue a muchas otras cuentas, en concreto, menos de 100.</p>
 <p>Vamos a verlo:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>follows_filtrados <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="st">`</span><span class="at">#follows</span><span class="st">`</span>)<span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">#follows</span><span class="st">`</span> <span class="sc">&lt;</span><span class="dv">100</span>)</span>
@@ -763,8 +781,8 @@ dbl (12): profile pic, nums/length username, fullname words, nums/length ful...
 </div>
 </div>
 </div>
-<p>Vemos que en este intervalo, si esta mas repartidas las frecuencias.</p>
-<p>Viendo que hay algunos usuarios con un gran numero de cuentas seguidas, no tiene sentido tomar el valor de la mediana como referencia ya que esta no es significativa en este caso, por lo que vamos a analizar los cuartiles y la mediana en su lugar.</p>
+<p>Vemos que en este intervalo, las frecuencias están más repartidas.</p>
+<p>Viendo que hay algunos usuarios con un gran número de cuentas seguidas, no tiene sentido tomar el valor de la mediana como referencia ya que esta no es significativa en este caso. Por lo tanto, vamos a analizar los cuartiles y la mediana en su lugar.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(datos<span class="sc">$</span><span class="st">`</span><span class="at">#follows</span><span class="st">`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -772,7 +790,7 @@ dbl (12): profile pic, nums/length username, fullname words, nums/length ful...
     0.0    57.5   229.5   508.4   589.5  7500.0 </code></pre>
 </div>
 </div>
-<p>Ahora ya con estos valores ya podemos analizarlo un poco mejor y darnos cuenta que el 50% de los usuarios no sigue a mas de 229 cuentas.</p>
+<p>Ahora, con estos valores, ya podemos analizarlo un poco mejor y darnos cuenta de que el 50% de los usuarios no sigue a más de 229 cuentas.</p>
 </section>
 <section id="fake" class="level3" data-number="1.2.12">
 <h3 data-number="1.2.12" class="anchored" data-anchor-id="fake"><span class="header-section-number">1.2.12</span> fake</h3>
@@ -806,7 +824,7 @@ dbl (12): profile pic, nums/length username, fullname words, nums/length ful...
 </dd>
 </dl>
 <p>La librería DataExplorer es una herramienta diseñada para simplificar y acelerar el proceso de exploración y análisis de datos. Proporciona funciones que permiten generar rápidamente resúmenes estadísticos, visualizaciones y diagnósticos de los datos.</p>
-<p>Algunas de las características clave incluyen la capacidad de generar perfiles de datos detallados, identificar valores atípicos, analizar la distribución de variables y explorar relaciones entre variables.</p>
+<p>Algunas de sus características cson la capacidad de generar perfiles de datos detallados, identificar valores atípicos, analizar la distribución de variables y explorar relaciones entre variables.</p>
 <p>Podemos simplificar el proceso realizado anteriormente utilizando este paquete.</p>
 <section id="funciones-interesantes" class="level3" data-number="1.3.1">
 <h3 data-number="1.3.1" class="anchored" data-anchor-id="funciones-interesantes"><span class="header-section-number">1.3.1</span> Funciones interesantes</h3>
@@ -835,7 +853,7 @@ dbl (12): profile pic, nums/length username, fullname words, nums/length ful...
 </section>
 <section id="plot_histogram" class="level4" data-number="1.3.1.2">
 <h4 data-number="1.3.1.2" class="anchored" data-anchor-id="plot_histogram"><span class="header-section-number">1.3.1.2</span> plot_histogram</h4>
-<p>Esta funcion nos muestra todos los histogramas de las variables/columnas.</p>
+<p>Esta función nos muestra todos los histogramas de las variables/columnas.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb85"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_histogram</span>(datos)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -901,6 +919,150 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {

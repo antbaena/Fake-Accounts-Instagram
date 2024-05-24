@@ -71,10 +71,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -131,6 +133,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Fake Accounts Instagram</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -184,20 +189,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./otrasTecnicas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Otras técnicas</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./demo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Aplicacion y demo</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Aplicación y demo</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Resultados</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
+ <span class="menu-text">Referencias</span></a>
   </div>
 </li>
     </ul>
@@ -210,8 +221,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#construccion-del-modelo" id="toc-construccion-del-modelo" class="nav-link active" data-scroll-target="#construccion-del-modelo"><span class="header-section-number">5.1</span> Construccion del modelo</a></li>
-  <li><a href="#mejorando-el-modelo" id="toc-mejorando-el-modelo" class="nav-link" data-scroll-target="#mejorando-el-modelo"><span class="header-section-number">5.2</span> Mejorando el modelo</a></li>
+  <li><a href="#construcción-del-modelo" id="toc-construcción-del-modelo" class="nav-link active" data-scroll-target="#construcción-del-modelo"><span class="header-section-number">5.1</span> Construcción del modelo</a></li>
+  <li><a href="#mejorando-el-modelo" id="toc-mejorando-el-modelo" class="nav-link" data-scroll-target="#mejorando-el-modelo"><span class="header-section-number">5.2</span> Mejorando el modelo</a>
+  <ul class="collapse">
+  <li><a href="#eliminando-outliers" id="toc-eliminando-outliers" class="nav-link" data-scroll-target="#eliminando-outliers"><span class="header-section-number">5.2.1</span> Eliminando Outliers</a></li>
+  </ul></li>
+  <li><a href="#eliminar-variables-no-significativas" id="toc-eliminar-variables-no-significativas" class="nav-link" data-scroll-target="#eliminar-variables-no-significativas"><span class="header-section-number">5.3</span> Eliminar variables no significativas</a>
+  <ul class="collapse">
+  <li><a href="#exportar-el-modelo" id="toc-exportar-el-modelo" class="nav-link" data-scroll-target="#exportar-el-modelo"><span class="header-section-number">5.3.1</span> Exportar el modelo</a></li>
+  </ul></li>
+  <li><a href="#interacciones-entre-variables" id="toc-interacciones-entre-variables" class="nav-link" data-scroll-target="#interacciones-entre-variables"><span class="header-section-number">5.4</span> Interacciones entre variables</a></li>
+  <li><a href="#ingeniería-de-variables" id="toc-ingeniería-de-variables" class="nav-link" data-scroll-target="#ingeniería-de-variables"><span class="header-section-number">5.5</span> Ingeniería de variables</a></li>
+  <li><a href="#modelo-final" id="toc-modelo-final" class="nav-link" data-scroll-target="#modelo-final"><span class="header-section-number">5.6</span> Modelo final</a></li>
+  <li><a href="#otros-modelos-de-regresión" id="toc-otros-modelos-de-regresión" class="nav-link" data-scroll-target="#otros-modelos-de-regresión"><span class="header-section-number">5.7</span> Otros modelos de regresión</a>
+  <ul class="collapse">
+  <li><a href="#random-forest" id="toc-random-forest" class="nav-link" data-scroll-target="#random-forest"><span class="header-section-number">5.7.1</span> Random Forest</a></li>
+  <li><a href="#generalized-additive-model" id="toc-generalized-additive-model" class="nav-link" data-scroll-target="#generalized-additive-model"><span class="header-section-number">5.7.2</span> Generalized Additive Model</a></li>
+  </ul></li>
+  <li><a href="#conclusiones" id="toc-conclusiones" class="nav-link" data-scroll-target="#conclusiones"><span class="header-section-number">5.8</span> Conclusiones</a></li>
   </ul>
 </nav>
     </div>
@@ -242,17 +269,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Ahora vamos a comenzar con</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr) </span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"Data/train.csv"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Rows: 576 Columns: 12
-── Column specification ────────────────────────────────────────────────────────
+<pre><code>
+Attaching package: 'dplyr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
+
+    filter, lag</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"Data/train.csv"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 576 Columns: 12</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Column specification ────────────────────────────────────────────────────────
 Delimiter: ","
 dbl (12): profile pic, nums/length username, fullname words, nums/length ful...
 
 ℹ Use `spec()` to retrieve the full column specification for this data.
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>datosTest <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"Data/test.csv"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>datosTest <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"Data/test.csv"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 120 Columns: 12
 ── Column specification ────────────────────────────────────────────────────────
@@ -262,12 +307,11 @@ dbl (12): profile pic, nums/length username, fullname words, nums/length ful...
 ℹ Use `spec()` to retrieve the full column specification for this data.
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(datos)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br>
 Antes de intentar modelo de regresión, se debe explorar cuales son las correlaciones entre las variables numéricas.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(datos[<span class="fu">c</span>(<span class="st">"nums/length username"</span>,<span class="st">"fullname words"</span>,<span class="st">"description length"</span>,<span class="st">"#posts"</span>,<span class="st">"#followers"</span>,<span class="st">"#follows"</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(datos[<span class="fu">c</span>(<span class="st">"nums/length username"</span>,<span class="st">"fullname words"</span>,<span class="st">"description length"</span>,<span class="st">"#posts"</span>,<span class="st">"#followers"</span>,<span class="st">"#follows"</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                     nums/length username fullname words description length
 nums/length username           1.00000000    -0.22547213       -0.321170271
@@ -285,7 +329,7 @@ description length    0.14482370  0.005929455  0.22656142
 #follows              0.09822504 -0.011065994  1.00000000</code></pre>
 </div>
 </div>
-<p>Vamos a ordenar las correlaciones de mayor a menor valor absoluto y destacar las más significativas</p>
+<p>Vamos a ordenar las correlaciones de mayor a menor y destacar las más significativas:</p>
 <ol type="1">
 <li><p><strong>description length y nums/length username</strong>: -0.32117027</p></li>
 <li><p><strong>#followers y #posts</strong>: 0.32138548</p></li>
@@ -300,11 +344,20 @@ description length    0.14482370  0.005929455  0.22656142
 <p>Vamos a emplear la librería <code>psych</code> para visualizar estas correlaciones de manera más intuitiva.</p>
 <p>La parte superior de la visualización corresponde a la matriz de correlación. La diagonal muestra histogramas y además añade óvalos indicando la fuerza de correlación. Cuanto más se estire la elipse, más fuerte será la correlación. Cuanto más redondo el óvalo, más débil la correlación.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: package 'psych' was built under R version 4.3.3</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pairs.panels</span>(datos[<span class="fu">c</span>(<span class="st">"nums/length username"</span>,<span class="st">"fullname words"</span>,<span class="st">"description length"</span>,<span class="st">"#posts"</span>,<span class="st">"#followers"</span>,<span class="st">"#follows"</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'psych'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:ggplot2':
+
+    %+%, alpha</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pairs.panels</span>(datos[<span class="fu">c</span>(<span class="st">"nums/length username"</span>,<span class="st">"fullname words"</span>,<span class="st">"description length"</span>,<span class="st">"#posts"</span>,<span class="st">"#followers"</span>,<span class="st">"#follows"</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -313,12 +366,13 @@ description length    0.14482370  0.005929455  0.22656142
 </div>
 </div>
 </div>
-<p>Ciertamente podemos ver que donde hay mayor elipse es en description length y nums/length username y en followers y #posts. Por lo tanto, las tendremos mas presenters para nuestro futuro modelo de regresion.</p>
-<section id="construccion-del-modelo" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="construccion-del-modelo"><span class="header-section-number">5.1</span> Construccion del modelo</h2>
+<p>Ciertamente podemos ver que donde hay mayor elipse es en <em>description length</em> y <em>nums/length username</em> y en <em>followers y #posts</em>. Por lo tanto, las tendremos mas presentes para nuestro futuro modelo de regresión.</p>
+<section id="construcción-del-modelo" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="construcción-del-modelo"><span class="header-section-number">5.1</span> Construcción del modelo</h2>
+<p>Vamos a construir un primer modelo, donde vamos a enfrentar el atributo fake a todas las demás variables. Aunque seguramente no sea el mejor modelo, nos dará una primera idea de cómo podemos ir mejorándolo.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>modelo1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(fake <span class="sc">~</span>., <span class="at">data =</span> datos)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modelo1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>modelo1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(fake <span class="sc">~</span>., <span class="at">data =</span> datos)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modelo1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -350,8 +404,10 @@ Multiple R-squared:  0.6074,    Adjusted R-squared:  0.5998
 F-statistic: 79.33 on 11 and 564 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
+<p>Vemos que obtenemos un modelo que no tiene un mal valor de R-squared, pero sigue siendo bajo. Además, ya podemos visualizar variables que se podrían eliminar. Esto se deduce de ver que su p-value es alto, como por ejemplo en el atributo private. Además de tener un residuo alto.</p>
+<p>Vamos a ver gráficas sobre el modelo, donde podemos ver los residuos intuitivamente:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(modelo1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(modelo1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -380,57 +436,11 @@ F-statistic: 79.33 on 11 and 564 DF,  p-value: &lt; 2.2e-16</code></pre>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">plot</span>(<span class="fu">density</span>(<span class="fu">resid</span>(modelo1))) <span class="co">#A density plot</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="regresion_files/figure-html/unnamed-chunk-5-5.png" class="img-fluid figure-img" width="672"></p>
-</figure>
 </div>
-</div>
-</div>
+<p>Podemos utilizar la gráfica de Residuals vs Leverage para ver la influencia de los puntos en nuestro modelo. Con esta información, observamos que en general no hay muchos puntos que afecten al modelo, los llamados “outliers”; solo podemos distinguir el 45, 25 y 41, los cuales pueden ser eliminados para mejorar el modelo.</p>
+<p>Podemos visualizar la distribución de los residuos para evaluar si estos se comportan de manera aproximadamente normal, un supuesto común en muchos modelos estadísticos.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargar las librerías necesarias</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'dplyr'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:stats':
-
-    filter, lag</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:base':
-
-    intersect, setdiff, setequal, union</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'ggplot2'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:psych':
-
-    %+%, alpha</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generar predicciones</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>modelo1_predic <span class="ot">&lt;-</span> <span class="fu">predict</span>(modelo1, <span class="at">newdata =</span> datosTest)</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Añadir las predicciones al dataframe de prueba</span></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>datosTest <span class="ot">&lt;-</span> datosTest <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">pred =</span> modelo1_predic)</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Graficar utilizando ggplot2</span></span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datosTest, <span class="fu">aes</span>(<span class="at">x =</span> pred, <span class="at">y =</span> fake)) <span class="sc">+</span></span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span>              <span class="co"># Marcar los valores reales en rojo</span></span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> pred, <span class="at">y =</span> pred),      <span class="co"># Marcar los valores predichos en verde</span></span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"green"</span>, <span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Comparación de valores reales y predichos"</span>,</span>
-<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Valores Predichos"</span>,</span>
-<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Valores Reales"</span>) <span class="sc">+</span></span>
-<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()                         <span class="co"># Usar un tema minimalista</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">plot</span>(<span class="fu">density</span>(<span class="fu">resid</span>(modelo1)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -439,21 +449,72 @@ Attaching package: 'ggplot2'</code></pre>
 </div>
 </div>
 </div>
-<p>Vemos que ciertamente, al usar una regresion “lineal”, los valores se disponen en una linea recta, la que corresponde a la ecucacion obtenida gracias a <code>lm.</code></p>
-<p>Una vez vsito que nuestro modelo inicial, con todoas las variables, no es del todo bueno, vamos a eliminar variables con p values altos e intentar mejorarlo.</p>
+<p>La forma de la gráfica sugiere que los residuos del modelo no se distribuyen de forma normal y que podría haber problemas con el modelo.</p>
+<p>Por último, vamos a ver el modelo prediciendo gráficamente. Podemos utilizar los datos de prueba que nos proporciona nuestro dataset.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>modelo1_predic <span class="ot">&lt;-</span> <span class="fu">predict</span>(modelo1, <span class="at">newdata =</span> datosTest)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>datosTest1 <span class="ot">&lt;-</span> datosTest <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">pred =</span> modelo1_predic)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Rojos -&gt; Reales, verdes -&gt; Predichos</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datosTest1, <span class="fu">aes</span>(<span class="at">x =</span> pred, <span class="at">y =</span> fake)) <span class="sc">+</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span>              </span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> pred, <span class="at">y =</span> pred),      </span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"green"</span>, <span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Comparación de valores reales y predichos"</span>,</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Valores Predichos"</span>,</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Valores Reales"</span>) <span class="sc">+</span></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()                        </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="regresion_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Vemos que ciertamente, al usar una regresión “lineal”, los valores se disponen en una linea recta, la que corresponde a la ecuación obtenida gracias a <code>lm.</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(modelo1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>           (Intercept)          `profile pic` `nums/length username` 
+          7.930850e-01          -4.380333e-01           8.062047e-01 
+      `fullname words` `nums/length fullname`       `name==username` 
+         -3.354355e-02          -2.775272e-02           2.240837e-01 
+  `description length`         `external URL`                private 
+         -1.510047e-03          -1.542026e-01          -9.459373e-03 
+              `#posts`           `#followers`             `#follows` 
+         -9.094368e-05          -9.960487e-09          -1.850049e-05 </code></pre>
+</div>
+</div>
+<p>Una vez visto que nuestro modelo inicial, con todas las variables, no es del todo bueno, vamos a eliminar variables con p-values altos, outliers, … e intentar mejorarlo.</p>
 </section>
 <section id="mejorando-el-modelo" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="mejorando-el-modelo"><span class="header-section-number">5.2</span> Mejorando el modelo</h2>
+<section id="eliminando-outliers" class="level3" data-number="5.2.1">
+<h3 data-number="5.2.1" class="anchored" data-anchor-id="eliminando-outliers"><span class="header-section-number">5.2.1</span> Eliminando Outliers</h3>
+<p>Vamos a eliminar los valores que están muy separados y que pueden afectar al modelo.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(datos)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] "profile pic"          "nums/length username" "fullname words"      
- [4] "nums/length fullname" "name==username"       "description length"  
- [7] "external URL"         "private"              "#posts"              
-[10] "#followers"           "#follows"             "fake"                </code></pre>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> datos[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">45</span>,<span class="dv">25</span>,<span class="dv">41</span>),]</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> datos[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">440</span>,<span class="dv">412</span>,<span class="dv">396</span>),]</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> datos[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">351</span>,<span class="dv">364</span>,<span class="dv">174</span>),]</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> datos[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">140</span>,<span class="dv">446</span>,<span class="dv">449</span>),]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>modelo1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(fake <span class="sc">~</span> <span class="st">`</span><span class="at">profile pic</span><span class="st">`</span><span class="sc">+</span> <span class="st">`</span><span class="at">nums/length username</span><span class="st">`</span><span class="sc">+</span><span class="st">`</span><span class="at">fullname words</span><span class="st">`</span><span class="sc">+</span> <span class="st">`</span><span class="at">name==username</span><span class="st">`</span><span class="sc">+</span><span class="st">`</span><span class="at">description length</span><span class="st">`</span><span class="sc">+</span> <span class="st">`</span><span class="at">external URL</span><span class="st">`</span><span class="sc">+</span><span class="st">`</span><span class="at">#posts</span><span class="st">`</span>    , <span class="at">data =</span> datos)</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modelo1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Hay que hacerlo con moderación ya que si eliminamos muchos valores que realmente no son “outliers” estamos obteniendo mejores modelos pero que realmente no son así.</p>
+</section>
+</section>
+<section id="eliminar-variables-no-significativas" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="eliminar-variables-no-significativas"><span class="header-section-number">5.3</span> Eliminar variables no significativas</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>modelo2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(fake <span class="sc">~</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>                <span class="st">`</span><span class="at">profile pic</span><span class="st">`</span><span class="sc">+</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>                <span class="st">`</span><span class="at">nums/length username</span><span class="st">`</span><span class="sc">+</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>                <span class="st">`</span><span class="at">fullname words</span><span class="st">`</span><span class="sc">+</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>                <span class="st">`</span><span class="at">name==username</span><span class="st">`</span><span class="sc">+</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>                <span class="st">`</span><span class="at">description length</span><span class="st">`</span><span class="sc">+</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>                <span class="st">`</span><span class="at">external URL</span><span class="st">`</span><span class="sc">+</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>                <span class="st">`</span><span class="at">#posts</span><span class="st">`</span>    , <span class="at">data =</span> datos)</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modelo2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -463,207 +524,78 @@ lm(formula = fake ~ `profile pic` + `nums/length username` +
 
 Residuals:
      Min       1Q   Median       3Q      Max 
--0.74953 -0.24241 -0.05836  0.23371  1.02834 
+-0.74205 -0.22951 -0.06475  0.22687  0.83615 
 
 Coefficients:
                          Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)             7.843e-01  3.577e-02  21.926  &lt; 2e-16 ***
-`profile pic`          -4.444e-01  3.267e-02 -13.603  &lt; 2e-16 ***
-`nums/length username`  8.084e-01  6.861e-02  11.783  &lt; 2e-16 ***
-`fullname words`       -3.353e-02  1.326e-02  -2.528 0.011728 *  
-`name==username`        2.157e-01  7.265e-02   2.969 0.003116 ** 
-`description length`   -1.553e-03  4.283e-04  -3.625 0.000315 ***
-`external URL`         -1.528e-01  4.747e-02  -3.219 0.001359 ** 
-`#posts`               -9.923e-05  3.369e-05  -2.945 0.003360 ** 
+(Intercept)             8.144e-01  3.594e-02  22.656  &lt; 2e-16 ***
+`profile pic`          -4.297e-01  3.140e-02 -13.685  &lt; 2e-16 ***
+`nums/length username`  7.921e-01  6.561e-02  12.072  &lt; 2e-16 ***
+`fullname words`       -5.062e-02  1.573e-02  -3.218  0.00136 ** 
+`name==username`        1.471e-01  7.287e-02   2.019  0.04397 *  
+`description length`   -2.251e-03  4.363e-04  -5.160 3.45e-07 ***
+`external URL`         -5.622e-02  4.740e-02  -1.186  0.23609    
+`#posts`               -3.114e-04  7.568e-05  -4.115 4.46e-05 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 0.316 on 568 degrees of freedom
-Multiple R-squared:  0.606, Adjusted R-squared:  0.6012 
-F-statistic: 124.8 on 7 and 568 DF,  p-value: &lt; 2.2e-16</code></pre>
+Residual standard error: 0.3003 on 556 degrees of freedom
+Multiple R-squared:  0.6443,    Adjusted R-squared:  0.6399 
+F-statistic: 143.9 on 7 and 556 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
+<p>Hemos obtenido un modelo un poco mejor y con menos residuos, ahora vamos a intentar mejorar este modelo usando variables no lineales.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(datos)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] "profile pic"          "nums/length username" "fullname words"      
- [4] "nums/length fullname" "name==username"       "description length"  
- [7] "external URL"         "private"              "#posts"              
-[10] "#followers"           "#follows"             "fake"                </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>modelo1 <span class="ot">&lt;-</span> <span class="fu">update</span>(modelo1, .<span class="sc">~</span>. <span class="sc">+</span><span class="fu">I</span>(<span class="st">`</span><span class="at">name==username</span><span class="st">`</span><span class="sc">^</span><span class="dv">2</span>), <span class="at">data=</span>datos )</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>modelo1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(fake <span class="sc">~</span> <span class="st">`</span><span class="at">profile pic</span><span class="st">`</span><span class="sc">+</span></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>                <span class="st">`</span><span class="at">nums/length username</span><span class="st">`</span><span class="sc">+</span></span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>                <span class="st">`</span><span class="at">fullname words</span><span class="st">`</span><span class="sc">+</span></span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>                <span class="st">`</span><span class="at">name==username</span><span class="st">`</span><span class="sc">+</span></span>
-<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>                <span class="st">`</span><span class="at">description length</span><span class="st">`</span><span class="sc">+</span></span>
-<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>                <span class="st">`</span><span class="at">external URL</span><span class="st">`</span><span class="sc">+</span><span class="st">`</span><span class="at">#posts</span><span class="st">`</span>    , <span class="at">data =</span> datos)</span>
-<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modelo1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>modelo3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(fake <span class="sc">~</span> </span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>                <span class="st">`</span><span class="at">profile pic</span><span class="st">`</span> <span class="sc">+</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>                <span class="st">`</span><span class="at">nums/length username</span><span class="st">`</span> <span class="sc">+</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>                <span class="st">`</span><span class="at">fullname words</span><span class="st">`</span> <span class="sc">+</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>                <span class="st">`</span><span class="at">name==username</span><span class="st">`</span> <span class="sc">+</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>                <span class="st">`</span><span class="at">description length</span><span class="st">`</span> <span class="sc">+</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>                <span class="st">`</span><span class="at">external URL</span><span class="st">`</span> <span class="sc">+</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>                <span class="st">`</span><span class="at">#posts</span><span class="st">`</span> <span class="sc">+</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>                <span class="fu">I</span>(<span class="st">`</span><span class="at">nums/length username</span><span class="st">`</span><span class="sc">^</span><span class="dv">2</span>)<span class="sc">+</span></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>                <span class="fu">I</span>(<span class="st">`</span><span class="at">description length</span><span class="st">`</span><span class="sc">^</span><span class="dv">2</span>)<span class="sc">+</span></span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>                <span class="fu">I</span>(<span class="st">`</span><span class="at">#posts</span><span class="st">`</span><span class="sc">^</span><span class="dv">2</span>),</span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>              <span class="at">data =</span> datos)</span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modelo3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
 lm(formula = fake ~ `profile pic` + `nums/length username` + 
     `fullname words` + `name==username` + `description length` + 
-    `external URL` + `#posts`, data = datos)
+    `external URL` + `#posts` + I(`nums/length username`^2) + 
+    I(`description length`^2) + I(`#posts`^2), data = datos)
 
 Residuals:
-     Min       1Q   Median       3Q      Max 
--0.74953 -0.24241 -0.05836  0.23371  1.02834 
+    Min      1Q  Median      3Q     Max 
+-0.7340 -0.1915 -0.0474  0.2155  0.8442 
 
 Coefficients:
-                         Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)             7.843e-01  3.577e-02  21.926  &lt; 2e-16 ***
-`profile pic`          -4.444e-01  3.267e-02 -13.603  &lt; 2e-16 ***
-`nums/length username`  8.084e-01  6.861e-02  11.783  &lt; 2e-16 ***
-`fullname words`       -3.353e-02  1.326e-02  -2.528 0.011728 *  
-`name==username`        2.157e-01  7.265e-02   2.969 0.003116 ** 
-`description length`   -1.553e-03  4.283e-04  -3.625 0.000315 ***
-`external URL`         -1.528e-01  4.747e-02  -3.219 0.001359 ** 
-`#posts`               -9.923e-05  3.369e-05  -2.945 0.003360 ** 
+                              Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)                  7.954e-01  3.627e-02  21.933  &lt; 2e-16 ***
+`profile pic`               -3.725e-01  3.123e-02 -11.925  &lt; 2e-16 ***
+`nums/length username`       1.281e+00  1.547e-01   8.283 9.11e-16 ***
+`fullname words`            -4.750e-02  1.510e-02  -3.145  0.00175 ** 
+`name==username`             1.168e-01  7.019e-02   1.664  0.09663 .  
+`description length`        -6.116e-03  1.099e-03  -5.568 4.03e-08 ***
+`external URL`              -3.135e-02  4.616e-02  -0.679  0.49739    
+`#posts`                    -8.571e-04  1.760e-04  -4.871 1.45e-06 ***
+I(`nums/length username`^2) -8.867e-01  2.235e-01  -3.967 8.23e-05 ***
+I(`description length`^2)    3.476e-05  8.677e-06   4.006 7.03e-05 ***
+I(`#posts`^2)                6.033e-07  1.666e-07   3.621  0.00032 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 0.316 on 568 degrees of freedom
-Multiple R-squared:  0.606, Adjusted R-squared:  0.6012 
-F-statistic: 124.8 on 7 and 568 DF,  p-value: &lt; 2.2e-16</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(modelo1, <span class="at">file =</span> <span class="st">"modelo.RData"</span>)</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(modelo1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>           (Intercept)          `profile pic` `nums/length username` 
-          7.842685e-01          -4.443858e-01           8.084044e-01 
-      `fullname words`       `name==username`   `description length` 
-         -3.352732e-02           2.156730e-01          -1.552552e-03 
-        `external URL`               `#posts` 
-         -1.528050e-01          -9.922949e-05 </code></pre>
+Residual standard error: 0.288 on 553 degrees of freedom
+Multiple R-squared:  0.6747,    Adjusted R-squared:  0.6688 
+F-statistic: 114.7 on 10 and 553 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
+<p>Vemos, que nuestro modelo ha mejorado un poco y tenemos menos residuos, que es lo que estamos buscando.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>modelo1_interactions <span class="ot">&lt;-</span> <span class="fu">lm</span>(fake <span class="sc">~</span> <span class="st">`</span><span class="at">profile pic</span><span class="st">`</span> <span class="sc">*</span> <span class="st">`</span><span class="at">nums/length username</span><span class="st">`</span> <span class="sc">+</span></span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>                                       <span class="st">`</span><span class="at">fullname words</span><span class="st">`</span> <span class="sc">*</span> <span class="st">`</span><span class="at">description length</span><span class="st">`</span> <span class="sc">+</span></span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>                                       <span class="st">`</span><span class="at">name==username</span><span class="st">`</span> <span class="sc">*</span> <span class="st">`</span><span class="at">external URL</span><span class="st">`</span> <span class="sc">+</span></span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>                                       <span class="st">`</span><span class="at">#posts</span><span class="st">`</span>, <span class="at">data =</span> datos)</span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modelo1_interactions)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-lm(formula = fake ~ `profile pic` * `nums/length username` + 
-    `fullname words` * `description length` + `name==username` * 
-    `external URL` + `#posts`, data = datos)
-
-Residuals:
-     Min       1Q   Median       3Q      Max 
--0.97323 -0.17588  0.00723  0.06358  0.99251 
-
-Coefficients:
-                                        Estimate Std. Error t value Pr(&gt;|t|)
-(Intercept)                            1.009e+00  4.144e-02  24.355  &lt; 2e-16
-`profile pic`                         -7.315e-01  4.273e-02 -17.118  &lt; 2e-16
-`nums/length username`                 5.190e-02  9.902e-02   0.524  0.60041
-`fullname words`                      -4.384e-02  1.694e-02  -2.588  0.00991
-`description length`                  -1.814e-03  5.933e-04  -3.058  0.00233
-`name==username`                       2.231e-01  6.890e-02   3.237  0.00128
-`external URL`                        -1.254e-01  4.423e-02  -2.835  0.00474
-`#posts`                              -8.048e-05  3.120e-05  -2.579  0.01015
-`profile pic`:`nums/length username`   1.257e+00  1.284e-01   9.791  &lt; 2e-16
-`fullname words`:`description length`  3.789e-04  2.467e-04   1.536  0.12503
-`name==username`:`external URL`       -2.155e-01  3.026e-01  -0.712  0.47670
-                                         
-(Intercept)                           ***
-`profile pic`                         ***
-`nums/length username`                   
-`fullname words`                      ** 
-`description length`                  ** 
-`name==username`                      ** 
-`external URL`                        ** 
-`#posts`                              *  
-`profile pic`:`nums/length username`  ***
-`fullname words`:`description length`    
-`name==username`:`external URL`          
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-Residual standard error: 0.2919 on 565 degrees of freedom
-Multiple R-squared:  0.6657,    Adjusted R-squared:  0.6598 
-F-statistic: 112.5 on 10 and 565 DF,  p-value: &lt; 2.2e-16</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span></span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">log_description_length =</span> <span class="fu">log</span>(<span class="st">`</span><span class="at">description length</span><span class="st">`</span> <span class="sc">+</span> <span class="dv">1</span>),</span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">log_posts =</span> <span class="fu">log</span>(<span class="st">`</span><span class="at">#posts</span><span class="st">`</span><span class="sc">+</span><span class="dv">1</span>))</span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>modelo_transformed <span class="ot">&lt;-</span> <span class="fu">lm</span>(fake <span class="sc">~</span> <span class="st">`</span><span class="at">profile pic</span><span class="st">`</span> <span class="sc">*</span> <span class="st">`</span><span class="at">nums/length username</span><span class="st">`</span> <span class="sc">+</span></span>
-<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>                                    log_description_length <span class="sc">+</span></span>
-<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>                                    <span class="st">`</span><span class="at">name==username</span><span class="st">`</span> <span class="sc">+</span></span>
-<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>                                    log_posts, <span class="at">data =</span> datos)</span>
-<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modelo_transformed)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-lm(formula = fake ~ `profile pic` * `nums/length username` + 
-    log_description_length + `name==username` + log_posts, data = datos)
-
-Residuals:
-     Min       1Q   Median       3Q      Max 
--0.67329 -0.14460 -0.01357  0.07912  0.99380 
-
-Coefficients:
-                                      Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)                           0.998668   0.033544  29.772  &lt; 2e-16 ***
-`profile pic`                        -0.510429   0.045414 -11.239  &lt; 2e-16 ***
-`nums/length username`                0.059602   0.091464   0.652   0.5149    
-log_description_length               -0.039216   0.007451  -5.263 2.01e-07 ***
-`name==username`                      0.159217   0.062261   2.557   0.0108 *  
-log_posts                            -0.068721   0.007599  -9.043  &lt; 2e-16 ***
-`profile pic`:`nums/length username`  1.024658   0.120973   8.470  &lt; 2e-16 ***
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-Residual standard error: 0.2696 on 569 degrees of freedom
-Multiple R-squared:  0.7127,    Adjusted R-squared:  0.7097 
-F-statistic: 235.3 on 6 and 569 DF,  p-value: &lt; 2.2e-16</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Guardar el modelo en un archivo</span></span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(modelo_transformed, <span class="at">file =</span> <span class="st">"modelo_regresion.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span></span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">log_description_length =</span> <span class="fu">log</span>(<span class="st">`</span><span class="at">description length</span><span class="st">`</span> <span class="sc">+</span> <span class="dv">1</span>),</span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">log_posts =</span> <span class="fu">log</span>(<span class="st">`</span><span class="at">#posts</span><span class="st">`</span><span class="sc">+</span><span class="dv">1</span>))</span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>modelo_transformed <span class="ot">&lt;-</span> <span class="fu">lm</span>(fake <span class="sc">~</span> <span class="st">`</span><span class="at">profile pic</span><span class="st">`</span> <span class="sc">*</span> <span class="st">`</span><span class="at">nums/length username</span><span class="st">`</span> <span class="sc">+</span></span>
-<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>                                    <span class="st">`</span><span class="at">description length</span><span class="st">`</span> <span class="sc">+</span></span>
-<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>                                    <span class="st">`</span><span class="at">name==username</span><span class="st">`</span> <span class="sc">+</span></span>
-<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>                                    log_posts, <span class="at">data =</span> datos)</span>
-<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modelo_transformed)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-lm(formula = fake ~ `profile pic` * `nums/length username` + 
-    `description length` + `name==username` + log_posts, data = datos)
-
-Residuals:
-     Min       1Q   Median       3Q      Max 
--0.75362 -0.13681 -0.01568  0.07457  1.00317 
-
-Coefficients:
-                                       Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)                           0.9931596  0.0341081  29.118   &lt;2e-16 ***
-`profile pic`                        -0.5407160  0.0457082 -11.830   &lt;2e-16 ***
-`nums/length username`                0.0738270  0.0929910   0.794   0.4276    
-`description length`                 -0.0009597  0.0003486  -2.753   0.0061 ** 
-`name==username`                      0.1561247  0.0633349   2.465   0.0140 *  
-log_posts                            -0.0753993  0.0076140  -9.903   &lt;2e-16 ***
-`profile pic`:`nums/length username`  1.0555066  0.1230199   8.580   &lt;2e-16 ***
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-Residual standard error: 0.2743 on 569 degrees of freedom
-Multiple R-squared:  0.7027,    Adjusted R-squared:  0.6996 
-F-statistic: 224.1 on 6 and 569 DF,  p-value: &lt; 2.2e-16</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(modelo_transformed)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(modelo3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -692,41 +624,9 @@ F-statistic: 224.1 on 6 and 569 DF,  p-value: &lt; 2.2e-16</code></pre>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">plot</span>(<span class="fu">density</span>(<span class="fu">resid</span>(modelo_transformed))) <span class="co">#A density plot</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="regresion_files/figure-html/unnamed-chunk-12-5.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargar las librerías necesarias</span></span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>datos_test <span class="ot">&lt;-</span> datosTest <span class="sc">%&gt;%</span></span>
-<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">log_description_length =</span> <span class="fu">log</span>(<span class="st">`</span><span class="at">description length</span><span class="st">`</span> <span class="sc">+</span> <span class="dv">1</span>),</span>
-<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">log_posts =</span> <span class="fu">log</span>(<span class="st">`</span><span class="at">#posts</span><span class="st">`</span><span class="sc">+</span><span class="dv">1</span>))</span>
-<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Generar predicciones</span></span>
-<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a>modelo1_predic <span class="ot">&lt;-</span> <span class="fu">predict</span>(modelo_transformed, <span class="at">newdata =</span> datos_test)</span>
-<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-12"><a href="#cb42-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-13"><a href="#cb42-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Añadir las predicciones al dataframe de prueba</span></span>
-<span id="cb42-14"><a href="#cb42-14" aria-hidden="true" tabindex="-1"></a>datosTest <span class="ot">&lt;-</span> datosTest <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">pred =</span> modelo1_predic)</span>
-<span id="cb42-15"><a href="#cb42-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-16"><a href="#cb42-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-17"><a href="#cb42-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Graficar utilizando ggplot2</span></span>
-<span id="cb42-18"><a href="#cb42-18" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datosTest, <span class="fu">aes</span>(<span class="at">x =</span> pred, <span class="at">y =</span> fake)) <span class="sc">+</span></span>
-<span id="cb42-19"><a href="#cb42-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span>              <span class="co"># Marcar los valores reales en rojo</span></span>
-<span id="cb42-20"><a href="#cb42-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> pred, <span class="at">y =</span> pred),      <span class="co"># Marcar los valores predichos en verde</span></span>
-<span id="cb42-21"><a href="#cb42-21" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"green"</span>, <span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb42-22"><a href="#cb42-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Comparación de valores reales y predichos"</span>,</span>
-<span id="cb42-23"><a href="#cb42-23" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Valores Predichos"</span>,</span>
-<span id="cb42-24"><a href="#cb42-24" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Valores Reales"</span>) <span class="sc">+</span></span>
-<span id="cb42-25"><a href="#cb42-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()                         <span class="co"># Usar un tema minimalista</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">plot</span>(<span class="fu">density</span>(<span class="fu">resid</span>(modelo3)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -734,14 +634,426 @@ F-statistic: 224.1 on 6 and 569 DF,  p-value: &lt; 2.2e-16</code></pre>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>datosTest <span class="ot">&lt;-</span> datosTest <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">pred =</span> <span class="fu">ifelse</span>(modelo1_predic <span class="sc">&lt;</span> <span class="fl">0.5</span>, <span class="dv">0</span>, <span class="dv">1</span>))</span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular el porcentaje de aciertos</span></span>
-<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>accuracy <span class="ot">&lt;-</span> <span class="fu">mean</span>(datosTest<span class="sc">$</span>pred <span class="sc">==</span> datosTest<span class="sc">$</span>fake) <span class="sc">*</span> <span class="dv">100</span></span>
-<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>accuracy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Seguimos teniendo una distribución de residuos asimétrica y no normal.</p>
+<p>Vamos a visualizar como predice este nuevo modelo:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>modelo3_predic <span class="ot">&lt;-</span> <span class="fu">predict</span>(modelo3, <span class="at">newdata =</span> datosTest)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>datosTest3 <span class="ot">&lt;-</span> datosTest <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">pred =</span> modelo3_predic)</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Rojos -&gt; Reales, verdes -&gt; Predichos</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datosTest3, <span class="fu">aes</span>(<span class="at">x =</span> pred, <span class="at">y =</span> fake)) <span class="sc">+</span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span>              </span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> pred, <span class="at">y =</span> pred),      </span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"green"</span>, <span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Comparación de valores reales y predichos"</span>,</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Valores Predichos"</span>,</span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Valores Reales"</span>) <span class="sc">+</span></span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()           </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="regresion_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Sin embargo, este gráfico, al ser los valores entre 0 y 1 es un poco confuso, vamos a ver el porcentaje de acierto mejor:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>datosTest3 <span class="ot">&lt;-</span> datosTest3 <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">pred =</span> <span class="fu">ifelse</span>(modelo3_predic <span class="sc">&lt;</span> <span class="fl">0.5</span>, <span class="dv">0</span>, <span class="dv">1</span>))</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular el porcentaje de aciertos</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>accuracy <span class="ot">&lt;-</span> <span class="fu">mean</span>(datosTest3<span class="sc">$</span>pred <span class="sc">==</span> datosTest3<span class="sc">$</span>fake) <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>accuracy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 87.5</code></pre>
 </div>
 </div>
+<p>Vemos que ha acertado un 87.5% de las veces, un dato bastante bueno.</p>
+<section id="exportar-el-modelo" class="level3" data-number="5.3.1">
+<h3 data-number="5.3.1" class="anchored" data-anchor-id="exportar-el-modelo"><span class="header-section-number">5.3.1</span> Exportar el modelo</h3>
+<p>Para poder utilizar el modelo en futuras aplicaciones, podemos guardarlo de la forma:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(modelo3, <span class="at">file =</span> <span class="st">"modelo3.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="interacciones-entre-variables" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="interacciones-entre-variables"><span class="header-section-number">5.4</span> Interacciones entre variables</h2>
+<p>Al incluir términos de interacción en el modelo de regresión, permitimos que el efecto de una variable sobre la otra varíe según los niveles de otras variables incluidas en la interacción.</p>
+<p>Esto puede ser importante para capturar relaciones más complejas entre las variables.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>modelo_interact <span class="ot">&lt;-</span> <span class="fu">lm</span>(fake <span class="sc">~</span> <span class="st">`</span><span class="at">profile pic</span><span class="st">`</span> <span class="sc">*</span> <span class="st">`</span><span class="at">nums/length username</span><span class="st">`</span> <span class="sc">+</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>                                       <span class="st">`</span><span class="at">fullname words</span><span class="st">`</span> <span class="sc">*</span> <span class="st">`</span><span class="at">description length</span><span class="st">`</span> <span class="sc">+</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>                                       <span class="st">`</span><span class="at">name==username</span><span class="st">`</span> <span class="sc">*</span> <span class="st">`</span><span class="at">external URL</span><span class="st">`</span> <span class="sc">+</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>                                       <span class="st">`</span><span class="at">#posts</span><span class="st">`</span>, <span class="at">data =</span> datos)</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modelo_interact)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = fake ~ `profile pic` * `nums/length username` + 
+    `fullname words` * `description length` + `name==username` * 
+    `external URL` + `#posts`, data = datos)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.96028 -0.15321  0.00288  0.06898  0.93053 
+
+Coefficients:
+                                        Estimate Std. Error t value Pr(&gt;|t|)
+(Intercept)                            1.032e+00  4.025e-02  25.644  &lt; 2e-16
+`profile pic`                         -7.191e-01  4.077e-02 -17.637  &lt; 2e-16
+`nums/length username`                 4.660e-02  9.326e-02   0.500 0.617496
+`fullname words`                      -5.708e-02  1.795e-02  -3.180 0.001555
+`description length`                  -2.705e-03  7.093e-04  -3.814 0.000152
+`name==username`                       1.487e-01  6.866e-02   2.166 0.030756
+`external URL`                        -3.287e-02  4.372e-02  -0.752 0.452397
+`#posts`                              -2.603e-04  6.964e-05  -3.738 0.000204
+`profile pic`:`nums/length username`   1.250e+00  1.214e-01  10.297  &lt; 2e-16
+`fullname words`:`description length`  4.841e-04  3.308e-04   1.463 0.143985
+`name==username`:`external URL`       -1.903e-01  2.866e-01  -0.664 0.507019
+                                         
+(Intercept)                           ***
+`profile pic`                         ***
+`nums/length username`                   
+`fullname words`                      ** 
+`description length`                  ***
+`name==username`                      *  
+`external URL`                           
+`#posts`                              ***
+`profile pic`:`nums/length username`  ***
+`fullname words`:`description length`    
+`name==username`:`external URL`          
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.2749 on 553 degrees of freedom
+Multiple R-squared:  0.7037,    Adjusted R-squared:  0.6984 
+F-statistic: 131.3 on 10 and 553 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Guardar el modelo en un archivo</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(modelo_interact, <span class="at">file =</span> <span class="st">"modelo_interact.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Este modelo vemos que ha mejorado frente a todos loa anteriores, por lo que tenemos que tenerlo en cuenta para nuestro modelo final.</p>
+</section>
+<section id="ingeniería-de-variables" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="ingeniería-de-variables"><span class="header-section-number">5.5</span> Ingeniería de variables</h2>
+<p>La ingeniería de variables implica crear nuevas variables o transformar las existentes para mejorar el rendimiento de un modelo predictivo. Esto incluye crear características nuevas, transformar las existentes, entre otras técnicas.</p>
+<p>Vamos a probarlo en nuestro modelo.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>modelo_nuevasVar <span class="ot">&lt;-</span> <span class="fu">lm</span>(fake <span class="sc">~</span> <span class="st">`</span><span class="at">profile pic</span><span class="st">`</span><span class="sc">+</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>                                    <span class="st">`</span><span class="at">nums/length username</span><span class="st">`</span> <span class="sc">+</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>                                    <span class="fu">log</span>(<span class="st">`</span><span class="at">description length</span><span class="st">`</span> <span class="sc">+</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>                                    <span class="st">`</span><span class="at">name==username</span><span class="st">`</span> <span class="sc">+</span></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>                                    <span class="fu">log</span>(<span class="st">`</span><span class="at">#posts</span><span class="st">`</span><span class="sc">+</span><span class="dv">1</span>), <span class="at">data =</span> datos)</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modelo_nuevasVar)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = fake ~ `profile pic` + `nums/length username` + 
+    log(`description length` + 1) + `name==username` + log(`#posts` + 
+    1), data = datos)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.66063 -0.18128 -0.01962  0.16008  0.96220 
+
+Coefficients:
+                               Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)                    0.839917   0.028606  29.362  &lt; 2e-16 ***
+`profile pic`                 -0.248421   0.033391  -7.440 3.83e-13 ***
+`nums/length username`         0.659306   0.061590  10.705  &lt; 2e-16 ***
+log(`description length` + 1) -0.050486   0.007843  -6.437 2.62e-10 ***
+`name==username`               0.107825   0.066988   1.610    0.108    
+log(`#posts` + 1)             -0.080978   0.007900 -10.251  &lt; 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.2757 on 558 degrees of freedom
+Multiple R-squared:  0.6992,    Adjusted R-squared:  0.6965 
+F-statistic: 259.4 on 5 and 558 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Guardar el modelo en un archivo</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(modelo_nuevasVar, <span class="at">file =</span> <span class="st">"modelo_nuevasVar.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>De nuevo, este modelo ha sido mejor que todos los anteriores simplemente añadiendo el logaritmo de unas variables.</p>
+</section>
+<section id="modelo-final" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="modelo-final"><span class="header-section-number">5.6</span> Modelo final</h2>
+<p>Vamos a combinar todos los métodos anteriores para encontrar el mejor modelo posible. Aplicaremos tanto variables no lineales como ingeniería de variables e interacción entre variables.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>modelo_final <span class="ot">&lt;-</span> <span class="fu">lm</span>(fake <span class="sc">~</span> <span class="st">`</span><span class="at">profile pic</span><span class="st">`</span> <span class="sc">*</span> <span class="st">`</span><span class="at">nums/length username</span><span class="st">`</span> <span class="sc">+</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>                                <span class="fu">log</span>(<span class="st">`</span><span class="at">description length</span><span class="st">`</span> <span class="sc">+</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>                                <span class="st">`</span><span class="at">name==username</span><span class="st">`</span> <span class="sc">+</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>                                <span class="fu">log</span>(<span class="st">`</span><span class="at">#posts</span><span class="st">`</span><span class="sc">+</span><span class="dv">1</span>)<span class="sc">+</span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>                                <span class="st">`</span><span class="at">#followers</span><span class="st">`</span> <span class="sc">+</span></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>                                <span class="fu">I</span>(<span class="st">`</span><span class="at">nums/length username</span><span class="st">`</span><span class="sc">^</span><span class="dv">2</span>)<span class="sc">+</span></span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>                                <span class="fu">I</span>(<span class="st">`</span><span class="at">description length</span><span class="st">`</span><span class="sc">^</span><span class="dv">2</span>)<span class="sc">+</span></span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>                                <span class="fu">I</span>(<span class="st">`</span><span class="at">#posts</span><span class="st">`</span><span class="sc">^</span><span class="dv">2</span>),</span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>                         <span class="at">data =</span> datos)</span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modelo_final)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = fake ~ `profile pic` * `nums/length username` + 
+    log(`description length` + 1) + `name==username` + log(`#posts` + 
+    1) + `#followers` + I(`nums/length username`^2) + I(`description length`^2) + 
+    I(`#posts`^2), data = datos)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.70351 -0.11215 -0.00771  0.08622  1.01284 
+
+Coefficients:
+                                       Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)                           9.732e-01  3.395e-02  28.666  &lt; 2e-16 ***
+`profile pic`                        -5.097e-01  4.432e-02 -11.500  &lt; 2e-16 ***
+`nums/length username`                4.255e-01  1.583e-01   2.687  0.00742 ** 
+log(`description length` + 1)        -4.738e-02  9.109e-03  -5.201 2.79e-07 ***
+`name==username`                      9.404e-02  6.232e-02   1.509  0.13188    
+log(`#posts` + 1)                    -6.765e-02  8.414e-03  -8.041 5.44e-15 ***
+`#followers`                          1.126e-09  2.733e-08   0.041  0.96716    
+I(`nums/length username`^2)          -5.574e-01  2.000e-01  -2.788  0.00549 ** 
+I(`description length`^2)             2.373e-06  3.410e-06   0.696  0.48676    
+I(`#posts`^2)                         8.394e-08  6.657e-08   1.261  0.20789    
+`profile pic`:`nums/length username`  1.024e+00  1.158e-01   8.847  &lt; 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.2557 on 553 degrees of freedom
+Multiple R-squared:  0.7435,    Adjusted R-squared:  0.7389 
+F-statistic: 160.3 on 10 and 553 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<p>Vemos que el mejor modelo que hemos conseguido obtener ha mejorado bastante respecto al primer modelo obtenido, teniendo un mejor R cuadrado y menos residuos. Vamos a ver las demás métricas utilizadas anteriormente.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(modelo_final)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="regresion_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="regresion_files/figure-html/unnamed-chunk-20-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="regresion_files/figure-html/unnamed-chunk-20-3.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="regresion_files/figure-html/unnamed-chunk-20-4.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Vamos a generar predicciones con el dataSet de test.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generar predicciones</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>modeloFinal_predic <span class="ot">&lt;-</span> <span class="fu">predict</span>(modelo_final, <span class="at">newdata =</span> datosTest)</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>datosTestFinal <span class="ot">&lt;-</span> datosTest <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">pred =</span> <span class="fu">ifelse</span>(modeloFinal_predic <span class="sc">&lt;</span> <span class="fl">0.5</span>, <span class="dv">0</span>, <span class="dv">1</span>))</span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular el porcentaje de aciertos</span></span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>accuracy <span class="ot">&lt;-</span> <span class="fu">mean</span>(datosTestFinal<span class="sc">$</span>pred <span class="sc">==</span> datosTestFinal<span class="sc">$</span>fake) <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a>accuracy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 87.5</code></pre>
+</div>
+</div>
+<p>Por último, vemos que obtenemos un buen porcentaje de acierto con nuestro dataSet de prueba,</p>
+</section>
+<section id="otros-modelos-de-regresión" class="level2" data-number="5.7">
+<h2 data-number="5.7" class="anchored" data-anchor-id="otros-modelos-de-regresión"><span class="header-section-number">5.7</span> Otros modelos de regresión</h2>
+<p>Vamos a explorar otros modelos de regresión diferentes al clásico modelo de regeresion lineal que hemos estado trabajando hasta ahora. Puede ser que para nuestra investigación, un modelo diferente al lineal sea mas conveniente y nos pudiera ayudar mas.</p>
+<section id="random-forest" class="level3" data-number="5.7.1">
+<h3 data-number="5.7.1" class="anchored" data-anchor-id="random-forest"><span class="header-section-number">5.7.1</span> Random Forest</h3>
+<p>Random Forest es un algoritmo de aprendizaje automático que se basa en la idea de crear múltiples árboles de decisión durante el proceso de entrenamiento y luego combinar sus predicciones para obtener una predicción más robusta y precisa.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(randomForest)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'randomForest' was built under R version 4.3.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>randomForest 4.7-1.1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Type rfNews() to see new features/changes/bug fixes.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'randomForest'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:psych':
+
+    outlier</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:ggplot2':
+
+    margin</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:dplyr':
+
+    combine</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>datosdf <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(datos)</span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Crea el modelo de Random Forest</span></span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>modelo_rf <span class="ot">&lt;-</span> <span class="fu">randomForest</span>(fake <span class="sc">~</span> .,<span class="at">ntree=</span><span class="dv">4</span>, <span class="at">data =</span> datosdf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in randomForest.default(m, y, ...): The response has five or fewer
+unique values.  Are you sure you want to do regression?</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Resumen del modelo</span></span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(modelo_rf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+ randomForest(formula = fake ~ ., data = datosdf, ntree = 4) 
+               Type of random forest: regression
+                     Number of trees: 4
+No. of variables tried at each split: 3
+
+          Mean of squared residuals: 0.08285584
+                    % Var explained: 66.86</code></pre>
+</div>
+</div>
+<section id="importancia-de-las-variables" class="level5" data-number="5.7.1.0.1">
+<h5 data-number="5.7.1.0.1" class="anchored" data-anchor-id="importancia-de-las-variables"><span class="header-section-number">5.7.1.0.1</span> Importancia de las variables</h5>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">importance</span>(modelo_rf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                     IncNodePurity
+profile.pic           9.915185e+00
+nums.length.username  3.282218e+01
+fullname.words        2.443014e+00
+nums.length.fullname  9.283660e-03
+name..username        1.110223e-16
+description.length    3.598971e+00
+external.URL          4.737802e-01
+private               4.920463e-01
+X.posts               1.211513e+01
+X.followers           5.861250e+01
+X.follows             1.457846e+01</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>modeloRF_predic <span class="ot">&lt;-</span> <span class="fu">predict</span>(modelo_rf, <span class="at">newdata =</span> <span class="fu">data.frame</span>(datosTest))</span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a>modeloRF_predic <span class="ot">&lt;-</span> datosTest <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">pred =</span> <span class="fu">ifelse</span>(modeloRF_predic <span class="sc">&lt;</span> <span class="fl">0.5</span>, <span class="dv">0</span>, <span class="dv">1</span>))</span>
+<span id="cb60-5"><a href="#cb60-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular el porcentaje de aciertos</span></span>
+<span id="cb60-6"><a href="#cb60-6" aria-hidden="true" tabindex="-1"></a>accuracy <span class="ot">&lt;-</span> <span class="fu">mean</span>(modeloRF_predic<span class="sc">$</span>pred <span class="sc">==</span> modeloRF_predic<span class="sc">$</span>fake) <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb60-7"><a href="#cb60-7" aria-hidden="true" tabindex="-1"></a>accuracy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 91.66667</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="generalized-additive-model" class="level3" data-number="5.7.2">
+<h3 data-number="5.7.2" class="anchored" data-anchor-id="generalized-additive-model"><span class="header-section-number">5.7.2</span> Generalized Additive Model</h3>
+<p>Un GAM es un tipo de modelo estadístico que generaliza los modelos lineales al permitir relaciones no lineales entre las variables predictoras y la variable de respuesta.</p>
+<p>En lugar de suponer una relación lineal entre las variables, los GAM permiten que cada variable explicativa tenga una relación suave con la variable de respuesta, modelada a través de funciones suaves.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mgcv)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'mgcv' was built under R version 4.3.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: nlme</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'nlme' was built under R version 4.3.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'nlme'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:dplyr':
+
+    collapse</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>This is mgcv 1.9-1. For overview type 'help("mgcv-package")'.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>modelo_gam <span class="ot">=</span> <span class="fu">gam</span>(fake <span class="sc">~</span> profile.pic <span class="sc">+</span></span>
+<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>               nums.length.username <span class="sc">+</span></span>
+<span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a>               fullname.words <span class="sc">+</span></span>
+<span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a>               nums.length.fullname <span class="sc">+</span></span>
+<span id="cb69-5"><a href="#cb69-5" aria-hidden="true" tabindex="-1"></a>               name..username <span class="sc">+</span></span>
+<span id="cb69-6"><a href="#cb69-6" aria-hidden="true" tabindex="-1"></a>               description.length <span class="sc">+</span></span>
+<span id="cb69-7"><a href="#cb69-7" aria-hidden="true" tabindex="-1"></a>               external.URL <span class="sc">+</span></span>
+<span id="cb69-8"><a href="#cb69-8" aria-hidden="true" tabindex="-1"></a>               private <span class="sc">+</span></span>
+<span id="cb69-9"><a href="#cb69-9" aria-hidden="true" tabindex="-1"></a>               X.posts <span class="sc">+</span></span>
+<span id="cb69-10"><a href="#cb69-10" aria-hidden="true" tabindex="-1"></a>               X.followers <span class="sc">+</span></span>
+<span id="cb69-11"><a href="#cb69-11" aria-hidden="true" tabindex="-1"></a>               X.follows, </span>
+<span id="cb69-12"><a href="#cb69-12" aria-hidden="true" tabindex="-1"></a>             <span class="at">data =</span> datosdf)</span>
+<span id="cb69-13"><a href="#cb69-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-14"><a href="#cb69-14" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modelo_gam)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Family: gaussian 
+Link function: identity 
+
+Formula:
+fake ~ profile.pic + nums.length.username + fullname.words + 
+    nums.length.fullname + name..username + description.length + 
+    external.URL + private + X.posts + X.followers + X.follows
+
+Parametric coefficients:
+                       Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)           8.190e-01  3.828e-02  21.397  &lt; 2e-16 ***
+profile.pic          -4.272e-01  3.221e-02 -13.264  &lt; 2e-16 ***
+nums.length.username  7.855e-01  7.193e-02  10.921  &lt; 2e-16 ***
+fullname.words       -5.088e-02  1.587e-02  -3.205 0.001427 ** 
+nums.length.fullname  1.413e-02  1.160e-01   0.122 0.903121    
+name..username        1.461e-01  7.724e-02   1.891 0.059126 .  
+description.length   -2.262e-03  4.422e-04  -5.115 4.33e-07 ***
+external.URL         -5.643e-02  4.800e-02  -1.176 0.240246    
+private              -8.206e-03  2.738e-02  -0.300 0.764497    
+X.posts              -3.042e-04  7.783e-05  -3.908 0.000105 ***
+X.followers          -1.982e-08  3.227e-08  -0.614 0.539287    
+X.follows            -3.659e-06  1.456e-05  -0.251 0.801712    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+
+R-sq.(adj) =  0.638   Deviance explained = 64.5%
+GCV = 0.092734  Scale est. = 0.090761  n = 564</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>modeloGam_predic <span class="ot">&lt;-</span> <span class="fu">predict</span>(modelo_gam, <span class="at">newdata =</span> <span class="fu">data.frame</span>(datosTest))</span>
+<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-3"><a href="#cb71-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-4"><a href="#cb71-4" aria-hidden="true" tabindex="-1"></a>modeloGam_predic <span class="ot">&lt;-</span> datosTest <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">pred =</span> <span class="fu">ifelse</span>(modeloGam_predic <span class="sc">&lt;</span> <span class="fl">0.5</span>, <span class="dv">0</span>, <span class="dv">1</span>))</span>
+<span id="cb71-5"><a href="#cb71-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular el porcentaje de aciertos</span></span>
+<span id="cb71-6"><a href="#cb71-6" aria-hidden="true" tabindex="-1"></a>accuracy <span class="ot">&lt;-</span> <span class="fu">mean</span>(modeloGam_predic<span class="sc">$</span>pred <span class="sc">==</span> modeloGam_predic<span class="sc">$</span>fake) <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb71-7"><a href="#cb71-7" aria-hidden="true" tabindex="-1"></a>accuracy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 89.16667</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="conclusiones" class="level2" data-number="5.8">
+<h2 data-number="5.8" class="anchored" data-anchor-id="conclusiones"><span class="header-section-number">5.8</span> Conclusiones</h2>
+<p>Hemos explorado tanto los tradicionales modelos lineales como también nuevos enfoques de regresión. Durante este proceso, hemos descubierto modelos interesantes que muestran un potencial considerable para generar predicciones precisas en contextos del mundo real. Al aplicar estos modelos a conjuntos de datos reales, estamos equipados para abordar problemas complejos y tenemos la herramientas para realizar predicciones certeras sobre datos reales, pudiendo servir de verdadera ayuda en el mundo real.</p>
 
 
 </section>
@@ -767,6 +1079,150 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {

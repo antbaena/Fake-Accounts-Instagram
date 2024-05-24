@@ -71,10 +71,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -131,6 +133,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Fake Accounts Instagram</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -179,19 +184,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./seriesTemporales.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">seriesTemporales.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Series Temporales</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./otrasTecnicas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Otras técnicas</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./demo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Aplicación y demo</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Resultados</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
+ <span class="menu-text">Referencias</span></a>
   </div>
 </li>
     </ul>
@@ -207,18 +224,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#escalado" id="toc-escalado" class="nav-link active" data-scroll-target="#escalado"><span class="header-section-number">4.1</span> Escalado</a>
   <ul class="collapse">
   <li><a href="#escalado-nominal" id="toc-escalado-nominal" class="nav-link" data-scroll-target="#escalado-nominal"><span class="header-section-number">4.1.1</span> Escalado nominal</a></li>
-  <li><a href="#escalado-intervalos" id="toc-escalado-intervalos" class="nav-link" data-scroll-target="#escalado-intervalos"><span class="header-section-number">4.1.2</span> Escalado intervalos</a></li>
+  <li><a href="#escalado-intervalo" id="toc-escalado-intervalo" class="nav-link" data-scroll-target="#escalado-intervalo"><span class="header-section-number">4.1.2</span> Escalado intervalo</a></li>
   </ul></li>
-  <li><a href="#conceptos" id="toc-conceptos" class="nav-link" data-scroll-target="#conceptos"><span class="header-section-number">4.2</span> Conceptos</a>
-  <ul class="collapse">
-  <li><a href="#calculo-de-los-conceptos-del-contexto" id="toc-calculo-de-los-conceptos-del-contexto" class="nav-link" data-scroll-target="#calculo-de-los-conceptos-del-contexto"><span class="header-section-number">4.2.1</span> Calculo de los conceptos del contexto</a></li>
-  </ul></li>
+  <li><a href="#conceptos" id="toc-conceptos" class="nav-link" data-scroll-target="#conceptos"><span class="header-section-number">4.2</span> Conceptos</a></li>
   <li><a href="#implicaciones" id="toc-implicaciones" class="nav-link" data-scroll-target="#implicaciones"><span class="header-section-number">4.3</span> Implicaciones</a>
   <ul class="collapse">
   <li><a href="#calculo-de-los-implicaciones-del-contexto" id="toc-calculo-de-los-implicaciones-del-contexto" class="nav-link" data-scroll-target="#calculo-de-los-implicaciones-del-contexto"><span class="header-section-number">4.3.1</span> Calculo de los implicaciones del contexto</a></li>
-  <li><a href="#cuantas-implicaciones-se-han-extraido" id="toc-cuantas-implicaciones-se-han-extraido" class="nav-link" data-scroll-target="#cuantas-implicaciones-se-han-extraido"><span class="header-section-number">4.3.2</span> ¿Cuantas implicaciones se han extraido?</a></li>
-  <li><a href="#calculo-del-tamaño-de-las-implicaciones-y-la-media-de-la-parte-y-derecha-de-dichas-implicaciones." id="toc-calculo-del-tamaño-de-las-implicaciones-y-la-media-de-la-parte-y-derecha-de-dichas-implicaciones." class="nav-link" data-scroll-target="#calculo-del-tamaño-de-las-implicaciones-y-la-media-de-la-parte-y-derecha-de-dichas-implicaciones."><span class="header-section-number">4.3.3</span> Calculo del tamaño de las implicaciones y la media de la parte y derecha de dichas implicaciones.</a></li>
-  <li><a href="#lógica-de-simplificación." id="toc-lógica-de-simplificación." class="nav-link" data-scroll-target="#lógica-de-simplificación."><span class="header-section-number">4.3.4</span> Lógica de simplificación.</a></li>
+  <li><a href="#cálculo-de-la-media-de-la-parte-izquierda-y-derecha-de-las-implicaciones" id="toc-cálculo-de-la-media-de-la-parte-izquierda-y-derecha-de-las-implicaciones" class="nav-link" data-scroll-target="#cálculo-de-la-media-de-la-parte-izquierda-y-derecha-de-las-implicaciones"><span class="header-section-number">4.3.2</span> Cálculo de la media de la parte izquierda y derecha de las implicaciones</a></li>
+  <li><a href="#lógica-de-simplificación" id="toc-lógica-de-simplificación" class="nav-link" data-scroll-target="#lógica-de-simplificación"><span class="header-section-number">4.3.3</span> Lógica de simplificación</a></li>
+  <li><a href="#eliminar-la-redundancia" id="toc-eliminar-la-redundancia" class="nav-link" data-scroll-target="#eliminar-la-redundancia"><span class="header-section-number">4.3.4</span> Eliminar la redundancia</a></li>
   <li><a href="#análisis-de-implicaciones-importantes" id="toc-análisis-de-implicaciones-importantes" class="nav-link" data-scroll-target="#análisis-de-implicaciones-importantes"><span class="header-section-number">4.3.5</span> Análisis de implicaciones importantes</a></li>
   </ul></li>
   <li><a href="#funciones-interesantes" id="toc-funciones-interesantes" class="nav-link" data-scroll-target="#funciones-interesantes"><span class="header-section-number">4.4</span> Funciones interesantes</a></li>
@@ -248,8 +262,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>El Formal Concept Analysis, o FCA, es una técnica de análisis de datos originada en la teoría de conjuntos formales, la lógica matemática y la teoría de retículos. Su objetivo principal es descubrir y representar estructuras conceptuales dentro de conjuntos de datos, especialmente conjuntos de datos que contienen información de tipo jerárquico o taxonómico.</p>
-<p>Las pricipales aplicaiciones de FCA son la extracción de conocimiento, agrupamiento y clasificación, aprendizaje automático, conceptos, ontologías, reglas, reglas de asociación, implicaciones de atributos.</p>
-<p>Para el FCA, nuestros datos se dividen en objetos y atributos. En nuestro dataSet, los objetos son las cuentas de usuario y los atributos son las culumnas como “Tiene foto de perfil, No tes fake, ….”.</p>
+<p>Las principales aplicaciones de FCA son la extracción de conocimiento, agrupamiento y clasificación, aprendizaje automático, conceptos, ontologías, reglas, reglas de asociación e implicaciones de atributos.</p>
+<p>Para el FCA, nuestros datos se dividen en objetos y atributos. En nuestro dataSet, los objetos son las cuentas de usuario y los atributos son las columnas como “Tiene foto de perfil, No es fake, …”.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fcaR)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -302,7 +316,7 @@ dbl (12): profile pic, nums/length username, fullname words, nums/length ful...
 <p>Como necesitamos que nuestro dataSet sea binario, necesitamos aplicarles tecniac como el escaldo para obtener el resultado deseado:</p>
 <section id="escalado-nominal" class="level3" data-number="4.1.1">
 <h3 data-number="4.1.1" class="anchored" data-anchor-id="escalado-nominal"><span class="header-section-number">4.1.1</span> Escalado nominal</h3>
-<p>El escalado nominal se utiliza para atributos cuyos valores son excluyentes el uno del otro, como por ejemplo, los atributos que son Si y No.</p>
+<p>El escalado nominal se utiliza para atributos cuyos valores son excluyentes entre sí, como por ejemplo, los atributos que son “Sí” y “No”.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>fc_datos<span class="sc">$</span><span class="fu">scale</span>(<span class="st">"profile pic"</span>,<span class="at">type =</span> <span class="st">"nominal"</span>,<span class="fu">c</span>(<span class="st">"Si"</span>,<span class="st">"No"</span>))</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>fc_datos<span class="sc">$</span><span class="fu">scale</span>(<span class="st">"name==username"</span>,<span class="at">type =</span> <span class="st">"nominal"</span>,<span class="fu">c</span>(<span class="st">"Si"</span>,<span class="st">"No"</span>))</span>
@@ -335,9 +349,9 @@ dbl (12): profile pic, nums/length username, fullname words, nums/length ful...
 </div>
 </div>
 </section>
-<section id="escalado-intervalos" class="level3" data-number="4.1.2">
-<h3 data-number="4.1.2" class="anchored" data-anchor-id="escalado-intervalos"><span class="header-section-number">4.1.2</span> Escalado intervalos</h3>
-<p>Como los demás datos son valores continuos, tenemos que utilizar un tipo de escalado distinto. Podemos utilizar modos como el ordinal, sin embargo, este nos generaría conceptos demasiados largos, por lo que el mejor modo a emplear para estos datos es el intervalo.</p>
+<section id="escalado-intervalo" class="level3" data-number="4.1.2">
+<h3 data-number="4.1.2" class="anchored" data-anchor-id="escalado-intervalo"><span class="header-section-number">4.1.2</span> Escalado intervalo</h3>
+<p>Como los demás datos son valores continuos, tenemos que utilizar un tipo de escalado distinto. Podemos utilizar modos como el ordinal; sin embargo, este nos generarían conceptos demasiado largos. Por lo tanto, el mejor modo a emplear para estos datos es el intervalo.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>fc_datos<span class="sc">$</span><span class="fu">scale</span>(<span class="st">"nums/length username"</span>, </span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">type =</span> <span class="st">"interval"</span>, </span>
@@ -378,15 +392,15 @@ dbl (12): profile pic, nums/length username, fullname words, nums/length ful...
 </section>
 <section id="conceptos" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="conceptos"><span class="header-section-number">4.2</span> Conceptos</h2>
-<p>Una vez tenemos los datos en la forma que buscamos, podemos utilizar el paquete fcaR para generar conceptos.Los conceptos son componentes fundamentales que representan agrupaciones de objetos y atributos con una relación particular.</p>
+<p>Una vez tenemos los datos en la forma que buscamos, podemos utilizar el paquete fcaR para generar conceptos. Los conceptos son componentes fundamentales que representan agrupaciones de objetos y atributos con una relación particular.</p>
 <p>De manera formal, un concepto (𝐴,𝐵) se define como un par donde:</p>
 <ul>
 <li><p>𝐴 es el conjunto de objetos (extensión) que tienen todos los atributos de 𝐵.</p></li>
 <li><p>𝐵 es el conjunto de atributos (intensión) que son poseídos por todos los objetos de 𝐴.</p></li>
 </ul>
-<section id="calculo-de-los-conceptos-del-contexto" class="level3" data-number="4.2.1">
-<h3 data-number="4.2.1" class="anchored" data-anchor-id="calculo-de-los-conceptos-del-contexto"><span class="header-section-number">4.2.1</span> Calculo de los conceptos del contexto</h3>
-<p>Para calcular los conceptos de nuestros datos utilizamos la función <code>find_concepts</code></p>
+<section id="cálculo-de-los-conceptos-del-contexto" class="level4" data-number="4.2.0.1">
+<h4 data-number="4.2.0.1" class="anchored" data-anchor-id="cálculo-de-los-conceptos-del-contexto"><span class="header-section-number">4.2.0.1</span> Cálculo de los conceptos del contexto</h4>
+<p>Para calcular los conceptos de nuestros datos, utilizamos la función find_concepts.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>fc_datos<span class="sc">$</span><span class="fu">find_concepts</span>()</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -408,7 +422,7 @@ dbl (12): profile pic, nums/length username, fullname words, nums/length ful...
 6: ({45, 166, 298, 301, 304, 308, 309, 316, 337, 341, 377, 409, 412, 418, 430, 456, 468, 469, 470, 472, 480, 486, 490, 504, 514, 516, 519, 524, 525, 537, 559}, {#follows is (0, 10]})</code></pre>
 </div>
 </div>
-<p>Observamos un curioso resultado, vemos una gran cantidad de números, estos números representan los indices de las cuentas que tienen dichos atributos. Sin embargo, esta información no nos es útil. Vamos a calcular el extend al atributo “<em>fake = Si”</em>, y vemos que nos devuelve los indices de todas las cuentas que son fake.</p>
+<p>Observamos un curioso resultado: vemos una gran cantidad de números. Estos números representan los índices de las cuentas que tienen dichos atributos. Sin embargo, esta información no nos es útil. Vamos a calcular el “extent” del atributo “fake = Si”, y veremos que nos devuelve los índices de todas las cuentas que son falsas.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>s1 <span class="ot">&lt;-</span> Set<span class="sc">$</span><span class="fu">new</span>(fc_datos<span class="sc">$</span>attributes)</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>s1<span class="sc">$</span><span class="fu">assign</span>(<span class="at">fake =</span> <span class="st">"Si"</span>)</span>
@@ -461,21 +475,20 @@ dbl (12): profile pic, nums/length username, fullname words, nums/length ful...
 <p>Estas implicaciones las podemos ver como las reglas de asociación que obtuvimos anteriormente.</p>
 <section id="calculo-de-los-implicaciones-del-contexto" class="level3" data-number="4.3.1">
 <h3 data-number="4.3.1" class="anchored" data-anchor-id="calculo-de-los-implicaciones-del-contexto"><span class="header-section-number">4.3.1</span> Calculo de los implicaciones del contexto</h3>
-<p>Para calcular las implicaciones de nuestros datos utilizamos la función <code>find_implications</code></p>
-</section>
-<section id="cuantas-implicaciones-se-han-extraido" class="level3" data-number="4.3.2">
-<h3 data-number="4.3.2" class="anchored" data-anchor-id="cuantas-implicaciones-se-han-extraido"><span class="header-section-number">4.3.2</span> ¿Cuantas implicaciones se han extraido?</h3>
+<p>Para calcular las implicaciones de nuestros datos, utilizamos la función <code>find_implications</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>fc_datos<span class="sc">$</span><span class="fu">find_implications</span>()</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>fc_datos<span class="sc">$</span>implications<span class="sc">$</span><span class="fu">cardinality</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>fc_datos<span class="sc">$</span><span class="fu">find_implications</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>¿Cuántas implicaciones se han extraído?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>fc_datos<span class="sc">$</span>implications<span class="sc">$</span><span class="fu">cardinality</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1905</code></pre>
 </div>
 </div>
 <p>Vemos que hemos obtenido un gran numero de implicaciones, vamos a ver los primeros:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(fc_datos<span class="sc">$</span>implications)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(fc_datos<span class="sc">$</span>implications)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Implication set with 6 implications.
 Rule 1: {fake = Si} -&gt; {external URL = No}
@@ -513,13 +526,13 @@ Rule 6: {#follows is (10, 60], #follows is (200, Inf]} -&gt; {profile pic = Si,
   Inf], #follows is (0, 10], #follows is (60, 200], fake = Si, fake = No}</code></pre>
 </div>
 </div>
-<p>Como tenemos un gran numero de implicaciones, vamos a intentar reducirlas y quedarnos con las mas importantes aplicando técnicas de simplificación.</p>
+<p>Como tenemos un gran número de implicaciones, vamos a intentar reducirlas y quedarnos con las más importantes aplicando técnicas de simplificación.</p>
 </section>
-<section id="calculo-del-tamaño-de-las-implicaciones-y-la-media-de-la-parte-y-derecha-de-dichas-implicaciones." class="level3" data-number="4.3.3">
-<h3 data-number="4.3.3" class="anchored" data-anchor-id="calculo-del-tamaño-de-las-implicaciones-y-la-media-de-la-parte-y-derecha-de-dichas-implicaciones."><span class="header-section-number">4.3.3</span> Calculo del tamaño de las implicaciones y la media de la parte y derecha de dichas implicaciones.</h3>
-<p>Este calculo nos proporciona una medida cuantitativa de las relaciones entre atributos. El tamaño de una implicación se refiere al número de atributos en sus conjuntos de premisa A y su consecuente B. La media de estos tamaños se obtiene haciendo la media del número de atributos en las partes izquierda y derecha de todas las implicaciones, ofreciendo una visión general.</p>
+<section id="cálculo-de-la-media-de-la-parte-izquierda-y-derecha-de-las-implicaciones" class="level3" data-number="4.3.2">
+<h3 data-number="4.3.2" class="anchored" data-anchor-id="cálculo-de-la-media-de-la-parte-izquierda-y-derecha-de-las-implicaciones"><span class="header-section-number">4.3.2</span> Cálculo de la media de la parte izquierda y derecha de las implicaciones</h3>
+<p>Este cálculo nos proporciona una medida cuantitativa de las relaciones entre atributos. El tamaño de una implicación se refiere al número de atributos en sus conjuntos de premisa A y su consecuente B. La media de estos tamaños se obtiene haciendo la media del número de atributos en las partes izquierda y derecha de todas las implicaciones, ofreciendo una visión general.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colMeans</span>(fc_datos<span class="sc">$</span>implications<span class="sc">$</span><span class="fu">size</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colMeans</span>(fc_datos<span class="sc">$</span>implications<span class="sc">$</span><span class="fu">size</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     LHS      RHS 
 5.809974 4.205249 </code></pre>
@@ -527,18 +540,18 @@ Rule 6: {#follows is (10, 60], #follows is (200, Inf]} -&gt; {profile pic = Si,
 </div>
 <p>Con esto valores obtenemos, en la parte derecha de la regla suele haber una media de 5,8 elementos mientras que en la parte derecha una media de 4,2 elementos.</p>
 </section>
-<section id="lógica-de-simplificación." class="level3" data-number="4.3.4">
-<h3 data-number="4.3.4" class="anchored" data-anchor-id="lógica-de-simplificación."><span class="header-section-number">4.3.4</span> Lógica de simplificación.</h3>
+<section id="lógica-de-simplificación" class="level3" data-number="4.3.3">
+<h3 data-number="4.3.3" class="anchored" data-anchor-id="lógica-de-simplificación"><span class="header-section-number">4.3.3</span> Lógica de simplificación</h3>
 <p>Vamos a intentar de simplificar nuestras implicaciones para poder quedarnos con las mas importantes y significativas.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>fc_datos<span class="sc">$</span>implications<span class="sc">$</span><span class="fu">apply_rules</span>(<span class="at">rules =</span> <span class="fu">c</span>(<span class="st">"simplification"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>fc_datos<span class="sc">$</span>implications<span class="sc">$</span><span class="fu">apply_rules</span>(<span class="at">rules =</span> <span class="fu">c</span>(<span class="st">"simplification"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Processing batch</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>--&gt; Simplification: from 1905 to 1905.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(fc_datos<span class="sc">$</span>implications)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(fc_datos<span class="sc">$</span>implications)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Implication set with 6 implications.
 Rule 1: {fake = Si} -&gt; {external URL = No}
@@ -577,20 +590,21 @@ Rule 6: {#follows is (10, 60], #follows is (200, Inf]} -&gt; {profile pic = Si,
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>fc_datos<span class="sc">$</span>implications<span class="sc">$</span><span class="fu">cardinality</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>fc_datos<span class="sc">$</span>implications<span class="sc">$</span><span class="fu">cardinality</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1905</code></pre>
 </div>
 </div>
-<p>Vemos que el numero de implicaciones no se ha reducido, como podíamos haber pensado. Esto se debe a que al simplificar realmente no reduce la cantidad e implicaciones, sino los atributos de estas, eliminando verdades absolutas o otras parámetros redundantes.</p>
-<section id="eliminar-la-redundancia." class="level4" data-number="4.3.4.1">
-<h4 data-number="4.3.4.1" class="anchored" data-anchor-id="eliminar-la-redundancia."><span class="header-section-number">4.3.4.1</span> Eliminar la redundancia.</h4>
-<p>Vamos también a aplicar <code>composition, generalization, simplification y rsimplification</code> para eliminar la redundancia dentro de las implicaciones.</p>
+<p>Vemos que el número de implicaciones no se ha reducido como podríamos haber pensado. Esto se debe a que al simplificar, realmente no se reduce la cantidad de implicaciones, sino los atributos de estas, eliminando verdades absolutas u otros parámetros redundantes.</p>
+</section>
+<section id="eliminar-la-redundancia" class="level3" data-number="4.3.4">
+<h3 data-number="4.3.4" class="anchored" data-anchor-id="eliminar-la-redundancia"><span class="header-section-number">4.3.4</span> Eliminar la redundancia</h3>
+<p>También vamos a aplicar composition, generalization, simplification y rsimplification para eliminar la redundancia dentro de las implicaciones.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>fc_datos<span class="sc">$</span>implications<span class="sc">$</span><span class="fu">apply_rules</span>(<span class="at">rules =</span> <span class="fu">c</span>(<span class="st">"composition"</span>,</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>                                              <span class="st">"generalization"</span>,</span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>                                             <span class="st">"simplification"</span>,</span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>                                             <span class="st">"rsimplification"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>fc_datos<span class="sc">$</span>implications<span class="sc">$</span><span class="fu">apply_rules</span>(<span class="at">rules =</span> <span class="fu">c</span>(<span class="st">"composition"</span>,</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>                                              <span class="st">"generalization"</span>,</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>                                             <span class="st">"simplification"</span>,</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>                                             <span class="st">"rsimplification"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Processing batch</code></pre>
 </div>
@@ -606,7 +620,7 @@ Rule 6: {#follows is (10, 60], #follows is (200, Inf]} -&gt; {profile pic = Si,
 <div class="cell-output cell-output-stderr">
 <pre><code>--&gt; Right Simplification: from 1905 to 1905.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(fc_datos<span class="sc">$</span>implications)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(fc_datos<span class="sc">$</span>implications)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Implication set with 6 implications.
 Rule 1: {fake = Si} -&gt; {external URL = No}
@@ -619,27 +633,26 @@ Rule 6: {#follows is (10, 60], #follows is (200, Inf]} -&gt; {#follows is (0, 10
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>fc_datos<span class="sc">$</span>implications<span class="sc">$</span><span class="fu">cardinality</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>fc_datos<span class="sc">$</span>implications<span class="sc">$</span><span class="fu">cardinality</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1905</code></pre>
 </div>
 </div>
 <p>Al igual que antes, el numero de implicaciones no se ha reducido, como podíamos haber pensado. Esto se debe a que al simplificar realmente no reduce la cantidad e implicaciones, sino los atributos de estas, eliminando verdades absolutas o otras parámetros redundantes.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colMeans</span>(fc_datos<span class="sc">$</span>implications<span class="sc">$</span><span class="fu">size</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colMeans</span>(fc_datos<span class="sc">$</span>implications<span class="sc">$</span><span class="fu">size</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     LHS      RHS 
 3.317060 1.247769 </code></pre>
 </div>
 </div>
-<p>Ahora, despues de simplificar nuestras implicaciones, la media de atributos de cada parte de la regla ha bajado considerablemente.</p>
-</section>
+<p>Ahora, después de simplificar nuestras implicaciones, la media de atributos de cada parte de la regla ha bajado considerablemente.</p>
 </section>
 <section id="análisis-de-implicaciones-importantes" class="level3" data-number="4.3.5">
 <h3 data-number="4.3.5" class="anchored" data-anchor-id="análisis-de-implicaciones-importantes"><span class="header-section-number">4.3.5</span> Análisis de implicaciones importantes</h3>
 <p>Al igual que con las reglas, nos interesa las implicaciones que tengan en su parte derecha los atributos sobre si la cuenta es falsa o no, puesto que nuestro objetivo es detectar estas cuentas falsas.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(fc_datos<span class="sc">$</span>implications<span class="sc">$</span><span class="fu">filter</span>(<span class="at">rhs=</span><span class="st">"fake = Si"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(fc_datos<span class="sc">$</span>implications<span class="sc">$</span><span class="fu">filter</span>(<span class="at">rhs=</span><span class="st">"fake = Si"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Implication set with 6 implications.
 Rule 1: {#followers is (10, 60], #follows is (200, Inf]} -&gt; {fake = Si}
@@ -653,10 +666,11 @@ Rule 6: {description length is (25, 80], #posts is (1, 5], #follows is (10, 60]}
   -&gt; {fake = Si}</code></pre>
 </div>
 </div>
-<p>Obervando esta serie de reglas, podemos obtener gran cantidad de informacion para poder detectar y diferencia rlas cuentas fake de las reales. Por ejemplo, una que puede parcer muy obvia, que si sigue a mucha gente, pero le siguen poca gente, es falsa.</p>
-<p>Vamos a ver tambien las cuentas reales:</p>
+<p>Entendido, aquí está la corrección:</p>
+<p>Observando esta serie de reglas, podemos obtener gran cantidad de información para poder detectar y diferenciar las cuentas fake de las reales. Por ejemplo, una que puede parecer muy obvia es que si sigue a mucha gente pero le siguen poca gente, es falsa.</p>
+<p>Vamos a ver también las cuentas reales:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(fc_datos<span class="sc">$</span>implications<span class="sc">$</span><span class="fu">filter</span>(<span class="at">rhs=</span><span class="st">"fake = No"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(fc_datos<span class="sc">$</span>implications<span class="sc">$</span><span class="fu">filter</span>(<span class="at">rhs=</span><span class="st">"fake = No"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Implication set with 6 implications.
 Rule 1: {#followers is (200, Inf], #follows is (10, 60]} -&gt; {private = No, fake
@@ -671,20 +685,20 @@ Rule 5: {description length is (25, 80], #posts is (50, Inf]} -&gt; {profile pic
 Rule 6: {description length is (25, 80], #posts is (5, 10]} -&gt; {fake = No}</code></pre>
 </div>
 </div>
-<p>Al contrario que lo anterior, si sigue a poca gente y le sigue mucha gente, significa que la cuenta es real.</p>
-<p>Ambas suposiciones las podemos obtener gracias a que sabemos que para seguir a una persona, no es necesario que esa persona de su consentimiento, sino que puede ser algo automático. Sin embargo, obtener seguidores requiere a una segunda persona que desee seguir a esa cuenta, pudiendo verla previamente, lo que es mas difícil de conseguir para cuentas fake.</p>
+<p>Al contrario de lo anterior, si sigue a poca gente y mucha gente le sigue, significa que la cuenta es real.</p>
+<p>Ambas suposiciones las podemos obtener gracias a que sabemos que para seguir a una persona, no es necesario que esa persona dé su consentimiento, sino que puede ser algo automático. Sin embargo, obtener seguidores requiere a una segunda persona que desee seguir a esa cuenta, pudiendo verla previamente, lo que es más difícil de conseguir para cuentas falsas.</p>
 </section>
 </section>
 <section id="funciones-interesantes" class="level2" data-number="4.4">
 <h2 data-number="4.4" class="anchored" data-anchor-id="funciones-interesantes"><span class="header-section-number">4.4</span> Funciones interesantes</h2>
-<p>Dentro del paquete de fcaR hay funciones interesantes para bien exportar a Latex, a arules, …</p>
+<p>Dentro del paquete fcaR hay funciones interesantes para exportar a Latex, a arules, …</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>reglas <span class="ot">&lt;-</span> fc_datos<span class="sc">$</span>implications<span class="sc">$</span><span class="fu">to_arules</span>()</span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="co">#latex &lt;- fc_datos$implications$to_latex()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>reglas <span class="ot">&lt;-</span> fc_datos<span class="sc">$</span>implications<span class="sc">$</span><span class="fu">to_arules</span>()</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="co">#latex &lt;- fc_datos$implications$to_latex()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>También podemos hacer gráficos de nuestros conceptos:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co">#fc_datos$concepts$plot()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co">#fc_datos$concepts$plot()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
@@ -711,6 +725,150 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {

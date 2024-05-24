@@ -1,3 +1,33 @@
 # Series Temporales
 
-Series temporales son..
+Las series temporales y forecasting son dos herramientas fundamentales en el análisis de datos para identificar patrones y predecir valores futuros.
+
+Para trabajar con series temporales vamos a necesitar los paquetes de paquetes `forecast`, y `tseries`.
+
+```{r}
+library(tseries)
+library(forecast)
+```
+
+Vamos a cargar datos
+
+```{r}
+library(readr) 
+datos <- read_csv("Data/train.csv") 
+```
+
+Sin embargo, como su nombre indica, las series temporales necesitan un atributo que sea el tiempo, para poder ver la evolución de la variable y así analizar posibles patrones. El problema es que nuestro dataset no tiene esos tipos de datos, por lo que puede ser difícil aplicar series temporales.
+
+Vamos a intentar convertir alguna variable en un sustituto del tiempo para ver si podemos aplicar los conocimientos de series temporales.
+
+```{r}
+serieTemporal <- ts(datos$`description length`)
+time(serieTemporal)
+
+```
+
+```{r}
+autoplot(serieTemporal)
+```
+
+Vemos que ciertamente no podemos hacer un análisis temporal de nuestros datos ya que no tenemos ese componente del tiempo.

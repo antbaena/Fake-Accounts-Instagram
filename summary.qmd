@@ -1,7 +1,15 @@
-# Summary
+# Resultados
 
-In summary, this book has no content whatsoever.
+Se han realizado diversas actividades de análisis y modelado de datos para comprender y predecir la presencia de cuentas falsas en Instagram, obteniendo insights valiosos y construyendo modelos predictivos para este propósito.
 
-```{r}
-1 + 1
-```
+Resultados obtenidos :
+
+1.  Identificación de características clave para distinguir cuentas reales de falsas, como número de seguidores y seguidos, presencia de foto de perfil y caracteres numéricos en el nombre de usuario.
+
+2.  Descubrimiento de reglas de asociación e implicaciones que proporcionan insights para detectar cuentas falsas.
+
+3.  Mejora de los modelos de regresión mediante la eliminación de variables no significativas y la inclusión de términos de interacción.
+
+4.  Evaluación de modelos no lineales como Random Forest como alternativa al modelo lineal tradicional.
+
+Hemos obtenido resultados que nos permiten diferenciar entre cuentas falsas y reales de forma sencilla, lo cual era nuestro objetivo principal, por lo que nuestro trabajo ha sido c

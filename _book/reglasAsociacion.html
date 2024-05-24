@@ -71,10 +71,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -131,6 +133,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Fake Accounts Instagram</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -179,19 +184,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./seriesTemporales.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">seriesTemporales.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Series Temporales</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./otrasTecnicas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Otras técnicas</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./demo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Aplicación y demo</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Resultados</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
+ <span class="menu-text">Referencias</span></a>
   </div>
 </li>
     </ul>
@@ -204,13 +221,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#características-importantes" id="toc-características-importantes" class="nav-link active" data-scroll-target="#características-importantes"><span class="header-section-number">3.1</span> Características importantes</a>
+  <li><a href="#características-importantes" id="toc-características-importantes" class="nav-link active" data-scroll-target="#características-importantes"><span class="header-section-number">3.1</span> Características importantes:</a>
   <ul class="collapse">
-  <li><a href="#medidas-relevantes" id="toc-medidas-relevantes" class="nav-link" data-scroll-target="#medidas-relevantes"><span class="header-section-number">3.1.1</span> Medidas relevantes</a></li>
-  <li><a href="#algoritmo-apriori" id="toc-algoritmo-apriori" class="nav-link" data-scroll-target="#algoritmo-apriori"><span class="header-section-number">3.1.2</span> Algoritmo Apriori</a></li>
-  <li><a href="#reglas" id="toc-reglas" class="nav-link" data-scroll-target="#reglas"><span class="header-section-number">3.1.3</span> Reglas</a></li>
+  <li><a href="#medidas-relevantes" id="toc-medidas-relevantes" class="nav-link" data-scroll-target="#medidas-relevantes"><span class="header-section-number">3.1.1</span> <strong>Medidas relevantes</strong></a></li>
+  <li><a href="#algoritmo-apriori" id="toc-algoritmo-apriori" class="nav-link" data-scroll-target="#algoritmo-apriori"><span class="header-section-number">3.1.2</span> <strong>Algoritmo Apriori</strong></a></li>
+  <li><a href="#reglas" id="toc-reglas" class="nav-link" data-scroll-target="#reglas"><span class="header-section-number">3.1.3</span> <strong>Reglas</strong></a></li>
   </ul></li>
-  <li><a href="#cargar-datos" id="toc-cargar-datos" class="nav-link" data-scroll-target="#cargar-datos"><span class="header-section-number">3.2</span> Cargar datos</a></li>
+  <li><a href="#carga-de-datos" id="toc-carga-de-datos" class="nav-link" data-scroll-target="#carga-de-datos"><span class="header-section-number">3.2</span> <strong>Carga de datos:</strong></a></li>
   <li><a href="#discretizar-datos" id="toc-discretizar-datos" class="nav-link" data-scroll-target="#discretizar-datos"><span class="header-section-number">3.3</span> Discretizar datos</a>
   <ul class="collapse">
   <li><a href="#discretizedf" id="toc-discretizedf" class="nav-link" data-scroll-target="#discretizedf"><span class="header-section-number">3.3.1</span> discretizeDF</a></li>
@@ -224,12 +241,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#análisis-de-reglas-obtenidas" id="toc-análisis-de-reglas-obtenidas" class="nav-link" data-scroll-target="#análisis-de-reglas-obtenidas"><span class="header-section-number">3.7</span> Análisis de reglas obtenidas</a>
   <ul class="collapse">
-  <li><a href="#support" id="toc-support" class="nav-link" data-scroll-target="#support"><span class="header-section-number">3.7.1</span> Support:</a></li>
-  <li><a href="#confianza" id="toc-confianza" class="nav-link" data-scroll-target="#confianza"><span class="header-section-number">3.7.2</span> Confianza:</a></li>
-  <li><a href="#lift" id="toc-lift" class="nav-link" data-scroll-target="#lift"><span class="header-section-number">3.7.3</span> Lift:</a></li>
+  <li><a href="#soporte" id="toc-soporte" class="nav-link" data-scroll-target="#soporte"><span class="header-section-number">3.7.1</span> Soporte</a></li>
+  <li><a href="#confianza" id="toc-confianza" class="nav-link" data-scroll-target="#confianza"><span class="header-section-number">3.7.2</span> Confianza</a></li>
+  <li><a href="#lift" id="toc-lift" class="nav-link" data-scroll-target="#lift"><span class="header-section-number">3.7.3</span> Lift</a></li>
   </ul></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><span class="header-section-number">3.8</span> </a></li>
-  <li><a href="#visualizacion-de-reglas" id="toc-visualizacion-de-reglas" class="nav-link" data-scroll-target="#visualizacion-de-reglas"><span class="header-section-number">3.9</span> Visualizacion de reglas</a></li>
+  <li><a href="#visualización-de-reglas" id="toc-visualización-de-reglas" class="nav-link" data-scroll-target="#visualización-de-reglas"><span class="header-section-number">3.8</span> Visualización de reglas</a></li>
   </ul>
 </nav>
     </div>
@@ -255,43 +271,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Vamos a utilizar reglas de asociación para detectar cuentas falsas en Instagram. Las reglas de asociación son técnicas de minería de datos que permiten descubrir relaciones interesantes y útiles entre diferentes características o comportamientos observados en el dataSet.</p>
-<p>Para realizar estas operaciones vamos a utilizar el paquete <code>arules.</code></p>
+<p>Vamos a utilizar reglas de asociación para detectar cuentas falsas en Instagram. Este método nos permitirá descubrir relaciones interesantes entre diferentes características observadas en el dataset. Utilizaremos el paquete arules para llevar a cabo estas operaciones.</p>
 <section id="características-importantes" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="características-importantes"><span class="header-section-number">3.1</span> Características importantes</h2>
+<h2 data-number="3.1" class="anchored" data-anchor-id="características-importantes"><span class="header-section-number">3.1</span> Características importantes:</h2>
 <section id="medidas-relevantes" class="level3" data-number="3.1.1">
-<h3 data-number="3.1.1" class="anchored" data-anchor-id="medidas-relevantes"><span class="header-section-number">3.1.1</span> Medidas relevantes</h3>
-<p>Para evaluar la calidad y relevancia de las reglas de asociación, vamos a utilizar las medidas de:</p>
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="medidas-relevantes"><span class="header-section-number">3.1.1</span> <strong>Medidas relevantes</strong></h3>
+<p>Para evaluar la calidad y relevancia de las reglas de asociación, utilizaremos las siguientes medidas:</p>
 <ol type="1">
-<li><p><strong>Soporte (Support)</strong>:</p>
-<ul>
-<li><p>El soporte de una regla mide la proporción de cuentas en el dataset que contienen ambos conjuntos de características A y B.</p></li>
-<li><p>Un soporte alto indica que la regla se aplica a una gran proporción del dataset, lo que sugiere que la combinación de características es común y relevante.</p></li>
-</ul></li>
-<li><p><strong>Confianza (Confidence)</strong>:</p>
-<ul>
-<li><p>La confianza de una regla mide cuán frecuentemente las características en B aparecen en las cuentas que contienen A.</p></li>
-<li><p>A mayor confianza, mayor es la fiabilidad de que la presencia de las características en el antecedente de la regla (A) implicará la presencia de las características en el consecuente de la regla (B).</p></li>
-</ul></li>
-<li><p><strong>Elevación (Lift)</strong>:</p>
-<ul>
-<li><p>La elevación mide la relación entre la aparición conjunta de A y B y la aparición esperada de A y B si fueran independientes.</p></li>
-<li><p>Una elevación alta (mayor que 1) indica que la presencia de A incrementa significativamente la probabilidad de que B ocurra, lo que sugiere una fuerte asociación entre las características.</p></li>
-</ul></li>
+<li><p>Soporte (Support): Mide la proporción de cuentas en el dataset que contienen ambos conjuntos de características A y B. Un alto soporte indica que la regla se aplica a una gran proporción del dataset, lo que sugiere que la combinación de características es común y relevante.</p></li>
+<li><p>Confianza (Confidence): Mide cuán frecuentemente las características en B aparecen en las cuentas que contienen A. Una mayor confianza indica una mayor fiabilidad de que la presencia de las características en A implicará la presencia de las características en B.</p></li>
+<li><p>Elevación (Lift): Mide la relación entre la aparición conjunta de A y B y la aparición esperada de A y B si fueran independientes. Una elevación alta (mayor que 1) indica que la presencia de A incrementa significativamente la probabilidad de que B ocurra, lo que sugiere una fuerte asociación entre las características.</p></li>
 </ol>
 </section>
 <section id="algoritmo-apriori" class="level3" data-number="3.1.2">
-<h3 data-number="3.1.2" class="anchored" data-anchor-id="algoritmo-apriori"><span class="header-section-number">3.1.2</span> Algoritmo Apriori</h3>
-<p>Vamos a utilizar el algoritmo Apriori como nuestra forma de obtener reglas a partir de nuestros datos. Este es uno de los algoritmos más conocidos y se basa en la propiedad de que cualquier subconjunto de un conjunto frecuente también debe ser frecuente. El algoritmo itera a través de los conjuntos de características, incrementando su tamaño en cada iteración y manteniendo solo los conjuntos que cumplen con un umbral mínimo de soporte.</p>
+<h3 data-number="3.1.2" class="anchored" data-anchor-id="algoritmo-apriori"><span class="header-section-number">3.1.2</span> <strong>Algoritmo Apriori</strong></h3>
+<p>Utilizaremos el algoritmo Apriori para obtener reglas a partir de nuestros datos. Este algoritmo se basa en la propiedad de que cualquier subconjunto de un conjunto frecuente también debe ser frecuente. Itera a través de los conjuntos de características, incrementando su tamaño en cada iteración y manteniendo solo los conjuntos que cumplen con un umbral mínimo de soporte.</p>
 </section>
 <section id="reglas" class="level3" data-number="3.1.3">
-<h3 data-number="3.1.3" class="anchored" data-anchor-id="reglas"><span class="header-section-number">3.1.3</span> Reglas</h3>
-<p>Las reglas de asociación consisten en implicaciones del tipo “Si A entonces B”, donde A y B son conjuntos de características o comportamientos de las cuentas. Por ejemplo, una regla podría ser “Si una cuenta tiene un número alto de cuentas seguidos y no tiene foto de perfil, entonces es probable que sea una cuenta falsa”.</p>
+<h3 data-number="3.1.3" class="anchored" data-anchor-id="reglas"><span class="header-section-number">3.1.3</span> <strong>Reglas</strong></h3>
+<p>Las reglas de asociación consisten en implicaciones del tipo “Si A entonces B”, donde A y B son conjuntos de características o comportamientos de las cuentas. Por ejemplo, una regla podría ser “Si una cuenta tiene un número alto de cuentas seguidas y no tiene foto de perfil, entonces es probable que sea una cuenta falsa”.</p>
 </section>
 </section>
-<section id="cargar-datos" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="cargar-datos"><span class="header-section-number">3.2</span> Cargar datos</h2>
-<p>Vamos a cargar las librería necesarias y nuestro dataSet:</p>
+<section id="carga-de-datos" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="carga-de-datos"><span class="header-section-number">3.2</span> <strong>Carga de datos:</strong></h2>
+<p>Vamos a cargar las librerías necesarias y nuestro dataset.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(arules)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -329,7 +332,7 @@ dbl (12): profile pic, nums/length username, fullname words, nums/length ful...
 <h2 data-number="3.3" class="anchored" data-anchor-id="discretizar-datos"><span class="header-section-number">3.3</span> Discretizar datos</h2>
 <p>Puesto que el algoritmo de apriori necesita que el conjunto de datos sea binario o discreto.</p>
 <p>Existen varias formas de discretizar datos, pero el objetivo principal es convertir las características continuas en valores discretos que representen de manera efectiva la información subyacente. Algunas técnicas comunes de discretización incluyen la binarización, la división en intervalos fijos o basados en cuantiles.</p>
-<p>Tras haber realizado el previo análisis exploratorio podemos definir intervalos personalizados para las cada variable, para ello usaremos las funciones ordered y cut. Ademas las variables que son binarias como fake, vamos a ponerle “Si” o “No” para poder comprenderlo mejor.</p>
+<p>Tras haber realizado el previo análisis exploratorio podemos definir intervalos personalizados para cada variable, para ello usaremos las funciones <code>ordered</code> y <code>cut</code>. Además, las variables que son binarias como “fake”, vamos a ponerles “Si” o “No” para poder comprenderlas mejor.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>datos_refinados <span class="ot">&lt;-</span> datos</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -379,7 +382,7 @@ dbl (12): profile pic, nums/length username, fullname words, nums/length ful...
 <section id="discretizedf" class="level3" data-number="3.3.1">
 <h3 data-number="3.3.1" class="anchored" data-anchor-id="discretizedf"><span class="header-section-number">3.3.1</span> discretizeDF</h3>
 <p>Esta función del paquete de arules implementa varios métodos básicos no supervisados para convertir una variable continua en una variable categórica (factor) usando diferentes estrategias de agrupamiento.</p>
-<p>Vamos a quitar primero las columnas binarias que le queremos poner un valor custom.</p>
+<p>Vamos a quitar primero las columnas binarias a las que queremos asignar un valor personalizado.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>datos_refinados_clone <span class="ot">&lt;-</span> datos</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -401,11 +404,11 @@ dbl (12): profile pic, nums/length username, fullname words, nums/length ful...
   `profile pic` `nums/length username` `fullname words` `nums/length fullname`
   &lt;fct&gt;         &lt;fct&gt;                  &lt;fct&gt;            &lt;fct&gt;                 
 1 Si            medio                  muy bajo         muy bajo              
-2 Si            muy bajo               muy bajo         muy bajo              
-3 Si            bajo                   muy bajo         muy bajo              
-4 Si            muy bajo               muy bajo         muy bajo              
-5 Si            muy bajo               muy bajo         muy bajo              
-6 Si            muy bajo               bajo             muy bajo              
+2 Si            muy bajo               medio            muy bajo              
+3 Si            bajo                   medio            muy bajo              
+4 Si            muy bajo               bajo             muy bajo              
+5 Si            muy bajo               medio            muy bajo              
+6 Si            muy bajo               alto             muy bajo              
 # ℹ 8 more variables: `name==username` &lt;fct&gt;, `description length` &lt;fct&gt;,
 #   `external URL` &lt;fct&gt;, private &lt;fct&gt;, `#posts` &lt;fct&gt;, `#followers` &lt;fct&gt;,
 #   `#follows` &lt;fct&gt;, fake &lt;fct&gt;</code></pre>
@@ -438,7 +441,7 @@ dbl (12): profile pic, nums/length username, fullname words, nums/length ful...
 </section>
 <section id="generar-dataset-de-transacciones" class="level2" data-number="3.4">
 <h2 data-number="3.4" class="anchored" data-anchor-id="generar-dataset-de-transacciones"><span class="header-section-number">3.4</span> Generar dataset de transacciones</h2>
-<p>Ahora una vez discretizado el dataframe, el siguiente paso es generar un dataset de transacciones. Este tipo de dataset es esencial para aplicar algoritmos de reglas de asociación como Apriori.</p>
+<p>Ahora, una vez discretizado el dataframe, el siguiente paso es generar un dataset de transacciones. Este tipo de dataset es esencial para aplicar algoritmos de reglas de asociación como Apriori.</p>
 <p>En un dataset de transacciones, cada fila representa una transacción, que es una colección de elementos o ítems.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>datos_refinadosT <span class="ot">&lt;-</span> <span class="fu">as</span>(datos_refinados, <span class="st">"transactions"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -446,7 +449,7 @@ dbl (12): profile pic, nums/length username, fullname words, nums/length ful...
 </section>
 <section id="generar-reglas" class="level2" data-number="3.5">
 <h2 data-number="3.5" class="anchored" data-anchor-id="generar-reglas"><span class="header-section-number">3.5</span> Generar reglas</h2>
-<p>Ahora que ya tenemos todo listo, podemos utilizar los algoritmos de generacion de reglas. En nuestro caso, vamos a utilizar apriori. Para generar reglas primero necesitamos establecer un valor para el suport y confianza minima, estos valores nos permitirán controlar la cantidad y calidad de las reglas que se generarán.</p>
+<p>Ahora que ya tenemos todo listo, podemos utilizar los algoritmos de generación de reglas. En nuestro caso, vamos a utilizar Apriori. Para generar reglas primero necesitamos establecer un valor para el soporte y confianza mínima, estos valores nos permitirán controlar la cantidad y calidad de las reglas que se generarán.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a> rules <span class="ot">&lt;-</span> <span class="fu">apriori</span>(datos_refinadosT,  <span class="at">parameter =</span> <span class="fu">list</span>(<span class="at">supp =</span> <span class="fl">0.3</span>, <span class="at">conf =</span> <span class="fl">0.01</span>, <span class="at">target =</span> <span class="st">"rules"</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -481,7 +484,7 @@ creating S4 object  ... done [0.00s].</code></pre>
 </section>
 <section id="refinar-reglas" class="level2" data-number="3.6">
 <h2 data-number="3.6" class="anchored" data-anchor-id="refinar-reglas"><span class="header-section-number">3.6</span> Refinar reglas</h2>
-<p>Ahora que hemos obtenido las reglas necesitamos cribarlarlas y eliminar todas aquellas que no nos interesan, que sean redundantes o no significativas.</p>
+<p>Ahora que hemos obtenido las reglas, necesitamos cribarlas y eliminar todas aquellas que no nos interesan, que sean redundantes o no significativas.</p>
 <section id="eliminar-reglas-redundantes" class="level3" data-number="3.6.1">
 <h3 data-number="3.6.1" class="anchored" data-anchor-id="eliminar-reglas-redundantes"><span class="header-section-number">3.6.1</span> Eliminar reglas redundantes</h3>
 <div class="cell">
@@ -504,10 +507,10 @@ creating S4 object  ... done [0.00s].</code></pre>
 </section>
 <section id="análisis-de-reglas-obtenidas" class="level2" data-number="3.7">
 <h2 data-number="3.7" class="anchored" data-anchor-id="análisis-de-reglas-obtenidas"><span class="header-section-number">3.7</span> Análisis de reglas obtenidas</h2>
-<p>Nuestro objetivo es detectar y diferenciar cuentas falses de las verdaderas, por lo tanto, vamos a centrar nuestro analisis en eso dos atributos “fake=Si” y “fake=No”. Como tenemos diferentes metricas, vamos a analizarlas por separado:</p>
-<section id="support" class="level3" data-number="3.7.1">
-<h3 data-number="3.7.1" class="anchored" data-anchor-id="support"><span class="header-section-number">3.7.1</span> Support:</h3>
-<p>Vamos priemro a analizar las reglas ordenando primero por el soporte de la reglas. Recordamos que el soporte alto indica que la regla se aplica a una gran proporción del dataset, lo que sugiere que la combinación de características es común y relevante.</p>
+<p>Nuestro objetivo es detectar y diferenciar cuentas falsas de las verdaderas, por lo tanto, vamos a centrar nuestro análisis en esos dos atributos: “fake=Si” y “fake=No”. Como tenemos diferentes métricas, vamos a analizarlas por separado:</p>
+<section id="soporte" class="level3" data-number="3.7.1">
+<h3 data-number="3.7.1" class="anchored" data-anchor-id="soporte"><span class="header-section-number">3.7.1</span> Soporte</h3>
+<p>Vamos primero a analizar las reglas ordenándolas por el soporte. Recordamos que un soporte alto indica que la regla se aplica a una gran proporción del dataset, lo que sugiere que la combinación de características es común y relevante.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>rules <span class="ot">&lt;-</span> <span class="fu">sort</span>(rules,<span class="at">by=</span><span class="st">"support"</span>)</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">inspect</span>(<span class="fu">head</span>(rules))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -551,8 +554,8 @@ creating S4 object  ... done [0.00s].</code></pre>
 </div>
 </section>
 <section id="confianza" class="level3" data-number="3.7.2">
-<h3 data-number="3.7.2" class="anchored" data-anchor-id="confianza"><span class="header-section-number">3.7.2</span> Confianza:</h3>
-<p>Ahora va a analizar las reglas ordenando por la confianza en la reglas. Recordamos que a mayor confianza, mayor es la fiabilidad de que la presencia de las características en el antecedente de la regla A implicará la presencia de las características en el consecuente de la regla B.</p>
+<h3 data-number="3.7.2" class="anchored" data-anchor-id="confianza"><span class="header-section-number">3.7.2</span> Confianza</h3>
+<p>Ahora vamos a analizar las reglas ordenándolas por la confianza. Recordamos que a mayor confianza, mayor es la fiabilidad de que la presencia de las características en el antecedente de la regla A implicará la presencia de las características en el consecuente de la regla B.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>rules <span class="ot">&lt;-</span> <span class="fu">sort</span>(rules,<span class="at">by=</span><span class="st">"confidence"</span>)</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">inspect</span>(<span class="fu">head</span>(rules)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -604,8 +607,8 @@ creating S4 object  ... done [0.00s].</code></pre>
 </div>
 </section>
 <section id="lift" class="level3" data-number="3.7.3">
-<h3 data-number="3.7.3" class="anchored" data-anchor-id="lift"><span class="header-section-number">3.7.3</span> Lift:</h3>
-<p>Por ultimo, vamos a analizar las reglas ordenando primero por el lift de la reglas. Recordamos que un lift alto indica que la presencia de A incrementa significativamente la probabilidad de que B ocurra, lo que sugiere una fuerte asociación entre las características.</p>
+<h3 data-number="3.7.3" class="anchored" data-anchor-id="lift"><span class="header-section-number">3.7.3</span> Lift</h3>
+<p>Por último, vamos a analizar las reglas ordenándolas primero por el lift de las reglas. Recordamos que un lift alto indica que la presencia de A incrementa significativamente la probabilidad de que B ocurra, lo que sugiere una fuerte asociación entre las características.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>rules <span class="ot">&lt;-</span> <span class="fu">sort</span>(rules,<span class="at">by=</span><span class="st">"lift"</span>)</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">inspect</span>(<span class="fu">head</span>(rules)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -633,7 +636,7 @@ creating S4 object  ... done [0.00s].</code></pre>
      fake=No}                        =&gt; {#followers=muy alto} 0.3229167  0.9207921 0.3506944 2.055722   186</code></pre>
 </div>
 </div>
-<p>En este caso, el lift es 5.731343, lo que sugiere que la aparicion de “external URL=Si” es aproximadamente 5.73 veces más probable cuando se dan las condiciones en el antecedente.</p>
+<p>En este caso, el lift es 2.059, lo que sugiere que la aparición de “external URL=Si” es aproximadamente 2 veces más probable cuando se dan las condiciones en el antecedente.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>r2 <span class="ot">&lt;-</span> <span class="fu">subset</span>(rules, <span class="at">subset =</span> rhs <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"fake=Si"</span>)) </span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">inspect</span>(<span class="fu">head</span>(r2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -662,11 +665,8 @@ creating S4 object  ... done [0.00s].</code></pre>
 </div>
 </section>
 </section>
-<section id="section" class="level2" data-number="3.8">
-<h2 data-number="3.8" class="anchored" data-anchor-id="section"><span class="header-section-number">3.8</span> </h2>
-</section>
-<section id="visualizacion-de-reglas" class="level2" data-number="3.9">
-<h2 data-number="3.9" class="anchored" data-anchor-id="visualizacion-de-reglas"><span class="header-section-number">3.9</span> Visualizacion de reglas</h2>
+<section id="visualización-de-reglas" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="visualización-de-reglas"><span class="header-section-number">3.8</span> Visualización de reglas</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(rules)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -705,6 +705,150 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
